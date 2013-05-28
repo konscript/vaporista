@@ -5570,22 +5570,22 @@ table tfoot tr td {
   margin-right: auto;
 }
 
-/* line 52, ../sass/app.scss */
+/* line 53, ../sass/app.scss */
 html, body, * {
   line-height: 1.5em;
 }
 
-/* line 56, ../sass/app.scss */
+/* line 57, ../sass/app.scss */
 .wrapper {
   padding: 3em 0;
 }
 
-/* line 61, ../sass/app.scss */
+/* line 62, ../sass/app.scss */
 .striped {
   background-color: #f0f0f0;
 }
 
-/* line 67, ../sass/app.scss */
+/* line 68, ../sass/app.scss */
 .choose {
   text-transform: uppercase;
   text-align: center;
@@ -5595,24 +5595,24 @@ html, body, * {
   color: #3fb18c;
 }
 
-/* line 76, ../sass/app.scss */
+/* line 77, ../sass/app.scss */
 h2 {
   margin-top: 0;
   color: #3fb18c;
   text-transform: uppercase;
 }
 
-/* line 82, ../sass/app.scss */
+/* line 83, ../sass/app.scss */
 .button {
   box-shadow: none;
 }
 
-/* line 86, ../sass/app.scss */
+/* line 87, ../sass/app.scss */
 .header-wrapper {
   background-color: #70ccae;
 }
 
-/* line 90, ../sass/app.scss */
+/* line 91, ../sass/app.scss */
 h1 {
   color: white;
   margin-top: 0.2em;
@@ -5620,12 +5620,12 @@ h1 {
   line-height: 1;
 }
 
-/* line 97, ../sass/app.scss */
+/* line 98, ../sass/app.scss */
 .row h1.columns {
   padding: 0;
 }
 
-/* line 101, ../sass/app.scss */
+/* line 102, ../sass/app.scss */
 .logo {
   -webkit-border-radius: 0.8em 0 0.8em 0.8em;
   -moz-border-radius: 0.8em 0 0.8em 0.8em;
@@ -5641,51 +5641,51 @@ h1 {
   margin-right: 0.5em;
 }
 
-/* line 113, ../sass/app.scss */
+/* line 114, ../sass/app.scss */
 .about-wrapper h2 {
   color: #34495e;
 }
 
-/* line 118, ../sass/app.scss */
+/* line 119, ../sass/app.scss */
 .controls-wrapper {
   margin-bottom: 1em;
 }
-/* line 121, ../sass/app.scss */
+/* line 122, ../sass/app.scss */
 .controls-wrapper .flavors-list {
   margin-bottom: 2em;
 }
-/* line 124, ../sass/app.scss */
+/* line 125, ../sass/app.scss */
 .controls-wrapper .flavors-list span {
   display: block;
   text-align: center;
 }
-/* line 130, ../sass/app.scss */
+/* line 131, ../sass/app.scss */
 .controls-wrapper .control-wrapper {
   margin-bottom: 2em;
 }
-/* line 136, ../sass/app.scss */
+/* line 137, ../sass/app.scss */
 .controls-wrapper .descriptions div {
   color: #bdbdbd;
 }
-/* line 140, ../sass/app.scss */
+/* line 141, ../sass/app.scss */
 .controls-wrapper .descriptions .left {
   text-align: left;
 }
-/* line 143, ../sass/app.scss */
+/* line 144, ../sass/app.scss */
 .controls-wrapper .descriptions .middle {
   text-align: center;
 }
-/* line 146, ../sass/app.scss */
+/* line 147, ../sass/app.scss */
 .controls-wrapper .descriptions .right {
   text-align: right;
 }
-/* line 151, ../sass/app.scss */
+/* line 152, ../sass/app.scss */
 .controls-wrapper .button {
   margin-top: 1em;
   width: 100%;
 }
 
-/* line 158, ../sass/app.scss */
+/* line 159, ../sass/app.scss */
 .checkout-wrapper .button {
   background-color: #34495e;
   border-color: #222f3d;
@@ -5701,7 +5701,7 @@ h1 {
   color: white;
 }
 
-/* line 165, ../sass/app.scss */
+/* line 166, ../sass/app.scss */
 .dragdealer {
   position: relative;
   height: 10px;
@@ -5711,13 +5711,13 @@ h1 {
   border-bottom: 1px solid #d6d6d6;
 }
 
-/* line 173, ../sass/app.scss */
+/* line 174, ../sass/app.scss */
 .dragdealer .handle {
   position: absolute;
   cursor: pointer;
 }
 
-/* line 177, ../sass/app.scss */
+/* line 178, ../sass/app.scss */
 .dragdealer .red-bar {
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
@@ -5731,9 +5731,13 @@ h1 {
   color: white;
   line-height: 20px;
   text-align: center;
+  -webkit-transition: left 300ms;
+  -moz-transition: left 300ms;
+  -o-transition: left 300ms;
+  transition: left 300ms;
 }
 
-/* line 187, ../sass/app.scss */
+/* line 189, ../sass/app.scss */
 .dragdealer .disabled {
   background: #898989;
 }
