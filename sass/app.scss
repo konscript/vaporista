@@ -1,3 +1,6 @@
+// Custom fonts
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web|Raleway);
+
 // Global Foundation Settings
 @import "settings";
 
@@ -76,6 +79,7 @@ html, body, * {
 
 h2 {
     margin-top: 0;
+    margin-bottom: 1.3em;
     color: $primary-alt-color;
     text-transform: uppercase;
 }
