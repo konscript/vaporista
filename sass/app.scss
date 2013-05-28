@@ -6,6 +6,7 @@
 @import "mixins";
 
 @import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
 
 // Import specific parts of Foundation by commenting the import "foundation"
 // and uncommenting what you want below. You must uncomment the following if customizing
@@ -47,7 +48,6 @@
 // @import "foundation/components/tooltips";
 // @import "foundation/components/dropdown";
 
-
 // Structure and layout
 html, body, * {
     line-height: 1.5em;
@@ -55,7 +55,7 @@ html, body, * {
 
 .wrapper {
     //margin: 30px 0;
-    padding: 30px 0;
+    padding: 3em 0;
 }
 
 .striped {
@@ -64,22 +64,99 @@ html, body, * {
 
 // Specific elements
 
-h1 {
-    color: #70CCAE;
+.choose {
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    line-height: 1;
+    font-size: 0.8em;
+    color: $primary-alt-color;
 }
 
 h2 {
-    color: #0F5366;
+    margin-top: 0;
+    color: $primary-alt-color;
+    text-transform: uppercase;
 }
 
-.flavours-wrapper ul {
-    margin: 0;
+.button {
+    box-shadow: none;
+}
+
+.header-wrapper {
+    background-color: $primary-color;
+}
+
+    h1 {
+        color: white;
+        margin-top: 0.2em;
+        margin-bottom: 0.2em;
+        line-height: 1;
+    }
+
+    .row h1.columns {
+        padding: 0;
+    }
+
+        .logo {
+            @include border-radius(0.8em 0 0.8em 0.8em);
+            box-shadow: 0 0 0 0.1em $primary-color inset;
+            display: inline-block;
+            background-color: white;
+            width: 0.75em;
+            height: 0.75em;
+            border: 0.1em solid white;
+            margin-right: 0.5em;
+        }
+
+.about-wrapper {
+    h2 {
+        color: $complementary-color;
+    }
+}
+
+.controls-wrapper {
+    margin-bottom: 1em;
+
+    .flavors-list {
+        margin-bottom: 2em;
+
+        span {
+            display: block;
+            text-align: center;
+        }
+    }
+
+    .control-wrapper {
+        margin-bottom: 2em;
+    }
+
+        .descriptions {
+
+            div {
+                color: darken($secondary-alt-color, 10%);
+            }
+
+            .left {
+                text-align: left;
+            }
+            .middle {
+                text-align: center;
+            }
+            .right {
+                text-align: right;
+            }
+        }
+
+    .button {
+        margin-top: 1em;
+        width: 100%;
+    }
 }
 
 .checkout-wrapper {
-    margin-top: 30px;
-
     .button {
+        @include button-style($complementary-color);
         width: 100%;
     }
 }
@@ -91,6 +168,7 @@ h2 {
     background: white;
     padding: 0 10px;
     margin-bottom: 10px;
+    border-bottom: 1px solid darken($secondary-color, 10%);
 }
 .dragdealer .handle {
     position: absolute;

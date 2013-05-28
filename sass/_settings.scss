@@ -12,11 +12,11 @@
 //
 
 // This is the default html and body font-size for the base em value.
-$em-base: 12px;
+$em-base: 14px;
 
 // We use these to control various global styles
 // $body-bg: #fff;
-$body-font-color: #0F5366;
+$body-font-color: #666666;
 $body-font-family: "TitilliumText25L", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
@@ -29,7 +29,11 @@ $body-font-family: "TitilliumText25L", "Helvetica", Helvetica, Arial, sans-serif
 
 // We use these as default colors throughout
 $primary-color: #70CCAE;
+$primary-alt-color: darken($primary-color, 15%);
 $secondary-color: #f0f0f0;
+$secondary-alt-color: darken($secondary-color, 10%);
+$complementary-color: #34495e;
+$complementary-alt-color: darken($complementary-color, 10%);
 // $alert-color: #c60f13;
 // $success-color: #5da423;
 
@@ -66,7 +70,7 @@ $secondary-color: #f0f0f0;
 //
 
 // $row-width: 62.5em;
-// $column-gutter: 1.875em;
+ $column-gutter: 3em;
 // $total-columns: 12;
 
 //
@@ -96,7 +100,7 @@ $header-bottom-margin: .5em;
 
 // We use these to control header font sizes
 // $h1-font-size: emCalc(44px);
-$h2-font-size: emCalc(25px);
+$h2-font-size: emCalc(27px);
 // $h3-font-size: emCalc(27px);
 // $h4-font-size: emCalc(23px);
 // $h5-font-size: emCalc(18px);
@@ -259,7 +263,7 @@ $h2-font-size: emCalc(25px);
 // $button-function-factor: 10%;
 
 // We use these to control button border styles.
-// $button-border-width: 1px;
+$button-border-width: 0px;
 // $button-border-style: solid;
 // $button-border-color: darken($primary-color, $button-function-factor);
 
