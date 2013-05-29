@@ -10,7 +10,7 @@ angular.module('myApp.directives', []).
             var steps = scope.productValues[type].length;
             var values = $.map(scope.productValues[type],function(val,index){return index;});
             var labels = scope.productValues[type];
-            var labelContainer = $("<ul class='small-block-grid-" + steps + " large-block-grid-" + steps + "'></ul>");
+            var labelContainer = $("<ul class='slider-labels small-block-grid-" + steps + " large-block-grid-" + steps + "'></ul>");
 
             $.each(labels, function(index, label){
                 var ratio = index/(steps-1)*100;
@@ -27,7 +27,7 @@ angular.module('myApp.directives', []).
                     ratio = ratio + 2;
                 }
 
-                labelContainer.append("<li style='text-align:center'>" + label.name + "</li>");
+                labelContainer.append("<li>" + label.name + "</li>");
             });
 
             $(elm[0]).simpleSlider({

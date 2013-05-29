@@ -6157,23 +6157,19 @@ a.th {
 .controls-wrapper .control-wrapper {
   margin-bottom: 2em;
 }
-/* line 39, ../sass/_home.scss */
-.controls-wrapper .descriptions div {
-  color: #bdbdbd;
-}
-/* line 43, ../sass/_home.scss */
-.controls-wrapper .descriptions .left {
-  text-align: left;
-}
-/* line 46, ../sass/_home.scss */
-.controls-wrapper .descriptions .middle {
+/* line 38, ../sass/_home.scss */
+.controls-wrapper .slider-labels li {
   text-align: center;
 }
-/* line 49, ../sass/_home.scss */
-.controls-wrapper .descriptions .right {
+/* line 41, ../sass/_home.scss */
+.controls-wrapper .slider-labels li:first-child {
+  text-align: left;
+}
+/* line 44, ../sass/_home.scss */
+.controls-wrapper .slider-labels li:last-child {
   text-align: right;
 }
-/* line 55, ../sass/_home.scss */
+/* line 50, ../sass/_home.scss */
 .controls-wrapper .slider .track {
   position: relative;
   height: 10px;
@@ -6182,7 +6178,7 @@ a.th {
   margin-top: 10px;
   border-bottom: 1px solid #d6d6d6;
 }
-/* line 63, ../sass/_home.scss */
+/* line 58, ../sass/_home.scss */
 .controls-wrapper .slider .dragger {
   position: absolute;
   cursor: pointer;
@@ -6203,17 +6199,17 @@ a.th {
   -o-transition: left 300ms;
   transition: left 300ms;
 }
-/* line 76, ../sass/_home.scss */
+/* line 71, ../sass/_home.scss */
 .controls-wrapper .slider .dragger:hover {
   background: #3fb18c;
 }
-/* line 81, ../sass/_home.scss */
+/* line 76, ../sass/_home.scss */
 .controls-wrapper .button {
   margin-top: 1em;
   width: 100%;
 }
 
-/* line 88, ../sass/_home.scss */
+/* line 83, ../sass/_home.scss */
 .checkout-wrapper .button {
   background-color: #34495e;
   border-color: #222f3d;
