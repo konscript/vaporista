@@ -37,6 +37,10 @@
         .slider-labels {
             li {
                 text-align: center;
+
+                a {
+                    color: $secondary-dark-color;
+                }
             }
             li:first-child {
                 text-align: left;

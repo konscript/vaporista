@@ -6162,14 +6162,18 @@ a.th {
   text-align: center;
 }
 /* line 41, ../sass/_home.scss */
+.controls-wrapper .slider-labels li a {
+  color: #666666;
+}
+/* line 45, ../sass/_home.scss */
 .controls-wrapper .slider-labels li:first-child {
   text-align: left;
 }
-/* line 44, ../sass/_home.scss */
+/* line 48, ../sass/_home.scss */
 .controls-wrapper .slider-labels li:last-child {
   text-align: right;
 }
-/* line 50, ../sass/_home.scss */
+/* line 54, ../sass/_home.scss */
 .controls-wrapper .slider .track {
   position: relative;
   height: 10px;
@@ -6178,7 +6182,7 @@ a.th {
   margin-top: 10px;
   border-bottom: 1px solid #d6d6d6;
 }
-/* line 58, ../sass/_home.scss */
+/* line 62, ../sass/_home.scss */
 .controls-wrapper .slider .dragger {
   position: absolute;
   cursor: pointer;
@@ -6199,17 +6203,17 @@ a.th {
   -o-transition: left 300ms;
   transition: left 300ms;
 }
-/* line 71, ../sass/_home.scss */
+/* line 75, ../sass/_home.scss */
 .controls-wrapper .slider .dragger:hover {
   background: #3fb18c;
 }
-/* line 76, ../sass/_home.scss */
+/* line 80, ../sass/_home.scss */
 .controls-wrapper .button {
   margin-top: 1em;
   width: 100%;
 }
 
-/* line 83, ../sass/_home.scss */
+/* line 87, ../sass/_home.scss */
 .checkout-wrapper .button {
   background-color: #34495e;
   border-color: #222f3d;
