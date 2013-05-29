@@ -12,23 +12,7 @@ angular.module('myApp.directives', []).
             var labels = scope.productValues[type];
             var labelContainer = $("<ul class='slider-labels small-block-grid-" + steps + " large-block-grid-" + steps + "'></ul>");
 
-            $.each(labels, function(index, label){
-                var ratio = index/(steps-1)*100;
 
-                console.log(ratio);
-
-                if(ratio===100){
-                    ratio = ratio - 7;
-                }else
-                if(ratio>0){
-                    ratio = ratio-2;
-                }else
-                if(ratio===0){
-                    ratio = ratio + 2;
-                }
-
-                labelContainer.append("<li>" + label.name + "</li>");
-            });
 
             $(elm[0]).simpleSlider({
                 snap: true,
@@ -40,7 +24,21 @@ angular.module('myApp.directives', []).
             .simpleSlider("setRatio", 0.5)
             .after(labelContainer);
 
+            $.each(labels, function(index, label){
+                var ratio = index/(steps-1);
 
+
+                var anchor = $("<a href=''>" + label.name + "</a>");
+
+                anchor.click(function(){
+                    $(elm[0]).simpleSlider("setRatio", ratio);
+                    return false;
+                });
+
+                var li = $("<li></li>").append(anchor);
+
+                labelContainer.append(li);
+            });
         }
     };
   });
