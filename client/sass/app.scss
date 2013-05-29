@@ -28,6 +28,10 @@ html, body, * {
     background-color: $secondary-color;
 }
 
+.striped-dark {
+    background-color: $complementary-color;
+}
+
 // Elements
 h2 {
     margin-top: 0;
@@ -66,3 +70,12 @@ h2 {
             //background-color: white;
             //box-shadow: 0 0 0 0.15em $primary-color inset;
         }
+
+// Footer
+.footer-wrapper {
+
+    a {
+        color: white;
+        text-decoration: underline;
+    }
+}

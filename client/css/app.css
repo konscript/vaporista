@@ -6255,24 +6255,29 @@ html, body, * {
   background-color: #f0f0f0;
 }
 
-/* line 32, ../sass/app.scss */
+/* line 31, ../sass/app.scss */
+.striped-dark {
+  background-color: #34495e;
+}
+
+/* line 36, ../sass/app.scss */
 h2 {
   margin-top: 0;
   margin-bottom: 1.3em;
   text-transform: uppercase;
 }
 
-/* line 38, ../sass/app.scss */
+/* line 42, ../sass/app.scss */
 .button {
   box-shadow: none;
 }
 
-/* line 43, ../sass/app.scss */
+/* line 47, ../sass/app.scss */
 .header-wrapper {
   background-color: #70ccae;
 }
 
-/* line 47, ../sass/app.scss */
+/* line 51, ../sass/app.scss */
 h1 {
   color: white;
   margin-top: 0.2em;
@@ -6280,12 +6285,12 @@ h1 {
   line-height: 1;
 }
 
-/* line 54, ../sass/app.scss */
+/* line 58, ../sass/app.scss */
 .row h1.columns {
   padding: 0;
 }
 
-/* line 58, ../sass/app.scss */
+/* line 62, ../sass/app.scss */
 .logo {
   -webkit-border-radius: 0.8em 0 0.8em 0.8em;
   -moz-border-radius: 0.8em 0 0.8em 0.8em;
@@ -6302,4 +6307,10 @@ h1 {
   height: 0.75em;
   border: 0.12em solid white;
   margin: 0 0.05em -0.05em 0.05em;
+}
+
+/* line 77, ../sass/app.scss */
+.footer-wrapper a {
+  color: white;
+  text-decoration: underline;
 }
