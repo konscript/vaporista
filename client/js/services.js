@@ -27,14 +27,14 @@ angular.module('myApp.services', []).
         {name:"18 mg"}
       ],
       base : [
-        {name:"100/0 - pg/vg"},
-        {name:"50/50 - pg/vg"},
-        {name:"0/100 - pg/vg"}
+        {name:"70/30 PG/VG"},
+        {name:"50/50 PG/VG"},
+        {name:"20/80 PG/VG"}
       ],
       size : [
         {name:"10 ml"},
-        {name:"20 ml"},
-        {name:"30 ml"}
+        {name:"30 ml"},
+        {name:"50 ml"}
       ]
     }
   }).

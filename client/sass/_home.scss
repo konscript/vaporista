@@ -34,19 +34,14 @@
         margin-bottom: 2em;
     }
 
-        .descriptions {
-
-            div {
-                color: darken($secondary-alt-color, 10%);
-            }
-
-            .left {
-                text-align: left;
-            }
-            .middle {
+        .slider-labels {
+            li {
                 text-align: center;
             }
-            .right {
+            li:first-child {
+                text-align: left;
+            }
+            li:last-child {
                 text-align: right;
             }
         }
