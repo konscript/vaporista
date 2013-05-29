@@ -1,0 +1,92 @@
+.about-wrapper {
+    h2 {
+        color: $complementary-color;
+    }
+}
+
+.controls-wrapper {
+    margin-bottom: 1em;
+
+    .choose {
+        text-transform: uppercase;
+        text-align: center;
+        display: block;
+        line-height: 1;
+        font-size: 0.8em;
+        color: $primary-alt-color;
+    }
+
+    h2 {
+        margin-bottom: 0.5em;
+        color: $primary-alt-color;
+    }
+
+    .flavors-list {
+        margin-bottom: 2em;
+
+        span {
+            display: block;
+            text-align: center;
+        }
+    }
+
+    .control-wrapper {
+        margin-bottom: 2em;
+    }
+
+        .descriptions {
+
+            div {
+                color: darken($secondary-alt-color, 10%);
+            }
+
+            .left {
+                text-align: left;
+            }
+            .middle {
+                text-align: center;
+            }
+            .right {
+                text-align: right;
+            }
+        }
+
+        // Slider controls
+        .slider .track {
+            position: relative;
+            height: 10px;
+            background: white;
+            padding: 0 10px;
+            margin-top: 10px;
+            border-bottom: 1px solid darken($secondary-color, 10%);
+        }
+        .slider .dragger {
+            position: absolute;
+            cursor: pointer;
+            @include border-radius(20px);
+            width: 20px;
+            height: 20px;
+            margin-top: -5px;
+            background: $primary-color;
+            color: white;
+            line-height: 20px;
+            text-align: center;
+            @include transition(left 300ms);
+
+            &:hover {
+                background: $primary-alt-color;
+            }
+        }
+
+    .button {
+        margin-top: 1em;
+        width: 100%;
+    }
+}
+
+.checkout-wrapper {
+    .button {
+        @include button-style($complementary-color);
+        width: 100%;
+    }
+}

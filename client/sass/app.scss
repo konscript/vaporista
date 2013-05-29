@@ -1,57 +1,18 @@
 // Custom fonts
 @import url(http://fonts.googleapis.com/css?family=Lato:300,300italic,400,700);
 
-// Global Foundation Settings
+// Foundation, settings and page imports
 @import "settings";
-
-// Comment out this import if you are customizing you imports below
 @import "foundation";
-@import "mixins";
 
 @import "compass/css3/border-radius";
 @import "compass/css3/box-shadow";
 @import "compass/css3/transition";
 @import "compass/css3/transform";
 
-// Import specific parts of Foundation by commenting the import "foundation"
-// and uncommenting what you want below. You must uncomment the following if customizing
-
-// @import "foundation/foundation-global"; // *always required
-// @import "foundation/components/global"; // *always required
-// @import "foundation/components/grid";
-// @import "foundation/components/visibility";
-// @import "foundation/components/block-grid";
-// @import "foundation/components/type";
-// @import "foundation/components/buttons";
-// @import "foundation/components/forms"; // *requires components/buttons
-// @import "foundation/components/custom-forms"; // *requires components/buttons, components/forms
-// @import "foundation/components/button-groups"; // *requires components/buttons
-// @import "foundation/components/dropdown-buttons"; // *requires components/buttons
-// @import "foundation/components/split-buttons"; // *requires components/buttons
-// @import "foundation/components/flex-video";
-// @import "foundation/components/section";
-// @import "foundation/components/top-bar";  // *requires components/grid
-// @import "foundation/components/orbit";
-// @import "foundation/components/reveal";
-// @import "foundation/components/joyride";
-// @import "foundation/components/clearing";
-// @import "foundation/components/alert-boxes";
-// @import "foundation/components/breadcrumbs";
-// @import "foundation/components/keystrokes";
-// @import "foundation/components/labels";
-// @import "foundation/components/inline-lists";
-// @import "foundation/components/pagination";
-// @import "foundation/components/panels";
-// @import "foundation/components/pricing-tables";
-// @import "foundation/components/progress-bars";
-// @import "foundation/components/side-nav";
-// @import "foundation/components/sub-nav";
-// @import "foundation/components/switch";
-// @import "foundation/components/magellan";
-// @import "foundation/components/tables";
-// @import "foundation/components/thumbs";
-// @import "foundation/components/tooltips";
-// @import "foundation/components/dropdown";
+@import "mixins";
+@import "home";
+@import "about";
 
 // Structure and layout
 html, body, * {
@@ -67,21 +28,10 @@ html, body, * {
     background-color: $secondary-color;
 }
 
-// Specific elements
-
-.choose {
-    text-transform: uppercase;
-    text-align: center;
-    display: block;
-    line-height: 1;
-    font-size: 0.8em;
-    color: $primary-alt-color;
-}
-
+// Elements
 h2 {
     margin-top: 0;
     margin-bottom: 1.3em;
-    color: $primary-alt-color;
     text-transform: uppercase;
 }
 
@@ -89,6 +39,7 @@ h2 {
     box-shadow: none;
 }
 
+// Header
 .header-wrapper {
     background-color: $primary-color;
 }
@@ -115,89 +66,3 @@ h2 {
             //background-color: white;
             //box-shadow: 0 0 0 0.15em $primary-color inset;
         }
-
-.about-wrapper {
-    h2 {
-        color: $complementary-color;
-    }
-}
-
-.controls-wrapper {
-    margin-bottom: 1em;
-
-    .flavors-list {
-        margin-bottom: 2em;
-
-        span {
-            display: block;
-            text-align: center;
-        }
-    }
-
-    .control-wrapper {
-        margin-bottom: 2em;
-
-        h2 {
-            margin-bottom: 0.5em;
-        }
-    }
-
-        .descriptions {
-
-            div {
-                color: darken($secondary-alt-color, 10%);
-            }
-
-            .left {
-                text-align: left;
-            }
-            .middle {
-                text-align: center;
-            }
-            .right {
-                text-align: right;
-            }
-        }
-
-    .button {
-        margin-top: 1em;
-        width: 100%;
-    }
-}
-
-.checkout-wrapper {
-    .button {
-        @include button-style($complementary-color);
-        width: 100%;
-    }
-}
-
-// Slider controls (dragdealer plugin)
-.dragdealer {
-    position: relative;
-    height: 10px;
-    background: white;
-    padding: 0 10px;
-    margin-top: 10px;
-    border-bottom: 1px solid darken($secondary-color, 10%);
-}
-.dragdealer .handle {
-    position: absolute;
-    cursor: pointer;
-    @include border-radius(20px);
-    width: 20px;
-    height: 20px;
-    margin-top: -5px;
-    background: $primary-color;
-    color: white;
-    line-height: 20px;
-    text-align: center;
-    @include transition(left 300ms);
-
-    &:hover {
-        background: $primary-alt-color;
-    }
-}
-.dragdealer .disabled {
-    background: #898989;
-}
