@@ -3,13 +3,17 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Lasse Boisen Andersen -- Creative Lead -- @laander1901
+    Jakob Holmelund -- Technical Lead
+    Mikkel Fabricius -- Sales Lead
 
 # THANKS
 
-    <name>
+    All the vaporistas in the world
 
 # TECHNOLOGY COLOPHON
 
     HTML5, CSS3
-    Normalize.css, jQuery, Modernizr
+    Normalize.css, Modernizr
+    Sass, Compass, Zurb Foundation
+    AngularJS, jQuery
