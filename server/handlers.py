@@ -73,7 +73,7 @@ class BaseHandler(webapp2.RequestHandler):
 
 class IndexHandler(BaseHandler):
   def get(self):
-    f = open('server/templates/index.html', 'r')
+    f = open('templates/index.html', 'r')
     return f.read()
 
 
