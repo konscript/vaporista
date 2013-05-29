@@ -27,7 +27,6 @@ angular.module('myApp.directives', []).
             $.each(labels, function(index, label){
                 var ratio = index/(steps-1);
 
-
                 var anchor = $("<a href=''>" + label.name + "</a>");
 
                 anchor.click(function(){

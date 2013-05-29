@@ -30,7 +30,7 @@
     </div>
     <div class="row">
         <ul class="flavors-list small-block-grid-3 large-block-grid-6 columns">
-            <li ng-repeat="flavour in productValues.flavour" ng-model="productValues.flavour" ng-click="setSelected('flavour', flavour)" class="{{flavour==selectedValues.flavour&&'selected'}}">
+            <li ng-repeat="flavour in productValues.flavour" ng-model="productValues.flavour" ng-click="setSelected('flavour', flavour)" class="{{flavour==selectedValues.flavour&&'selected'||''}}">
                 <img src="{{ flavour.image }}">
                 <span>{{ flavour.name }}</span>
             </li>
