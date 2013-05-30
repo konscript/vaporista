@@ -12,8 +12,6 @@ angular.module('myApp.directives', []).
             var labels = scope.productValues[type];
             var labelContainer = $("<ul class='slider-labels small-block-grid-" + steps + " large-block-grid-" + steps + "'></ul>");
 
-
-
             $(elm[0]).simpleSlider({
                 snap: true,
                 allowedValues: values

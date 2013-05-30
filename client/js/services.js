@@ -5,7 +5,7 @@
 
 // Demonstrate how to register services
 // In this case it is a simple value service.
-angular.module('myApp.services', []).
+angular.module('myApp.services', ['LocalStorageModule']).
   factory('productService', function(){
     return {
       flavour : [
@@ -38,23 +38,30 @@ angular.module('myApp.services', []).
       ]
     }
   }).
-  factory('shoppingCart', function(){
+  factory('shoppingCart', ['localStorageService', function(localStorageService){
     var shoppingCart = {
       items: []
     };
 
+    var sync = function(){
+
+    }
+
     return {
       incrementItem: function(item){
         shoppingCart.items.push[item];
+        sync();
       },
       removeItem: function(item){
         shoppingCart.slice(shoppingCart.items.indexOf(item), 1);
+        sync();
       },
       decrementItem: function(item){
-
+        sync();
       },
       clear: function(){
         shoppingCart.items = [];
+        sync();
       },
       total: function(){
 
@@ -64,4 +71,4 @@ angular.module('myApp.services', []).
       }
     }
 
-  });
+  }]);
