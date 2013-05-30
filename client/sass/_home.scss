@@ -55,7 +55,11 @@
                 text-align: center;
 
                 a {
-                    color: $secondary-dark-color;
+                    color: $secondary-alt-color;
+                }
+
+                &.selected a {
+                    color: $secondary-dark-color;;
                 }
             }
             li:first-child {
@@ -86,7 +90,7 @@
             color: white;
             line-height: 20px;
             text-align: center;
-            @include transition(left 300ms);
+            @include transition(left 0.3s);
 
             &:hover {
                 background: $primary-alt-color;
