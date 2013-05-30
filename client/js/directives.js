@@ -27,12 +27,16 @@ angular.module('myApp.directives', []).
 
                 var anchor = $("<a href=''>" + label.name + "</a>");
 
+                var li = $("<li></li>").append(anchor);
+
                 anchor.click(function(){
                     $(elm[0]).simpleSlider("setRatio", ratio);
+                    labelContainer.children().removeClass("selected");
+                    li.addClass("selected");
                     return false;
                 });
 
-                var li = $("<li></li>").append(anchor);
+
 
                 labelContainer.append(li);
             });
