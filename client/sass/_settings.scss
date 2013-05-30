@@ -39,7 +39,7 @@ $body-font-weight: 300;
 // $text-direction: ltr;
 
 // We use these to make sure border radius matches unless we want it different.
-// $global-radius: 3px;
+$global-radius: 3px;
 // $global-rounded: 1000px;
 
 // We use these to control inset shadow shiny edges and depressions.
@@ -269,7 +269,7 @@ $button-border-width: 0px;
 // $button-border-color: darken($primary-color, $button-function-factor);
 
 // We use this to set the default radius used throughout the core.
-// $button-radius: $global-radius;
+$button-radius: $global-radius;
 
 // We use this to set default opacity for disabled buttons.
 // $button-disabled-opacity: 0.6;

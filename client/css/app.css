@@ -6151,21 +6151,20 @@ h2 {
 
 /* line 32, ../sass/_global.scss */
 .button {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
   box-shadow: none;
 }
 
-/* line 36, ../sass/_global.scss */
-.picto {
-  font-family: "ModernPictogramsNormal";
-  font-weight: 1;
-}
-
-/* line 42, ../sass/_global.scss */
+/* line 38, ../sass/_global.scss */
 .header-wrapper {
   background-color: #70ccae;
 }
 
-/* line 46, ../sass/_global.scss */
+/* line 42, ../sass/_global.scss */
 h1 {
   -webkit-transition: opacity 0.3s;
   -moz-transition: opacity 0.3s;
@@ -6176,12 +6175,12 @@ h1 {
   margin-bottom: 0;
   line-height: 1;
 }
-/* line 53, ../sass/_global.scss */
+/* line 49, ../sass/_global.scss */
 h1:hover {
   opacity: 0.7;
 }
 
-/* line 59, ../sass/_global.scss */
+/* line 55, ../sass/_global.scss */
 .about-link .typcn,
 .cart-link .typcn {
   -webkit-transition: opacity 0.3s;
@@ -6189,25 +6188,25 @@ h1:hover {
   -o-transition: opacity 0.3s;
   transition: opacity 0.3s;
   color: white;
-  font-size: 2.7em;
+  font-size: 2.1em;
   margin-top: -0.05em;
 }
-/* line 65, ../sass/_global.scss */
+/* line 61, ../sass/_global.scss */
 .about-link .typcn:hover,
 .cart-link .typcn:hover {
   opacity: 0.7;
 }
 
-/* line 69, ../sass/_global.scss */
+/* line 65, ../sass/_global.scss */
 .cart-link div {
   float: right;
 }
 
-/* line 72, ../sass/_global.scss */
+/* line 68, ../sass/_global.scss */
 .cart-count {
   position: absolute;
   right: 2.4em;
-  top: 0.3em;
+  top: 0;
   font-size: 0.5em;
   background-color: #34495e;
   border-radius: 15px;
@@ -6218,12 +6217,12 @@ h1:hover {
   padding: 5px;
 }
 
-/* line 87, ../sass/_global.scss */
+/* line 83, ../sass/_global.scss */
 .row h1.columns {
   padding: 0;
 }
 
-/* line 91, ../sass/_global.scss */
+/* line 87, ../sass/_global.scss */
 .logo {
   -webkit-border-radius: 0.8em 0 0.8em 0.8em;
   -moz-border-radius: 0.8em 0 0.8em 0.8em;
@@ -6242,7 +6241,7 @@ h1:hover {
   margin: 0 0.05em -0.05em 0.05em;
 }
 
-/* line 106, ../sass/_global.scss */
+/* line 102, ../sass/_global.scss */
 .footer-wrapper a {
   color: white;
   text-decoration: underline;
