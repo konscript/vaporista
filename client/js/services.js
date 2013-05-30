@@ -5,7 +5,7 @@
 
 // Demonstrate how to register services
 // In this case it is a simple value service.
-angular.module('myApp.services', ['LocalStorageModule']).
+angular.module('vaporista.services', ['LocalStorageModule']).
   factory('productService', function(){
     return {
       flavour : [
@@ -39,17 +39,46 @@ angular.module('myApp.services', ['LocalStorageModule']).
     }
   }).
   factory('shoppingCart', ['localStorageService', function(localStorageService){
-    var shoppingCart = {
-      items: []
-    };
+    var shoppingCart;
+
+    var storage = localStorageService.get("vaporistaShoppingCart");
+
+    if(storage){
+      shoppingCart = JSON.parse(storage);
+    }else{
+      shoppingCart = {
+        items: []
+      };
+    }
+
+
 
     var sync = function(){
-
+      localStorageService.add("vaporistaShoppingCart", JSON.stringify(shoppingCart));
     }
 
     return {
       incrementItem: function(item){
-        shoppingCart.items.push[item];
+        var itemInCart = false;
+
+        console.log(shoppingCart.items);
+
+        $.each(shoppingCart.items, function(index, cartItem){
+          console.log(item);
+          console.log(cartItem);
+
+          if(cartItem.item.id() === item.id()){
+            itemInCart = true;
+            cartItem.count++;
+          }
+        });
+
+        if(!itemInCart){
+          shoppingCart.items.push({
+            count: 1,
+            item: item
+          });
+        }
         sync();
       },
       removeItem: function(item){

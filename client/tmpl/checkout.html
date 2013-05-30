@@ -1,0 +1,11 @@
+<ul>
+<li ng-repeat="cartItem in shoppingCart.items">
+    <ul>
+        <li>{{cartItem.count}}</li>
+        <li>{{cartItem.item.flavour.name}}</li>
+        <li>{{cartItem.item.strength.name}}</li>
+        <li>{{cartItem.item.base.name}}</li>
+        <li>{{cartItem.item.size.name}}</li>
+    </ul>
+</li>
+</ul>
