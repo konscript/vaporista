@@ -5,7 +5,7 @@
 
 // Demonstrate how to register services
 // In this case it is a simple value service.
-angular.module('myApp.services', ['LocalStorageModule']).
+angular.module('vaporista.services', ['LocalStorageModule']).
   factory('productService', function(){
     return {
       flavour : [
@@ -40,8 +40,6 @@ angular.module('myApp.services', ['LocalStorageModule']).
   }).
   factory('shoppingCart', ['localStorageService', function(localStorageService){
     var shoppingCart;
-
-    localStorageService.clearAll();
 
     var storage = localStorageService.get("vaporistaShoppingCart");
 

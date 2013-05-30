@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', []).
+angular.module('vaporista.controllers', []).
   controller('HomeCtrl', function($scope, productService, shoppingCart) {
 
     $scope.productValues = $.extend({}, productService);
@@ -35,4 +35,7 @@ angular.module('myApp.controllers', []).
       }
     };
 
+  }).
+  controller("CheckoutCtrl", function($scope, shoppingCart){
+    $scope.shoppingCart = shoppingCart.get();
   });

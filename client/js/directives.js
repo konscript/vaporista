@@ -1,7 +1,7 @@
 'use strict';
 
 /* Directives */
-angular.module('myApp.directives', []).
+angular.module('vaporista.directives', []).
   directive('simpleSlider', function() {
     return {
         restrict: 'A',
