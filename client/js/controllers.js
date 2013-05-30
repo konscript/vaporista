@@ -11,7 +11,10 @@ angular.module('myApp.controllers', []).
       flavour: null,
       strength: null,
       base: null,
-      size: null
+      size: null,
+      id: function(){
+        return JSON.stringify(this.flavour) + JSON.stringify(this.strength) + JSON.stringify(this.base) + JSON.stringify(this.size);
+      }
     };
 
 
@@ -25,7 +28,11 @@ angular.module('myApp.controllers', []).
     };
 
     $scope.addToBasket = function(){
-      shoppingCart.addItem($scope.selectedValues);
+      if($scope.selectedValues.flavour && $scope.selectedValues.strength && $scope.selectedValues.base && $scope.selectedValues.size){
+        shoppingCart.incrementItem($scope.selectedValues);
+      }else{
+        //Show dialog
+      }
     };
 
   });
