@@ -16,7 +16,12 @@ angular.module('myApp.controllers', []).
 
 
     $scope.setSelected = function(type, value){
-        $scope.selectedValues[type] = value;
+        if($scope.selectedValues[type] === value){
+          $scope.selectedValues[type] = null;
+        }else{
+          $scope.selectedValues[type] = value;
+        }
+
     };
 
     $scope.addToBasket = function(){
