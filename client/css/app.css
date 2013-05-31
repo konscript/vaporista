@@ -5826,14 +5826,14 @@ kbd {
 /* Tables */
 /* line 80, ../../../../../../var/lib/gems/1.9.1/gems/zurb-foundation-4.1.6/scss/foundation/components/_tables.scss */
 table {
-  background: white;
+  background: #f0f0f0;
   margin-bottom: 1.25em;
-  border: solid 1px #dddddd;
+  border: solid 0px #dddddd;
 }
 /* line 42, ../../../../../../var/lib/gems/1.9.1/gems/zurb-foundation-4.1.6/scss/foundation/components/_tables.scss */
 table thead,
 table tfoot {
-  background: whitesmoke;
+  background: white;
   font-weight: bold;
 }
 /* line 48, ../../../../../../var/lib/gems/1.9.1/gems/zurb-foundation-4.1.6/scss/foundation/components/_tables.scss */
@@ -5855,7 +5855,7 @@ table tr td {
 }
 /* line 67, ../../../../../../var/lib/gems/1.9.1/gems/zurb-foundation-4.1.6/scss/foundation/components/_tables.scss */
 table tr.even, table tr.alt, table tr:nth-of-type(even) {
-  background: #f9f9f9;
+  background: #f0f0f0;
 }
 /* line 74, ../../../../../../var/lib/gems/1.9.1/gems/zurb-foundation-4.1.6/scss/foundation/components/_tables.scss */
 table thead tr th,
@@ -6252,11 +6252,7 @@ h1:hover {
   color: #34495e;
 }
 
-/* line 7, ../sass/_home.scss */
-.controls-wrapper {
-  margin-bottom: 1em;
-}
-/* line 10, ../sass/_home.scss */
+/* line 9, ../sass/_home.scss */
 .controls-wrapper .choose {
   text-transform: uppercase;
   text-align: center;
@@ -6265,25 +6261,25 @@ h1:hover {
   font-size: 0.8em;
   color: #3fb18c;
 }
-/* line 19, ../sass/_home.scss */
+/* line 18, ../sass/_home.scss */
 .controls-wrapper h2 {
   margin-bottom: 0.5em;
   color: #3fb18c;
 }
-/* line 24, ../sass/_home.scss */
+/* line 23, ../sass/_home.scss */
 .controls-wrapper .flavors-list {
   margin-bottom: 2em;
 }
-/* line 27, ../sass/_home.scss */
+/* line 26, ../sass/_home.scss */
 .controls-wrapper .flavors-list li {
   cursor: pointer;
 }
-/* line 31, ../sass/_home.scss */
+/* line 30, ../sass/_home.scss */
 .controls-wrapper .flavors-list span {
   display: block;
   text-align: center;
 }
-/* line 37, ../sass/_home.scss */
+/* line 36, ../sass/_home.scss */
 .controls-wrapper .flavors-list.child-selected li:not(.selected) {
   opacity: 0.5;
   filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
@@ -6293,35 +6289,35 @@ h1:hover {
   -webkit-filter: grayscale(100%);
   /* Chrome 19+, Safari 6+, Safari 6+ iOS */
 }
-/* line 43, ../sass/_home.scss */
+/* line 42, ../sass/_home.scss */
 .controls-wrapper .flavors-list.child-selected li.selected {
   opacity: 1;
 }
-/* line 49, ../sass/_home.scss */
+/* line 48, ../sass/_home.scss */
 .controls-wrapper .control-wrapper {
   margin-bottom: 2em;
 }
-/* line 54, ../sass/_home.scss */
+/* line 53, ../sass/_home.scss */
 .controls-wrapper .slider-labels li {
   text-align: center;
 }
-/* line 57, ../sass/_home.scss */
+/* line 56, ../sass/_home.scss */
 .controls-wrapper .slider-labels li a {
   color: #d6d6d6;
 }
-/* line 61, ../sass/_home.scss */
+/* line 60, ../sass/_home.scss */
 .controls-wrapper .slider-labels li.selected a {
   color: #666666;
 }
-/* line 65, ../sass/_home.scss */
+/* line 64, ../sass/_home.scss */
 .controls-wrapper .slider-labels li:first-child {
   text-align: left;
 }
-/* line 68, ../sass/_home.scss */
+/* line 67, ../sass/_home.scss */
 .controls-wrapper .slider-labels li:last-child {
   text-align: right;
 }
-/* line 74, ../sass/_home.scss */
+/* line 73, ../sass/_home.scss */
 .controls-wrapper .slider .track {
   position: relative;
   height: 10px;
@@ -6330,7 +6326,7 @@ h1:hover {
   margin-top: 10px;
   border-bottom: 1px solid #d6d6d6;
 }
-/* line 82, ../sass/_home.scss */
+/* line 81, ../sass/_home.scss */
 .controls-wrapper .slider .dragger {
   position: absolute;
   cursor: pointer;
@@ -6351,17 +6347,26 @@ h1:hover {
   -o-transition: left 0.3s;
   transition: left 0.3s;
 }
-/* line 95, ../sass/_home.scss */
+/* line 94, ../sass/_home.scss */
 .controls-wrapper .slider .dragger:hover {
   background: #3fb18c;
 }
-/* line 100, ../sass/_home.scss */
+/* line 99, ../sass/_home.scss */
 .controls-wrapper .button {
   margin-top: 1em;
   width: 100%;
 }
 
-/* line 107, ../sass/_home.scss */
+/* line 109, ../sass/_home.scss */
+.checkout-wrapper .basket-table .flavour-column img {
+  float: left;
+  width: 4em;
+}
+/* line 113, ../sass/_home.scss */
+.checkout-wrapper .basket-table .flavour-column div {
+  line-height: 4.5em;
+}
+/* line 119, ../sass/_home.scss */
 .checkout-wrapper .button {
   background-color: #34495e;
   border-color: #222f3d;

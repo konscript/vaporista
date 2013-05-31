@@ -5,7 +5,6 @@
 }
 
 .controls-wrapper {
-    margin-bottom: 1em;
 
     .choose {
         text-transform: uppercase;
@@ -104,6 +103,19 @@
 }
 
 .checkout-wrapper {
+
+    .basket-table {
+        .flavour-column {
+            img {
+                float: left;
+                width: 4em;
+            }
+            div {
+                line-height: 4.5em;
+            }
+        }
+    }
+
     .button {
         @include button-style($complementary-color);
         width: 100%;

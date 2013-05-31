@@ -2,24 +2,21 @@
 
 /* Services */
 
-
-// Demonstrate how to register services
-// In this case it is a simple value service.
 angular.module('vaporista.services', ['LocalStorageModule']).
   factory('productService', function(){
     return {
       flavour : [
-        {name:"Strawberry", image:"/client/img/flavor-strawberry.png"},
-        {name:"Blueberry", image:"/client/img/flavor-blueberry.png"},
-        {name:"Citrus", image:"/client/img/flavor-citrus.png"},
-        {name:"Grape", image:"/client/img/flavor-grape.png"},
-        {name:"Kiwi", image:"/client/img/flavor-kiwi.png"},
-        {name:"Lime", image:"/client/img/flavor-lime.png"},
-        {name:"Litchi", image:"/client/img/flavor-litchi.png"},
-        {name:"Orange", image:"/client/img/flavor-orange.png"},
-        {name:"Peach", image:"/client/img/flavor-peach.png"},
-        {name:"Pomme", image:"/client/img/flavor-pomme.png"},
-        {name:"Watermelon", image:"/client/img/flavor-watermelon.png"},
+        {name:"Strawberry", image:"/client/img/flavours/flavor-strawberry.png"},
+        {name:"Blueberry", image:"/client/img/flavours/flavor-blueberry.png"},
+        {name:"Citrus", image:"/client/img/flavours/flavor-citrus.png"},
+        {name:"Grape", image:"/client/img/flavours/flavor-grape.png"},
+        {name:"Kiwi", image:"/client/img/flavours/flavor-kiwi.png"},
+        {name:"Lime", image:"/client/img/flavours/flavor-lime.png"},
+        {name:"Litchi", image:"/client/img/flavours/flavor-litchi.png"},
+        {name:"Orange", image:"/client/img/flavours/flavor-orange.png"},
+        {name:"Peach", image:"/client/img/flavours/flavor-peach.png"},
+        {name:"Pomme", image:"/client/img/flavours/flavor-pomme.png"},
+        {name:"Watermelon", image:"/client/img/flavours/flavor-watermelon.png"},
       ],
       strength : [
         {name:"8 mg"},
@@ -51,8 +48,6 @@ angular.module('vaporista.services', ['LocalStorageModule']).
       };
     }
 
-
-
     var sync = function(){
       localStorageService.add("vaporistaShoppingCart", JSON.stringify(shoppingCart));
     }
@@ -61,11 +56,7 @@ angular.module('vaporista.services', ['LocalStorageModule']).
       incrementItem: function(item){
         var itemInCart = false;
 
-        console.log(shoppingCart.items);
-
         $.each(shoppingCart.items, function(index, cartItem){
-          console.log(item);
-          console.log(cartItem);
 
           if(cartItem.item.id() === item.id()){
             itemInCart = true;
@@ -80,6 +71,9 @@ angular.module('vaporista.services', ['LocalStorageModule']).
           });
         }
         sync();
+
+        console.log("Item added to cart");
+        console.log(item);
       },
       removeItem: function(item){
         shoppingCart.slice(shoppingCart.items.indexOf(item), 1);

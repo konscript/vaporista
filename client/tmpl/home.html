@@ -37,30 +37,30 @@
         </ul>
     </div>
     <div class="row">
-        <div class="control-wrapper small-10 large-6 small-centered columns">
+        <div class="control-wrapper small-12 large-8 small-centered columns">
             <span class="choose">choose</span>
             <h2 class="center">Strength</h2>
             <input simple-slider drag-type="strength">
         </div>
-        <div class="control-wrapper small-10 large-6 small-centered columns">
+        <div class="control-wrapper small-12 large-8 small-centered columns">
             <span class="choose">choose</span>
             <h2 class="center">Mix</h2>
             <input simple-slider drag-type="base">
         </div>
-        <div class="control-wrapper small-10 large-6 small-centered columns">
+        <div class="control-wrapper small-12 large-8 small-centered columns">
             <span class="choose">choose</span>
             <h2 class="center">Size</h2>
             <input simple-slider drag-type="size">
         </div>
     </div>
     <div class="row">
-        <div class="large-3 small-10 small-centered columns">
-            <a href="#" class="button" ng-click="addToBasket()">Add to Basket</a>
+        <div class="large-4 small-8 small-centered columns">
+            <a href="" class="button" ng-click="addToBasket()">Add to Basket</a>
         </div>
     </div>
     <div class="row">
-        <div class="small-12 small-centered columns">
-            <div class="center"><i>Your basket is currently empty. Go fill something in it!</i></div>
+        <div class="large-4 small-8 small-centered columns">
+            <div class="center"><i>You can add as many combinations as you want. When you're ready, proceed below.</i></div>
         </div>
     </div>
 
@@ -68,8 +68,47 @@
 
 <div class="checkout-wrapper wrapper">
     <div class="row">
-        <div class="large-3 small-10 small-centered columns">
-            <a href="/#/checkout" class="button">Checkout!</a>
+        <div class="large-12 small-12 small-centered columns">
+            <h2 class="center">Your Basket</h2>
+        </div>
+        <div class="large-8 small-12 small-centered columns">
+            <table class="basket-table small-12">
+                <thead>
+                    <tr class="row">
+                        <th class="small-4 large-4 columns">Flavour</th>
+                        <th class="small-4 large-4 columns">Details</th>
+                        <th class="small-2 large-2 columns">Amount</th>
+                        <th class="small-2 large-2 columns">Price</th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="cartItem in shoppingCart.items">
+                    <tr class="row">
+                        <td class="flavour-column small-4 large-4 columns">
+                            <img src="{{cartItem.item.flavour.image}}" />
+                            <div>{{cartItem.item.flavour.name}}</div>
+                        </td>
+                        <td class="details-column small-4 large-4 columns">
+                            {{cartItem.item.strength.name}} - {{cartItem.item.size.name}}<br />
+                            {{cartItem.item.base.name}}
+                        </td>
+                        <td class="small-2 large-2 columns">{{cartItem.count}}</td>
+                        <td class="small-2 large-2 columns">42 EUR</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="large-4 small-8 small-centered columns">
+            <a href="/#/checkout" class="button large">Let's buy it!</a>
+        </div>
+        <div class="large-4 small-8 small-centered columns">
+            <ul class="small-block-grid-6 large-block-grid-6 columns center">
+                <li><img src="/client/img/paycards/visa.png" alt="Visa" /></li>
+                <li><img src="/client/img/paycards/americanexpress.png" alt="Visa" /></li>
+                <li><img src="/client/img/paycards/mastercard.png" alt="Visa" /></li>
+                <li><img src="/client/img/paycards/maestro.png" alt="Visa" /></li>
+                <li><img src="/client/img/paycards/paypal.png" alt="Visa" /></li>
+                <li><img src="/client/img/paycards/amazon.png" alt="Visa" /></li>
+            </ul>
         </div>
     </div>
 </div>

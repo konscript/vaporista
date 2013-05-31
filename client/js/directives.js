@@ -26,11 +26,8 @@ angular.module('vaporista.directives', []).
                     return false;
                 });
 
-
-
                 labelContainer.append(li);
             });
-
 
             $(elm[0]).simpleSlider({
                 snap: true,
