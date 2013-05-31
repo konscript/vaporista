@@ -17,7 +17,7 @@ angular.module('vaporista.controllers', []).
       }
     };
 
-    $scope.shoppingCart = shoppingCart.get();
+    $scope.shoppingCart = shoppingCart;
 
     $scope.setSelected = function(type, value){
         if($scope.selectedValues[type] === value){
