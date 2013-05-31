@@ -1,5 +1,5 @@
 <ul>
-<li ng-repeat="cartItem in shoppingCart.items">
+<li ng-repeat="cartItem in shoppingCart.get().items">
     <ul>
         <li>{{cartItem.count}}</li>
         <li>{{cartItem.item.flavour.name}}</li>

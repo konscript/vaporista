@@ -102,6 +102,12 @@ var __slice = [].slice,
           });
         }
       });
+      var resizeHandler = window.onresize || function(){};
+      window.onresize = function(e)
+      {
+              resizeHandler(e);
+              _this.setSliderPositionFromValue(_this.value, false);
+      };
       this.pagePos = 0;
       if (this.input.val() === "") {
         this.value = this.getRange().min;

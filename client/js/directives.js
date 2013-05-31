@@ -26,22 +26,22 @@ angular.module('vaporista.directives', []).
                     return false;
                 });
 
-
-
                 labelContainer.append(li);
             });
 
+
+            $(elm[0]).val(values[values.length-1]/2);
 
             $(elm[0]).simpleSlider({
                 snap: true,
                 allowedValues: values
             }).bind("slider:ready slider:changed", function (event, data) {
                 var selected = data.value.toFixed();
+                console.log("READY");
                 labelContainer.children().removeClass("selected");
                 $(labelContainer.children()[selected]).addClass("selected");
                 scope.setSelected(type, scope.productValues[type][selected]);
             })
-            .simpleSlider("setRatio", 0.5)
             .after(labelContainer);
         }
     };

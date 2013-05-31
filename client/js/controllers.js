@@ -27,9 +27,10 @@ angular.module('vaporista.controllers', []).
 
     };
 
-    $scope.addToBasket = function(){
+    $scope.addToCart = function(){
       if($scope.selectedValues.flavour && $scope.selectedValues.strength && $scope.selectedValues.base && $scope.selectedValues.size){
         shoppingCart.incrementItem($scope.selectedValues);
+        $scope.selectedValues.flavour = null;
       }else{
         //Show dialog
       }
@@ -37,5 +38,8 @@ angular.module('vaporista.controllers', []).
 
   }).
   controller("CheckoutCtrl", function($scope, shoppingCart){
-    $scope.shoppingCart = shoppingCart.get();
+    $scope.shoppingCart = shoppingCart;
+  }).
+  controller("CartCtrl", function($scope, shoppingCart){
+    $scope.shoppingCart = shoppingCart;
   });
