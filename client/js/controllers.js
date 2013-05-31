@@ -17,6 +17,7 @@ angular.module('vaporista.controllers', []).
       }
     };
 
+    $scope.shoppingCart = shoppingCart.get();
 
     $scope.setSelected = function(type, value){
         if($scope.selectedValues[type] === value){
@@ -33,6 +34,7 @@ angular.module('vaporista.controllers', []).
         $scope.selectedValues.flavour = null;
       }else{
         //Show dialog
+        console.log("Need selection before adding to cart");
       }
     };
 

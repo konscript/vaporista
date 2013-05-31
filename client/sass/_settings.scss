@@ -39,7 +39,7 @@ $body-font-weight: 300;
 // $text-direction: ltr;
 
 // We use these to make sure border radius matches unless we want it different.
-// $global-radius: 3px;
+$global-radius: 3px;
 // $global-rounded: 1000px;
 
 // We use these to control inset shadow shiny edges and depressions.
@@ -269,7 +269,7 @@ $button-border-width: 0px;
 // $button-border-color: darken($primary-color, $button-function-factor);
 
 // We use this to set the default radius used throughout the core.
-// $button-radius: $global-radius;
+$button-radius: $global-radius;
 
 // We use this to set default opacity for disabled buttons.
 // $button-disabled-opacity: 0.6;
@@ -913,16 +913,16 @@ $button-border-width: 0px;
 //
 
 // These control the background color for the table and even rows
-// $table-bg: #fff;
-// $table-even-row-bg: #f9f9f9;
+$table-bg: $secondary-color;
+$table-even-row-bg: $secondary-color;
 
 // These control the table cell border style
 // $table-border-style: solid;
-// $table-border-size: 1px;
+$table-border-size: 0px;
 // $table-border-color: #ddd;
 
 // These control the table head styles
-// $table-head-bg: #f5f5f5;
+$table-head-bg: white;
 // $table-head-font-size: emCalc(14px);
 // $table-head-font-color: #222;
 // $table-head-font-weight: bold;
