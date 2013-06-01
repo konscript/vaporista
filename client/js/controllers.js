@@ -38,6 +38,10 @@ angular.module('vaporista.controllers', []).
       }
     };
 
+    $scope.removeFromCart = function(cartItem){
+      shoppingCart.removeItem(cartItem);
+    };
+
   }).
   controller("CheckoutCtrl", function($scope, shoppingCart){
     $scope.shoppingCart = shoppingCart;
