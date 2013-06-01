@@ -28,6 +28,7 @@
             <h2 class="center">Flavour</h2>
         </div>
     </div>
+    <form name="picker">
     <div class="row">
         <ul class="flavors-list small-block-grid-3 large-block-grid-6 columns {{ selectedValues.flavour&&'child-selected' }}">
             <li ng-repeat="flavour in productValues.flavour" ng-click="setSelected('flavour', flavour)" class="{{flavour==selectedValues.flavour&&'selected'||''}}">
@@ -35,29 +36,31 @@
                 <span>{{ flavour.name }}</span>
             </li>
         </ul>
+        <input type="text" ng-model="selectedValues.flavour.name" required>
     </div>
     <div class="row">
         <div class="control-wrapper small-12 large-8 small-centered columns">
             <span class="choose">choose</span>
             <h2 class="center">Strength</h2>
-            <input simple-slider drag-type="strength">
+            <input ng-model="selectedValues.strength" simple-slider drag-type="strength" required>
         </div>
         <div class="control-wrapper small-12 large-8 small-centered columns">
             <span class="choose">choose</span>
             <h2 class="center">Mix</h2>
-            <input simple-slider drag-type="base">
+            <input ng-model="selectedValues.base" simple-slider drag-type="base" required>
         </div>
         <div class="control-wrapper small-12 large-8 small-centered columns">
             <span class="choose">choose</span>
             <h2 class="center">Size</h2>
-            <input simple-slider drag-type="size">
+            <input ng-model="selectedValues.size" simple-slider drag-type="size" required>
         </div>
     </div>
     <div class="row">
         <div class="large-4 small-8 small-centered columns">
-            <button type='button' class="button" ng-click="addToCart()" disabled="">Add to Basket</button>
+            <button type='button' class="button" ng-click="addToCart()" ng-disabled="picker.$invalid">Add to Basket</button>
         </div>
     </div>
+    </form>
     <div class="row">
         <div class="large-4 small-8 small-centered columns">
             <div class="center"><i>You can add as many combinations as you want. When you're ready, proceed below.</i></div>

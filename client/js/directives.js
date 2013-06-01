@@ -32,7 +32,6 @@ angular.module('vaporista.directives', []).
             $(elm[0]).val(values[values.length-1]/2);
 
             $(elm[0]).bind("slider:ready slider:changed", function (event, data) {
-                console.log("ready");
                 var selected = data.value.toFixed();
                 labelContainer.children().removeClass("selected");
                 $(labelContainer.children()[selected]).addClass("selected");
