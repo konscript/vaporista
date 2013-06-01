@@ -30,13 +30,15 @@
     </div>
     <form name="picker">
     <div class="row">
-        <ul class="flavors-list small-block-grid-3 large-block-grid-6 columns {{ selectedValues.flavour&&'child-selected' }}">
-            <li ng-repeat="flavour in productValues.flavour" ng-click="setSelected('flavour', flavour)" class="{{flavour==selectedValues.flavour&&'selected'||''}}">
-                <img ng-src="{{ flavour.image }}">
-                <span>{{ flavour.name }}</span>
-            </li>
-        </ul>
-        <input type="hidden" ng-model="selectedValues.flavour.name" required>
+        <div class="large-12 small-12 columns">
+            <ul class="flavour-list small-block-grid-3 large-block-grid-6 {{ selectedValues.flavour&&'child-selected' }}">
+                <li ng-repeat="flavour in productValues.flavour" ng-click="setSelected('flavour', flavour)" class="{{flavour==selectedValues.flavour&&'selected'||''}}">
+                    <img ng-src="{{ flavour.image }}">
+                    <span>{{ flavour.name }}</span>
+                </li>
+            </ul>
+            <input type="hidden" ng-model="selectedValues.flavour.name" required>
+        </div>
     </div>
     <div class="row">
         <div class="control-wrapper small-12 large-8 small-centered columns">
