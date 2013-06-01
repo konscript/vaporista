@@ -6363,10 +6363,10 @@ h1:hover {
 
 /* line 113, ../sass/_home.scss */
 .checkout-wrapper .basket-table .flavour-column img {
-  float: left;
-  width: 6em;
+  width: 100%;
+  max-width: 8em;
 }
-/* line 123, ../sass/_home.scss */
+/* line 125, ../sass/_home.scss */
 .checkout-wrapper .button {
   background-color: #34495e;
   border-color: #222f3d;

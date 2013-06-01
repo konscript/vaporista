@@ -111,8 +111,10 @@
     .basket-table {
         .flavour-column {
             img {
-                float: left;
-                width: 6em;
+                width:100%;
+                max-width:8em;
+                //float: left;
+                //width: 6em;
             }
             div {
                 //line-height: 4.5em;
