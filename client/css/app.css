@@ -6360,11 +6360,7 @@ h1:hover {
 /* line 109, ../sass/_home.scss */
 .checkout-wrapper .basket-table .flavour-column img {
   float: left;
-  width: 4em;
-}
-/* line 113, ../sass/_home.scss */
-.checkout-wrapper .basket-table .flavour-column div {
-  line-height: 4.5em;
+  width: 6em;
 }
 /* line 119, ../sass/_home.scss */
 .checkout-wrapper .button {

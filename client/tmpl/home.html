@@ -74,7 +74,7 @@
         <div class="large-8 small-12 small-centered columns">
             <table class="basket-table small-12">
                 <thead>
-                    <tr class="row">
+                    <tr>
                         <th class="">Flavour</th>
                         <th class="">Details</th>
                         <th class="">Qty</th>
@@ -83,7 +83,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="row" ng-repeat="cartItem in shoppingCart.get().items">
+                    <tr ng-repeat="cartItem in shoppingCart.get().items">
                         <td class="flavour-column">
                             <img ng-src="{{cartItem.item.flavour.image}}" />
                             <div>{{cartItem.item.flavour.name}}</div>
