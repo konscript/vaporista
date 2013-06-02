@@ -28,7 +28,7 @@
                 <span class="choose">choose</span>
                 <h2>Flavour</h2>
             </div>
-            <div class="small-12 large-3 columns">
+            <div class="small-12 large-3 columns hide-for-small">
                 <div class="control-description">All our flavours stems from natural sources (and are damn tasty!) <span class="typcn typcn-plus"></span></div>
             </div>
         </div>
@@ -51,7 +51,7 @@
             <div class="small-12 large-6 columns">
                 <input ng-model="selectedValues.strength" simple-slider drag-type="strength" required>
             </div>
-            <div class="small-12 large-3 columns">
+            <div class="small-12 large-3 columns hide-for-small">
                 <div class="control-description">The nicotine level depends on the strength you're used to. <span class="typcn typcn-plus"></span></div>
             </div>
         </div>
@@ -63,7 +63,7 @@
             <div class="small-12 large-6 columns">
                 <input ng-model="selectedValues.base" simple-slider drag-type="base" required>
             </div>
-            <div class="small-12 large-3 columns">
+            <div class="small-12 large-3 columns hide-for-small">
                 <div class="control-description">PG gives more flavour and throat hit, VG more vapour production. <span class="typcn typcn-plus"></span></div>
             </div>
         </div>
@@ -75,7 +75,7 @@
             <div class="small-12 large-6 columns">
                 <input ng-model="selectedValues.size" simple-slider drag-type="size" required>
             </div>
-            <div class="small-12 large-3 columns">
+            <div class="small-12 large-3 columns hide-for-small">
                 <div class="control-description">In average, most people consume 1ml of liquid per day of vaping. <span class="typcn typcn-plus"></span></div>
             </div>
         </div>
@@ -87,7 +87,7 @@
     </form>
     <div class="row">
         <div class="large-4 small-8 small-centered columns">
-            <div class="center" ng-show="picker.$invalid"><i>Please select a flavour above first.</i></div>
+            <div class="center" ng-show="picker.$invalid"><i>Please select a flavour above.</i></div>
             <div class="center" ng-hide="picker.$invalid"><i>Customize your own juices - you can add as many combinations as you want!</i></div>
         </div>
     </div>
