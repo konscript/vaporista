@@ -30,12 +30,16 @@ angular.module('vaporista.controllers', []).
 
     $scope.addToCart = function(){
       if($scope.selectedValues.flavour && $scope.selectedValues.strength && $scope.selectedValues.base && $scope.selectedValues.size){
-        shoppingCart.incrementItem($scope.selectedValues);
+        shoppingCart.incrementItem(angular.copy($scope.selectedValues));
         $scope.selectedValues.flavour = null;
       }else{
         //Show dialog
         console.log("Need selection before adding to cart");
       }
+    };
+
+    $scope.removeFromCart = function(cartItem){
+      shoppingCart.removeItem(cartItem);
     };
 
   }).

@@ -39,7 +39,7 @@
                     </a>
                     <a href="" class="cart-link small-3 columns">
                         <div class="typcn typcn-shopping-cart"></div>
-                        <div class="cart-count" ng-controller="CartCtrl">{{shoppingCart.count()}}</div>
+                        <div class="cart-count" ng-controller="CartCtrl" ng-cloak>{{shoppingCart.count()}}</div>
                     </a>
                 </header>
             </div>
@@ -68,7 +68,7 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
         <script src="/client/js/plugins.js"></script>
-        <script src="/client/js/vendor/simple-slider.min.js"></script>
+        <script src="/client/js/vendor/simple-slider.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

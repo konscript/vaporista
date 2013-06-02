@@ -6267,20 +6267,20 @@ h1:hover {
   color: #3fb18c;
 }
 /* line 23, ../sass/_home.scss */
-.controls-wrapper .flavors-list {
+.controls-wrapper .flavour-list {
   margin-bottom: 2em;
 }
 /* line 26, ../sass/_home.scss */
-.controls-wrapper .flavors-list li {
+.controls-wrapper .flavour-list li {
   cursor: pointer;
 }
 /* line 30, ../sass/_home.scss */
-.controls-wrapper .flavors-list span {
+.controls-wrapper .flavour-list span {
   display: block;
   text-align: center;
 }
 /* line 36, ../sass/_home.scss */
-.controls-wrapper .flavors-list.child-selected li:not(.selected) {
+.controls-wrapper .flavour-list.child-selected li:not(.selected) {
   opacity: 0.5;
   filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
   /* Firefox 10+, Firefox on Android */
@@ -6290,34 +6290,38 @@ h1:hover {
   /* Chrome 19+, Safari 6+, Safari 6+ iOS */
 }
 /* line 42, ../sass/_home.scss */
-.controls-wrapper .flavors-list.child-selected li.selected {
+.controls-wrapper .flavour-list.child-selected li.selected {
   opacity: 1;
 }
 /* line 48, ../sass/_home.scss */
 .controls-wrapper .control-wrapper {
   margin-bottom: 2em;
 }
-/* line 53, ../sass/_home.scss */
+/* line 52, ../sass/_home.scss */
+.controls-wrapper .slider {
+  margin-left: 0px !important;
+}
+/* line 57, ../sass/_home.scss */
 .controls-wrapper .slider-labels li {
   text-align: center;
 }
-/* line 56, ../sass/_home.scss */
+/* line 60, ../sass/_home.scss */
 .controls-wrapper .slider-labels li a {
   color: #d6d6d6;
 }
-/* line 60, ../sass/_home.scss */
+/* line 64, ../sass/_home.scss */
 .controls-wrapper .slider-labels li.selected a {
   color: #666666;
 }
-/* line 64, ../sass/_home.scss */
+/* line 68, ../sass/_home.scss */
 .controls-wrapper .slider-labels li:first-child {
   text-align: left;
 }
-/* line 67, ../sass/_home.scss */
+/* line 71, ../sass/_home.scss */
 .controls-wrapper .slider-labels li:last-child {
   text-align: right;
 }
-/* line 73, ../sass/_home.scss */
+/* line 77, ../sass/_home.scss */
 .controls-wrapper .slider .track {
   position: relative;
   height: 10px;
@@ -6326,7 +6330,7 @@ h1:hover {
   margin-top: 10px;
   border-bottom: 1px solid #d6d6d6;
 }
-/* line 81, ../sass/_home.scss */
+/* line 85, ../sass/_home.scss */
 .controls-wrapper .slider .dragger {
   position: absolute;
   cursor: pointer;
@@ -6347,26 +6351,22 @@ h1:hover {
   -o-transition: left 0.3s;
   transition: left 0.3s;
 }
-/* line 94, ../sass/_home.scss */
+/* line 98, ../sass/_home.scss */
 .controls-wrapper .slider .dragger:hover {
   background: #3fb18c;
 }
-/* line 99, ../sass/_home.scss */
+/* line 103, ../sass/_home.scss */
 .controls-wrapper .button {
   margin-top: 1em;
   width: 100%;
 }
 
-/* line 109, ../sass/_home.scss */
-.checkout-wrapper .basket-table .flavour-column img {
-  float: left;
-  width: 4em;
-}
 /* line 113, ../sass/_home.scss */
-.checkout-wrapper .basket-table .flavour-column div {
-  line-height: 4.5em;
+.checkout-wrapper .basket-table .flavour-column img {
+  width: 100%;
+  max-width: 8em;
 }
-/* line 119, ../sass/_home.scss */
+/* line 125, ../sass/_home.scss */
 .checkout-wrapper .button {
   background-color: #34495e;
   border-color: #222f3d;

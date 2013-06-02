@@ -20,7 +20,7 @@
         color: $primary-alt-color;
     }
 
-    .flavors-list {
+    .flavour-list {
         margin-bottom: 2em;
 
         li {
@@ -49,52 +49,56 @@
         margin-bottom: 2em;
     }
 
-        .slider-labels {
-            li {
-                text-align: center;
+    .slider{
+        margin-left:0px!important;
+    }
 
-                a {
-                    color: $secondary-alt-color;
-                }
-
-                &.selected a {
-                    color: $secondary-dark-color;;
-                }
-            }
-            li:first-child {
-                text-align: left;
-            }
-            li:last-child {
-                text-align: right;
-            }
-        }
-
-        // Slider controls
-        .slider .track {
-            position: relative;
-            height: 10px;
-            background: white;
-            padding: 0 10px;
-            margin-top: 10px;
-            border-bottom: 1px solid darken($secondary-color, 10%);
-        }
-        .slider .dragger {
-            position: absolute;
-            cursor: pointer;
-            @include border-radius(20px);
-            width: 20px;
-            height: 20px;
-            margin-top: -5px;
-            background: $primary-color;
-            color: white;
-            line-height: 20px;
+    .slider-labels {
+        li {
             text-align: center;
-            @include transition(left 0.3s);
 
-            &:hover {
-                background: $primary-alt-color;
+            a {
+                color: $secondary-alt-color;
+            }
+
+            &.selected a {
+                color: $secondary-dark-color;;
             }
         }
+        li:first-child {
+            text-align: left;
+        }
+        li:last-child {
+            text-align: right;
+        }
+    }
+
+    // Slider controls
+    .slider .track {
+        position: relative;
+        height: 10px;
+        background: white;
+        padding: 0 10px;
+        margin-top: 10px;
+        border-bottom: 1px solid darken($secondary-color, 10%);
+    }
+    .slider .dragger {
+        position: absolute;
+        cursor: pointer;
+        @include border-radius(20px);
+        width: 20px;
+        height: 20px;
+        margin-top: -5px;
+        background: $primary-color;
+        color: white;
+        line-height: 20px;
+        text-align: center;
+        @include transition(left 0.3s);
+
+        &:hover {
+            background: $primary-alt-color;
+        }
+    }
 
     .button {
         margin-top: 1em;
@@ -107,11 +111,13 @@
     .basket-table {
         .flavour-column {
             img {
-                float: left;
-                width: 4em;
+                width:100%;
+                max-width:8em;
+                //float: left;
+                //width: 6em;
             }
             div {
-                line-height: 4.5em;
+                //line-height: 4.5em;
             }
         }
     }

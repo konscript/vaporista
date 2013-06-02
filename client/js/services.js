@@ -80,7 +80,12 @@ angular.module('vaporista.services', ['LocalStorageModule']).
         sync();
       },
       removeItem: function(item){
-        shoppingCart.slice(shoppingCart.items.indexOf(item), 1);
+        $.each(shoppingCart.items, function(index, cartItem){
+          if(cartItem.item.id() === item.item.id()){
+            shoppingCart.items.splice(index, 1);
+          }
+        });
+
         sync();
       },
       decrementItem: function(item){
