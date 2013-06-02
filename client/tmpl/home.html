@@ -22,92 +22,108 @@
 </div>
 
 <div class="controls-wrapper wrapper striped">
-    <div class="row">
-        <div class="small-12 columns">
-            <span class="choose">choose</span>
-            <h2 class="center">Flavour</h2>
-        </div>
-    </div>
     <form name="picker">
-    <div class="row">
-        <div class="large-12 small-12 columns">
-            <ul class="flavour-list small-block-grid-3 large-block-grid-6 {{ selectedValues.flavour&&'child-selected' }}">
-                <li ng-repeat="flavour in productValues.flavour" ng-click="setSelected('flavour', flavour)" class="{{flavour==selectedValues.flavour&&'selected'||''}}">
-                    <img ng-src="{{ flavour.image }}">
-                    <span>{{ flavour.name }}</span>
-                </li>
-            </ul>
-            <input type="hidden" ng-model="selectedValues.flavour.name" required>
+        <div class="row control-wrapper">
+            <div class="small-12 large-9 columns">
+                <span class="choose">choose</span>
+                <h2>Flavour</h2>
+            </div>
+            <div class="small-12 large-3 columns">
+                <div class="control-description">All our flavours stems from natural sources (and are damn tasty!) <span class="typcn typcn-plus"></span></div>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="control-wrapper small-12 large-8 small-centered columns">
-            <span class="choose">choose</span>
-            <h2 class="center">Strength</h2>
-            <input ng-model="selectedValues.strength" simple-slider drag-type="strength" required>
+        <div class="row control-wrapper">
+            <div class="large-12 small-12 columns">
+                <ul class="flavour-list small-block-grid-3 large-block-grid-6 {{ selectedValues.flavour&&'child-selected' }}">
+                    <li ng-repeat="flavour in productValues.flavour" ng-click="setSelected('flavour', flavour)" class="{{flavour==selectedValues.flavour&&'selected'||''}}">
+                        <img ng-src="{{ flavour.image }}">
+                        <span>{{ flavour.name }}</span>
+                    </li>
+                </ul>
+                <input type="hidden" ng-model="selectedValues.flavour.name" required>
+            </div>
         </div>
-        <div class="control-wrapper small-12 large-8 small-centered columns">
-            <span class="choose">choose</span>
-            <h2 class="center">Mix</h2>
-            <input ng-model="selectedValues.base" simple-slider drag-type="base" required>
+        <div class="row control-wrapper">
+            <div class="small-12 large-3 columns">
+                <span class="choose">choose</span>
+                <h2>Strength</h2>
+            </div>
+            <div class="small-12 large-6 columns">
+                <input ng-model="selectedValues.strength" simple-slider drag-type="strength" required>
+            </div>
+            <div class="small-12 large-3 columns">
+                <div class="control-description">The nicotine level depends on the strength you're used to. <span class="typcn typcn-plus"></span></div>
+            </div>
         </div>
-        <div class="control-wrapper small-12 large-8 small-centered columns">
-            <span class="choose">choose</span>
-            <h2 class="center">Size</h2>
-            <input ng-model="selectedValues.size" simple-slider drag-type="size" required>
+        <div class="row control-wrapper">
+            <div class="small-12 large-3 columns">
+                <span class="choose">choose</span>
+                <h2>Base Mix</h2>
+            </div>
+            <div class="small-12 large-6 columns">
+                <input ng-model="selectedValues.base" simple-slider drag-type="base" required>
+            </div>
+            <div class="small-12 large-3 columns">
+                <div class="control-description">PG gives more flavour and throat hit, VG more vapour production. <span class="typcn typcn-plus"></span></div>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="large-4 small-8 small-centered columns">
-            <button type='button' class="button" ng-click="addToCart()" ng-disabled="picker.$invalid">Add to Basket</button>
+        <div class="row control-wrapper">
+            <div class="small-12 large-3 columns">
+                <span class="choose">choose</span>
+                <h2>Size</h2>
+            </div>
+            <div class="small-12 large-6 columns">
+                <input ng-model="selectedValues.size" simple-slider drag-type="size" required>
+            </div>
+            <div class="small-12 large-3 columns">
+                <div class="control-description">In average, most people consume 1ml of liquid per day of vaping. <span class="typcn typcn-plus"></span></div>
+            </div>
         </div>
-    </div>
+        <div class="row">
+            <div class="large-4 small-8 small-centered columns">
+                <button type='button' class="button" ng-click="addToCart()" ng-disabled="picker.$invalid">Add to Basket</button>
+            </div>
+        </div>
     </form>
     <div class="row">
         <div class="large-4 small-8 small-centered columns">
-            <div class="center"><i>You can add as many combinations as you want. When you're ready, proceed below.</i></div>
+            <div class="center" ng-show="picker.$invalid"><i>Please select a flavour above first.</i></div>
+            <div class="center" ng-hide="picker.$invalid"><i>Customize your own juices - you can add as many combinations as you want!</i></div>
         </div>
     </div>
 
 </div>
 
-<div class="checkout-wrapper wrapper">
+<div id="checkout-anchor" class="checkout-wrapper wrapper">
     <div class="row">
         <div class="large-12 small-12 small-centered columns">
             <h2 class="center">Your Basket</h2>
         </div>
-        <div class="large-8 small-12 small-centered columns">
-            <table class="basket-table small-12">
-                <thead>
-                    <tr>
-                        <th class="">Flavour</th>
-                        <th class="">Details</th>
-                        <th class="">Qty</th>
-                        <th class="">Price</th>
-                        <th class=""></th>
-                    </tr>
-                </thead>
+        <div class="large-10 small-12 small-centered columns">
+            <table class="basket-table small-12" ng-hide="shoppingCart.empty()">
                 <tbody>
                     <tr ng-repeat="cartItem in shoppingCart.get().items">
                         <td class="flavour-column">
                             <img ng-src="{{cartItem.item.flavour.image}}" />
-                            <div>{{cartItem.item.flavour.name}}</div>
                         </td>
-                        <td class="details-column">
-                            {{cartItem.item.strength.name}} - {{cartItem.item.size.name}}<br />
-                            {{cartItem.item.base.name}}
-                        </td>
-                        <td class="">{{cartItem.count}}</td>
-                        <td class="">42 EUR</td>
-                        <td class="">
-                            <button class="button" ng-click="removeFromCart(cartItem)">X</button>
+                        <td>{{cartItem.item.flavour.name}}</td>
+                        <td>{{cartItem.item.strength.name}}</td>
+                        <td>{{cartItem.item.base.name}}</td>
+                        <td>{{cartItem.item.size.name}}</td>
+                        <td>{{cartItem.count}} x</td>
+                        <td>42 EUR</td>
+                        <td class="remove">
+                            <a href="" ng-click="removeFromCart(cartItem)"><span class="typcn typcn-delete"></span></a>
                         </td>
                     </tr>
                 </tbody>
             </table>
+            <p class="small-12 columns center" ng-show="shoppingCart.empty()">
+                Your basket is currently empty. Fill something in it above!
+            </p>
         </div>
         <div class="large-4 small-8 small-centered columns">
-            <a href="/#/checkout" class="button large">Let's buy it!</a>
+            <button class="checkout-button button large" ng-disabled="shoppingCart.empty()">Let's buy it!</button>
         </div>
         <div class="large-4 small-8 small-centered columns">
             <ul class="small-block-grid-3 large-block-grid-6 columns center">

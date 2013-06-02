@@ -29,7 +29,7 @@
 
         <div class="container">
 
-            <div class="header-wrapper wrapper">
+            <div class="header-wrapper wrapper fixed">
                 <header class="row">
                     <a href="/#/about" class="about-link small-3 columns">
                         <div class="typcn typcn-heart"></div>
@@ -37,9 +37,9 @@
                     <a href="/#/home" class="small-6 columns center">
                         <h1>VAP<div class="logo"></div>RISTA</h1>
                     </a>
-                    <a href="" class="cart-link small-3 columns">
+                    <a href="" class="cart-link small-3 columns" ng-controller="CartCtrl" ng-click="clickCart()">
                         <div class="typcn typcn-shopping-cart"></div>
-                        <div class="cart-count" ng-controller="CartCtrl" ng-cloak>{{shoppingCart.count()}}</div>
+                        <div class="cart-count" ng-cloak>{{shoppingCart.count()}}</div>
                     </a>
                 </header>
             </div>
@@ -48,7 +48,10 @@
 
             <div class="footer-wrapper wrapper striped-dark">
                 <footer class="row">
-                    <div class="small-12 small-centered columns center"><a href="/#/about">Curious?</a></div>
+                    <div class="small-12 small-centered columns center">
+                        <span>Vaporista - Organic quality e-juice. Shipped with care from Denmark, Europe. </span>
+                        <a href="/#/about">Curious?</a>
+                    </div>
                 </footer>
             </div>
 

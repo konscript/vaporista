@@ -272,7 +272,7 @@ $button-border-width: 0px;
 $button-radius: $global-radius;
 
 // We use this to set default opacity for disabled buttons.
-// $button-disabled-opacity: 0.6;
+$button-disabled-opacity: 1;
 
 //
 // Dropdown Button Variables
@@ -913,8 +913,8 @@ $button-radius: $global-radius;
 //
 
 // These control the background color for the table and even rows
-$table-bg: $secondary-color;
-$table-even-row-bg: $secondary-color;
+$table-bg: white;
+$table-even-row-bg: white;
 
 // These control the table cell border style
 // $table-border-style: solid;
@@ -926,11 +926,11 @@ $table-head-bg: white;
 // $table-head-font-size: emCalc(14px);
 // $table-head-font-color: #222;
 // $table-head-font-weight: bold;
-// $table-head-padding: emCalc(8px) emCalc(10px) emCalc(10px);
+$table-head-padding: emCalc(14px) emCalc(18px) emCalc(18px);
 
 // These control the row padding and font styles
 // $table-row-padding: emCalc(9px) emCalc(10px);
-// $table-row-font-size: emCalc(14px);
+$table-row-font-size: emCalc(16px);
 // $table-row-font-color: #222;
 // $table-line-height: emCalc(18px);
 

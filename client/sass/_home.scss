@@ -6,18 +6,32 @@
 
 .controls-wrapper {
 
+    form {
+        margin-bottom: 0;
+    }
+
+    .control-wrapper {
+        margin-bottom: 2em;
+    }
+
     .choose {
         text-transform: uppercase;
-        text-align: center;
         display: block;
         line-height: 1;
         font-size: 0.8em;
+        line-height: 1.5em;
         color: $primary-alt-color;
     }
 
     h2 {
         margin-bottom: 0.5em;
         color: $primary-alt-color;
+        line-height: 1em;
+    }
+
+    .control-description {
+        font-size: 0.8em;
+        text-align: right;
     }
 
     .flavour-list {
@@ -33,6 +47,9 @@
         }
 
         &.child-selected {
+            li {
+                @include transition(opacity 300ms);
+            }
             li:not(.selected) {
                 opacity: 0.5;
                 filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
@@ -43,10 +60,6 @@
                 opacity: 1;
             }
         }
-    }
-
-    .control-wrapper {
-        margin-bottom: 2em;
     }
 
     .slider{
@@ -106,13 +119,24 @@
     }
 }
 
+@media #{$small-down} {
+    .controls-wrapper .choose,
+    .controls-wrapper h2 {
+        text-align: center;
+    }
+    .controls-wrapper .control-description {
+        text-align: center;
+    }
+}
+
 .checkout-wrapper {
 
     .basket-table {
+
         .flavour-column {
             img {
                 width:100%;
-                max-width:8em;
+                max-width:3em;
                 //float: left;
                 //width: 6em;
             }
@@ -120,10 +144,15 @@
                 //line-height: 4.5em;
             }
         }
-    }
 
-    .button {
+        .remove a {
+            font-size: 1.5em;
+            color: $complementary-color;
+        }
+    }
+}
+
+    .checkout-button {
         @include button-style($complementary-color);
         width: 100%;
     }
-}

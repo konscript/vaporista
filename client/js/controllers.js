@@ -48,4 +48,11 @@ angular.module('vaporista.controllers', []).
   }).
   controller("CartCtrl", function($scope, shoppingCart){
     $scope.shoppingCart = shoppingCart;
+
+    $scope.clickCart = function(){
+      $('html, body').animate({
+         scrollTop: $("#checkout-anchor").offset().top
+      }, 1000);
+    }
+
   });

@@ -1,6 +1,13 @@
+// Variables, helpers and mixins
+$small-down: "only screen and (max-width:"#{emCalc(768px)}")";
+
 // Structure and layout
 html, body, * {
     line-height: 1.5em;
+}
+
+.container {
+    padding-top: 6.7em;
 }
 
 .wrapper {
@@ -32,11 +39,19 @@ h2 {
 .button {
     @include border-radius(3px);
     box-shadow: none;
+
+    &.disabled,
+    &[disabled],
+    &.disabled:hover,
+    &[disabled]:hover, {
+        background-color: $secondary-alt-color;
+    }
 }
 
 // Header
 .header-wrapper {
     background-color: $primary-color;
+    padding: 2em 0;
 }
 
     h1 {
@@ -45,6 +60,7 @@ h2 {
         margin-top: 0;
         margin-bottom: 0;
         line-height: 1;
+        white-space: nowrap;
 
         &:hover {
             opacity: 0.7;
@@ -98,6 +114,7 @@ h2 {
 
 // Footer
 .footer-wrapper {
+    color: white;
 
     a {
         color: white;

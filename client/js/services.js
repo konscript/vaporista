@@ -6,6 +6,7 @@ angular.module('vaporista.services', ['LocalStorageModule']).
   factory('productService', function(){
     return {
       flavour : [
+        {name:"Apple", image:"/client/img/flavours/flavor-apple.png"},
         {name:"Strawberry", image:"/client/img/flavours/flavor-strawberry.png"},
         {name:"Blueberry", image:"/client/img/flavours/flavor-blueberry.png"},
         {name:"Citrus", image:"/client/img/flavours/flavor-citrus.png"},
@@ -114,6 +115,9 @@ angular.module('vaporista.services', ['LocalStorageModule']).
       },
       get: function(){
         return shoppingCart;
+      },
+      empty: function(){
+        return shoppingCart.items.length == 0 ? true : false;
       }
     }
 
