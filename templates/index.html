@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="/client/css/normalize.css">
-        <link rel="stylesheet" href="/client/css/app.css?v4">
+        <link rel="stylesheet" href="/client/css/app.css?v6">
 
         <link rel="icon" href="/client/img/favicons/favicon.ico">
         <link rel="apple-touch-icon" href="/client/img/favicons/apple-touch-icon.png" />
@@ -46,12 +46,14 @@
                     </a>
                     <a href="" class="cart-link small-3 columns" ng-controller="CartCtrl" ng-click="clickCart()">
                         <div class="typcn typcn-shopping-cart"></div>
-                        <div class="cart-count" ng-cloak>{{shoppingCart.count()}}</div>
+                        <div class="cart-count count-number-{{shoppingCart.count()}} ng-cloak" ng-cloak>{{shoppingCart.count()}}</div>
                     </a>
                 </header>
             </div>
 
-            <div ng-view class="main-wrapper">Loading</div>
+            <div ng-view class="main-wrapper">
+                <div class="global-loading"><i>Hold on to your vapors, we're loading!<i></div>
+            </div>
 
             <div class="footer-wrapper wrapper striped-dark">
                 <footer class="row">
@@ -71,23 +73,24 @@
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
         -->
         <script src="/client/js/vendor/angular/angular.js"></script>
-        <script src="/client/js/app.js?v4"></script>
-        <script src="/client/js/services.js?v4"></script>
-        <script src="/client/js/controllers.js?v4"></script>
-        <script src="/client/js/filters.js?v4"></script>
-        <script src="/client/js/directives.js?v4"></script>
-        <script src="/client/js/localStorageModule.js?v4"></script>
+        <script src="/client/js/app.js?v6"></script>
+        <script src="/client/js/services.js?v6"></script>
+        <script src="/client/js/controllers.js?v6"></script>
+        <script src="/client/js/filters.js?v6"></script>
+        <script src="/client/js/directives.js?v6"></script>
+        <script src="/client/js/localStorageModule.js?v6"></script>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
         <script src="/client/js/plugins.js"></script>
-        <script src="/client/js/vendor/simple-slider.js?v4"></script>
-        <script src="/client/js/vendor/creditcardvalidator/jquery.creditCardValidator.js?v4"></script>
+        <script src="/client/js/vendor/simple-slider.js?v6"></script>
+        <script src="/client/js/vendor/creditcardvalidator/jquery.creditCardValidator.js?v6"></script>
+        <script src="/client/js/vendor/foundation/foundation.forms.js?v6"></script>
 
-        <script src="/client/js/models/flavour.js?v4"></script>
-        <script src="/client/js/models/store.js?v4"></script>
-        <script src="/client/js/models/shoppingcart.js?v4"></script>
-        <script src="/client/js/models/item.js?v4"></script>
+        <script src="/client/js/models/flavour.js?v6"></script>
+        <script src="/client/js/models/store.js?v6"></script>
+        <script src="/client/js/models/shoppingcart.js?v6"></script>
+        <script src="/client/js/models/item.js?v6"></script>
 
         <script type="text/javascript">
           var PAYMILL_PUBLIC_KEY = '443368146777979106b2ce2042c289a5';

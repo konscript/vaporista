@@ -88,6 +88,9 @@ h2 {
             line-height: 0.7em;
             padding: 5px;
 
+            &.count-number-0 {
+                display: none;
+            }
         }
 
     .row h1.columns {
@@ -105,6 +108,12 @@ h2 {
             //background-color: white;
             //box-shadow: 0 0 0 0.15em $primary-color inset;
         }
+
+// Main
+.global-loading {
+    text-align: center;
+    margin: 3em auto;
+}
 
 // Footer
 .footer-wrapper {

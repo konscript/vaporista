@@ -6220,13 +6220,17 @@ h1:hover {
   line-height: 0.7em;
   padding: 5px;
 }
+/* line 91, ../sass/_global.scss */
+.cart-count.count-number-0 {
+  display: none;
+}
 
-/* line 93, ../sass/_global.scss */
+/* line 96, ../sass/_global.scss */
 .row h1.columns {
   padding: 0;
 }
 
-/* line 97, ../sass/_global.scss */
+/* line 100, ../sass/_global.scss */
 .header-wrapper .logo {
   -webkit-border-radius: 0.8em 0 0.8em 0.8em;
   -moz-border-radius: 0.8em 0 0.8em 0.8em;
@@ -6245,17 +6249,23 @@ h1:hover {
   margin: 0 0.05em -0.05em 0.05em;
 }
 
-/* line 110, ../sass/_global.scss */
+/* line 113, ../sass/_global.scss */
+.global-loading {
+  text-align: center;
+  margin: 3em auto;
+}
+
+/* line 119, ../sass/_global.scss */
 .footer-wrapper {
   color: white;
 }
-/* line 113, ../sass/_global.scss */
+/* line 122, ../sass/_global.scss */
 .footer-wrapper a {
   color: white;
   text-decoration: underline;
 }
 
-/* line 119, ../sass/_global.scss */
+/* line 128, ../sass/_global.scss */
 .footer-wrapper .logo {
   font-size: 5em;
   -webkit-border-radius: 0.8em 0 0.8em 0.8em;
@@ -6271,7 +6281,7 @@ h1:hover {
   display: inline-block;
   width: 0.75em;
   height: 0.75em;
-  border: 0.12em solid #222f3d;
+  border: 0.12em solid #2b3c4e;
   margin: 0 0 0.2em 0;
 }
 
@@ -6463,7 +6473,17 @@ h1:hover {
   color: #34495e;
 }
 
-/* line 186, ../sass/_home.scss */
+/* line 188, ../sass/_home.scss */
+.customer-form-wrapper input {
+  width: auto;
+  margin-right: 0.6em;
+}
+/* line 193, ../sass/_home.scss */
+.customer-form-wrapper .inline {
+  float: left;
+}
+
+/* line 198, ../sass/_home.scss */
 .payment-form-wrapper {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -6472,9 +6492,10 @@ h1:hover {
   border-radius: 3px;
   padding: 1em;
   background-size: 30px 30px;
-  background-image: linear-gradient(45deg, #70ccae 25%, #a8e0ce 25%, #a8e0ce 50%, #70ccae 50%, #70ccae 75%, #a8e0ce 75%, #a8e0ce);
+  background-image: linear-gradient(45deg, #70ccae 25%, #96d9c3 25%, #96d9c3 50%, #70ccae 50%, #70ccae 75%, #96d9c3 75%, #96d9c3);
+  background-attachment: fixed;
 }
-/* line 201, ../sass/_home.scss */
+/* line 214, ../sass/_home.scss */
 .payment-form-wrapper .payment-form {
   position: relative;
   padding: 3em 1.5em;
@@ -6483,19 +6504,22 @@ h1:hover {
   margin-bottom: 0;
   overflow: hidden;
 }
-/* line 209, ../sass/_home.scss */
+/* line 222, ../sass/_home.scss */
 .payment-form-wrapper .payment-form .secure-icon {
   position: absolute;
   right: 3px;
-  top: -5px;
-  font-size: 2em;
+  top: 0px;
   color: #70ccae;
 }
-/* line 217, ../sass/_home.scss */
+/* line 228, ../sass/_home.scss */
+.payment-form-wrapper .payment-form .secure-icon .typcn {
+  font-size: 2em;
+}
+/* line 233, ../sass/_home.scss */
 .payment-form-wrapper .payment-form input {
   width: auto;
 }
-/* line 221, ../sass/_home.scss */
+/* line 237, ../sass/_home.scss */
 .payment-form-wrapper .payment-form .card-number {
   -webkit-transition: width 0.3s;
   -moz-transition: width 0.3s;
@@ -6504,7 +6528,7 @@ h1:hover {
   float: left;
   width: 18.5em;
 }
-/* line 227, ../sass/_home.scss */
+/* line 243, ../sass/_home.scss */
 .payment-form-wrapper .payment-form .current-card-indicator {
   -webkit-transition: width 0.3s;
   -moz-transition: width 0.3s;
@@ -6514,7 +6538,7 @@ h1:hover {
   overflow: hidden;
   width: 3.7em;
 }
-/* line 234, ../sass/_home.scss */
+/* line 250, ../sass/_home.scss */
 .payment-form-wrapper .payment-form .paycard {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -6525,38 +6549,38 @@ h1:hover {
   border: 1px solid #d6d6d6;
   display: block;
 }
-/* line 242, ../sass/_home.scss */
+/* line 258, ../sass/_home.scss */
 .payment-form-wrapper .payment-form .card-unknown .card-number {
   width: 100%;
 }
-/* line 246, ../sass/_home.scss */
+/* line 262, ../sass/_home.scss */
 .payment-form-wrapper .payment-form .card-unknown .current-card-indicator {
   width: 0;
 }
-/* line 252, ../sass/_home.scss */
+/* line 268, ../sass/_home.scss */
 .payment-form-wrapper .payment-form .card-expiry-month,
 .payment-form-wrapper .payment-form .card-expiry-year {
   float: left;
   margin-right: 0.5em;
 }
-/* line 256, ../sass/_home.scss */
+/* line 272, ../sass/_home.scss */
 .payment-form-wrapper .payment-form .form-expiry-row {
   float: left;
 }
-/* line 259, ../sass/_home.scss */
+/* line 275, ../sass/_home.scss */
 .payment-form-wrapper .payment-form .form-cvc-row {
   float: right;
 }
-/* line 263, ../sass/_home.scss */
+/* line 279, ../sass/_home.scss */
 .payment-form-wrapper .payment-form .card-cvc {
   width: 4.2em;
 }
-/* line 267, ../sass/_home.scss */
+/* line 283, ../sass/_home.scss */
 .payment-form-wrapper .payment-form .card-holdername {
   width: 100%;
 }
 
-/* line 273, ../sass/_home.scss */
+/* line 289, ../sass/_home.scss */
 .checkout-button {
   background-color: #34495e;
   border-color: #222f3d;
@@ -6573,7 +6597,7 @@ h1:hover {
   color: white;
 }
 
-/* line 279, ../sass/_home.scss */
+/* line 295, ../sass/_home.scss */
 .weaccept-paycard {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;

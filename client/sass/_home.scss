@@ -183,6 +183,18 @@
     }
 }
 
+.customer-form-wrapper {
+
+    input {
+        width: auto;
+        margin-right: 0.6em;
+    }
+
+    .inline {
+        float: left;
+    }
+}
+
 .payment-form-wrapper {
     @include border-radius($global-radius);
     padding: 1em;
@@ -190,13 +202,14 @@
     background-image: linear-gradient(
         45deg,
         $primary-color 25%,
-        lighten($primary-color, 15%) 25%,
-        lighten($primary-color, 15%) 50%,
+        lighten($primary-color, 10%) 25%,
+        lighten($primary-color, 10%) 50%,
         $primary-color 50%,
         $primary-color 75%,
-        lighten($primary-color, 15%) 75%,
-        lighten($primary-color, 15%)
+        lighten($primary-color, 10%) 75%,
+        lighten($primary-color, 10%)
     );
+    background-attachment:fixed;
 
     .payment-form {
         position: relative;
@@ -209,9 +222,12 @@
         .secure-icon {
             position: absolute;
             right: 3px;
-            top: -5px;
-            font-size: 2em;
+            top: 0px;
             color: $primary-color;
+
+            .typcn{
+                font-size: 2em;
+            }
         }
 
         input {

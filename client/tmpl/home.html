@@ -2,21 +2,26 @@
     <div class="row hide-for-medium-up">
         <section class="large-4 columns">
             <h2 class="text-center">Organic Tasty E-juice</h2>
-            <div>Arnold ipsum. C-coo-ool. Knock knock. Hasta la vista baby. I'm the party pooper. You're not going to have your mommies right behind you to wipe your little tushies. Now listen to me very carefully. I'm going to ask you a bunch of questions I want to have them answered immediately.</div>
+            <div class="text-justify">
+                <p>High-grade quality e-liquid for vapor lovers, by vapor lovers.</p>
+                <p>We know how good quality e-juice should be like. Rich in depth, taste and without articifical additives. All our juices stems from natural sources, mother earth herself.</p>
+                <p>We believe in quality and convenience throughout the whole experience, from browsing and buying to everyday use.</p>
+                <p>Our suppliers are strictly certified and inspected regularly to ensure only the highest quality products.</p>
+            </div>
         </section>
     </div>
     <div class="row hide-for-small">
         <section class="large-4 columns">
             <h2 class="text-center">Organic & Tasty</h2>
-            <div>As vapor enthusiasts, we know how good quality e-juice should taste like. Rich in depth and without articifical coloring or flavours, all our juices stems from natural sources without harmful additives. Every drop of juice is carefully produced and tested to assure a pleasent vaping experience - just like it should be.</div>
+            <div class="text-justify">As vapor enthusiasts, we know how good quality e-juice should be like. Rich in depth, taste and without articifical additives. All our juices stems from natural sources, mother earth herself. Every drop is carefully produced and tested to assure the most pleasent vaping experience - as it should be.</div>
         </section>
         <section class="large-4 columns">
             <h2 class="text-center">Premium e-liquid for connoisseurs</h2>
-            <div>E-cigarettes and vaporing is replacing analogue smoking around the world and for good reasons - it's less harmful, more pleasent and increasingly affordable. We believe in quality and convenience throughout the whole experience, from browsing and buying to everyday use.</div>
+            <div class="text-justify">E-cigarettes and vaporing is replacing analogue smoking around the world and for good reasons - it's less harmful, more pleasent and increasingly affordable. We believe in quality and convenience throughout the whole experience, from browsing and buying to everyday use.</div>
         </section>
         <section class="large-4 columns">
             <h2 class="text-center">Quality & Safety</h2>
-            <div>Your health is precious and is our highest concern. Our suppliers are strictly certified and inspected regularly to ensure only the highest quality products. It's produced in EU and all raw materials are as natural as they get. No chinese factories here, just high-grade e-juice for the quality-minded vaporista.</div>
+            <div class="text-justify">Your health is precious and our highest concern. Our suppliers are strictly certified and inspected regularly to ensure only the highest quality products. It's produced in EU and all raw materials are as natural as they get. No chinese factories here, just high-grade e-juice for the quality-minded vaporista.</div>
         </section>
     </div>
 </div>
@@ -29,7 +34,10 @@
                 <h2>Flavour</h2>
             </div>
             <div class="small-12 large-6 columns">
-                <div class="streamer"><h3>Hooray, we just launched! <em><span class="typcn typcn-tags"></span> 20% off</em> for early bird buyers</h3></div>
+                <div class="streamer">
+                    <h3><span class="typcn typcn-info-outline"> Ohoi! <em>We haven't launched just yet!</em> Come back soon.</h3>
+                    <h3 class="hide">Hooray, we just launched! <em><span class="typcn typcn-tags"></span> 20% off</em> for early bird buyers</h3>
+                </div>
             </div>
             <div class="small-12 large-3 columns hide-for-small">
                 <div class="control-description">All our flavours stems from natural sources (and are damn tasty!) <span class="typcn typcn-plus"></span></div>
@@ -148,11 +156,49 @@
     </div>
     <hr /><br />
     <div class="row">
-        <div class="small-12 small-centered large-6 columns">
+        <div class="small-12 large-6 columns">
+            <div class="customer-form-wrapper">
+            <form class="customer-form row" id="customer-form" action="#" method="POST">
+
+                <div class="form-row small-12 columns">
+                    <h2 class="">Tell us about yourself</h2>
+                </div>
+
+                <div class="form-row small-12 columns">
+                    <label>Full name</label>
+                    <input class="customer-fullname" type="text" size="50" />
+                </div>
+
+                <div class="form-row small-12 columns">
+                    <label>Address</label>
+                    <input class="customer-address" type="text" placeholder="Street name and number" size="50" />
+                    <input class="customer-address inline" type="text" placeholder="Zip code" size="10" />
+                    <input class="customer-address inline" type="text" placeholder="City" size="35" />
+                    <input class="customer-address" type="text" placeholder="Country" size="50" />
+                </div>
+
+                <div class="form-row small-12 columns">
+                    <label>Contact</label>
+                    <input class="customer-phone inline" type="text" placeholder="Phone" size="22" />
+                    <input class="customer-email inline" type="text" placeholder="E-mail" size="23" />
+                </div>
+
+                <div class="form-row small-12 columns">
+                    <label>Leave us a comment</label>
+                    <input class="customer-phone" type="text" placeholder="" size="50" />
+                </div>
+
+            </form>
+            </div>
+        </div>
+        <div class="small-12 large-6 columns">
             <div class="payment-form-wrapper">
             <form class="payment-form" id="payment-form" action="#" method="POST">
 
-                <div class="secure-icon"><span class="typcn typcn-lock-closed"></span></div>
+                <div class="secure-icon">
+                    <small>SECURE PAYMENT</small>
+                    <span class="typcn typcn-lock-closed"></span>
+                </div>
 
                 <input ng-model="shoppingCart.checkoutParams.amount" class="card-amount-int" type="hidden" value="15" />
                 <input ng-model="shoppingCart.checkoutParams.currency" class="card-currency" type="hidden" value="EUR" />
@@ -184,8 +230,9 @@
                     <input ng-model="shoppingCart.checkoutParams.name" class="card-holdername" type="text" size="4" />
                 </div>
 
-                <div class="small-12 columns">
-                    <button type="submit" class="checkout-button button large" ng-disabled="shoppingCart.isEmpty()" ng-click="shoppingCart.checkout('paymill', true)"><span class="typcn typcn-credit-card"></span> Let's buy it!</button>
+                <div class="small-12 columns text-center">
+                    <label><input type="checkbox" class="terms-checkbox custom checkbox" /> Yes, I agree to the <a href="/#/terms" target="_blank">Terms & Conditions</a></label>
+                    <button type="submit" class="checkout-button button large" ng-disabled="shoppingCart.isEmpty()" ng-click="shoppingCart.checkout('paymill', true)">Pay €{{shoppingCart.total()}} EUR!</button>
                 </div>
 
             </form>
@@ -203,7 +250,7 @@
             <img src="/client/img/paycards/mastercard.png" class="weaccept-paycard" alt="We accept Mastercard" />
         </div>
         <div class="large-4 small-12 columns">
-            All payments are <span class="typcn typcn-lock-closed-outline"></span>SSL encrypted and PCI-compliant. We care for your rights, read our <a href="/#/terms">Terms & Conditions</a>.
+            Payments are <span class="typcn typcn-lock-closed-outline"></span>SSL encrypted and PCI-compliant. No payment card information is saved - don't worry, be happy.
         </div>
     </div>
 </div>
