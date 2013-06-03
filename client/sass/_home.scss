@@ -187,3 +187,9 @@
         @include button-style($complementary-color);
         width: 100%;
     }
+
+    .paycard {
+        @include border-radius(3px);
+        width: 3em;
+        border: 1px solid $secondary-alt-color;
+    }

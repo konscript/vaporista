@@ -148,23 +148,21 @@
     </div>
     <hr /><br />
     <div class="row">
-        <div class="large-4 small-8 columns">
+        <div class="large-4 small-12 columns">
             Orders will be shipped from Denmark within 2-3 business days. Expect delivery within maximum a week.
         </div>
-        <div class="large-4 small-8 columns">
-            <button class="checkout-button button large" ng-disabled="shoppingCart.isEmpty()" ng-click="checkout()">Let's buy it!</button>
+        <div class="large-4 small-12 columns">
+            <button class="checkout-button button large" ng-disabled="shoppingCart.isEmpty()" ng-click="checkout()"><span class="typcn typcn-credit-card"></span> Let's buy it!</button>
         </div>
-        <div class="large-4 small-8 columns">
-            All payments are <span class="typcn typcn-lock-closed-outline"></span>SSL encrypted and PCI-compliant. We care for your rights, read our <a href="">Terms & Conditions</a>.
+        <div class="large-4 small-12 columns">
+            All payments are <span class="typcn typcn-lock-closed-outline"></span>SSL encrypted and PCI-compliant. We care for your rights, read our <a href="/#/terms">Terms & Conditions</a>.
         </div>
     </div>
     <div class="row">
-        <div class="large-4 small-8 small-centered columns">
-            <ul class="small-block-grid-3 large-block-grid-3 columns text-center">
-                <li><img src="/client/img/paycards/visa.png" alt="Visa" /></li>
-                <li><img src="/client/img/paycards/mastercard.png" alt="Visa" /></li>
-                <li><img src="/client/img/paycards/maestro.png" alt="Visa" /></li>
-            </ul>
+        <div class="large-4 small-8 small-centered columns text-center">
+            <small>We accept</small><br />
+            <img src="/client/img/paycards/visa.png" class="paycard" alt="We accept Visa" />
+            <img src="/client/img/paycards/mastercard.png" class="paycard" alt="We accept Mastercard" />
         </div>
     </div>
 </div>

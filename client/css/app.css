@@ -6227,7 +6227,7 @@ h1:hover {
 }
 
 /* line 97, ../sass/_global.scss */
-.logo {
+.header-wrapper .logo {
   -webkit-border-radius: 0.8em 0 0.8em 0.8em;
   -moz-border-radius: 0.8em 0 0.8em 0.8em;
   -ms-border-radius: 0.8em 0 0.8em 0.8em;
@@ -6253,6 +6253,26 @@ h1:hover {
 .footer-wrapper a {
   color: white;
   text-decoration: underline;
+}
+
+/* line 119, ../sass/_global.scss */
+.footer-wrapper .logo {
+  font-size: 5em;
+  -webkit-border-radius: 0.8em 0 0.8em 0.8em;
+  -moz-border-radius: 0.8em 0 0.8em 0.8em;
+  -ms-border-radius: 0.8em 0 0.8em 0.8em;
+  -o-border-radius: 0.8em 0 0.8em 0.8em;
+  border-radius: 0.8em 0 0.8em 0.8em;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  display: inline-block;
+  width: 0.75em;
+  height: 0.75em;
+  border: 0.12em solid #222f3d;
+  margin: 0 0 0.2em 0;
 }
 
 /* line 2, ../sass/_home.scss */
@@ -6457,6 +6477,17 @@ h1:hover {
 /* line 132, ../../../../../../var/lib/gems/1.9.1/gems/zurb-foundation-4.1.6/scss/foundation/components/_buttons.scss */
 .checkout-button:hover, .checkout-button:focus {
   color: white;
+}
+
+/* line 191, ../sass/_home.scss */
+.paycard {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  width: 3em;
+  border: 1px solid #d6d6d6;
 }
 
 /* line 1, ../sass/_about.scss */

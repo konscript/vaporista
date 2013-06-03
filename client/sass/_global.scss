@@ -94,7 +94,7 @@ h2 {
         padding: 0;
     }
 
-        .logo {
+        .header-wrapper .logo {
             @include border-radius(0.8em 0 0.8em 0.8em);
             @include rotate(-45deg);
             display: inline-block;
@@ -115,3 +115,14 @@ h2 {
         text-decoration: underline;
     }
 }
+
+    .footer-wrapper .logo {
+            font-size: 5em;
+            @include border-radius(0.8em 0 0.8em 0.8em);
+            @include rotate(-45deg);
+            display: inline-block;
+            width: 0.75em;
+            height: 0.75em;
+            border: 0.12em solid $complementary-alt-color;
+            margin: 0 0 0.2em 0;
+        }
