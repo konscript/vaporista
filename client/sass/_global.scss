@@ -23,12 +23,6 @@ html, body, * {
     background-color: $complementary-color;
 }
 
-.center {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 // Elements
 h2 {
     margin-top: 0;
@@ -89,7 +83,7 @@ h2 {
             background-color: $complementary-color;
             border-radius: 15px;
             color: white;
-            width: 15px;
+            min-width: 15px;
             height: 15px;
             line-height: 0.7em;
             padding: 5px;
