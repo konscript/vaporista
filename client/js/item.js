@@ -1,9 +1,18 @@
 var Item = function(item){
-    this.flavour = item.flavour;
-    this.strength = item.strength;
-    this.base = item.base;
-    this.size = item.size;
-    this.qty = item.qty || 1;
+    if(item){
+        this.flavour = new Flavour(item.flavour);
+        this.strength = new Strength(item.strength);
+        this.base = new Base (item.base);
+        this.size = new Size(item.size);
+        this.qty = item.qty || 1;
+    }else{
+        this.flavour = undefined;
+        this.strength = undefined;
+        this.base = undefined;
+        this.size = undefined;
+        this.qty = 0;
+    }
+
 };
 
 Item.prototype.id = function(){
@@ -22,4 +31,20 @@ Item.prototype.toJSON = function(){
 
 Item.prototype.setQty = function(qty){
     this.qty = qty;
+};
+
+Item.prototype.valid = function(qty){
+    if($scope.selectedValues.flavour && $scope.selectedValues.strength && $scope.selectedValues.base && $scope.selectedValues.size){
+        return true;
+    }
+    return false;
+};
+
+Item.prototype.setSelected = function(type, value){
+    if(this[type] === value){
+      this[type] = null;
+    }else{
+      this[type] = value;
+      mixpanel.track("Selected " + type + " value");
+    }
 };

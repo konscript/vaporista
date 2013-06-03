@@ -1,6 +1,6 @@
-var Flavour = function(name, image){
-    this.name = name;
-    this.image = image;
+var Flavour = function(proprties){
+    this.name = proprties.name;
+    this.image = proprties.image;
 };
 
 Flavour.prototype.toJSON = function(){
@@ -10,9 +10,9 @@ Flavour.prototype.toJSON = function(){
     };
 };
 
-var Strength = function(name, image){
-    this.name = name;
-    this.image = image;
+var Strength = function(proprties){
+    this.name = proprties.name;
+    this.image = proprties.image;
 };
 
 Strength.prototype.toJSON = function(){
@@ -22,9 +22,9 @@ Strength.prototype.toJSON = function(){
     };
 };
 
-var Base = function(name, image){
-    this.name = name;
-    this.image = image;
+var Base = function(proprties){
+    this.name = proprties.name;
+    this.image = proprties.image;
 };
 
 Base.prototype.toJSON = function(){
@@ -34,9 +34,9 @@ Base.prototype.toJSON = function(){
     };
 };
 
-var Size = function(name, image){
-    this.name = name;
-    this.image = image;
+var Size = function(proprties){
+    this.name = proprties.name;
+    this.image = proprties.image;
 };
 
 Size.prototype.toJSON = function(){

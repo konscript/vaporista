@@ -7,9 +7,9 @@ angular.module('vaporista.directives', []).
         restrict: 'A',
         link: function postLink(scope, elm, attrs) {
             var type = attrs.dragType;
-            var steps = scope.productValues[type].length;
-            var values = $.map(scope.productValues[type],function(val,index){return index;});
-            var labels = scope.productValues[type];
+            var steps = scope.store[type].length;
+            var values = $.map(scope.store[type],function(val,index){return index;});
+            var labels = scope.store[type];
             var labelContainer = $("<ul class='slider-labels small-block-grid-" + steps + " large-block-grid-" + steps + "'></ul>");
 
             $.each(labels, function(index, label){
@@ -35,7 +35,9 @@ angular.module('vaporista.directives', []).
                 var selected = data.value.toFixed();
                 labelContainer.children().removeClass("selected");
                 $(labelContainer.children()[selected]).addClass("selected");
-                scope.setSelected(type, scope.productValues[type][selected]);
+                scope.item.setSelected(type.substring(0,type.length - 1), scope.store[type][selected]);
+
+                console.log(scope.item);
             }).simpleSlider({
                 snap: true,
                 allowedValues: values
