@@ -37,13 +37,13 @@
         </div>
         <div class="row control-wrapper">
             <div class="large-12 small-12 columns">
-                <ul class="flavour-list small-block-grid-3 large-block-grid-6 {{ selectedValues.flavour&&'child-selected' }}">
-                    <li ng-repeat="flavour in productValues.flavour" ng-click="setSelected('flavour', flavour)" class="{{flavour==selectedValues.flavour&&'selected'||''}}">
+                <ul class="flavour-list small-block-grid-3 large-block-grid-6 {{ item.flavour&&'child-selected' }}">
+                    <li ng-repeat="flavour in store.flavours" ng-click="item.setSelected('flavour', flavour)" class="{{flavour==item.flavour&&'selected'||''}}">
                         <img ng-src="{{ flavour.image }}">
                         <span>{{ flavour.name }}</span>
                     </li>
                 </ul>
-                <input type="hidden" ng-model="selectedValues.flavour.name" required>
+                <input type="hidden" ng-model="item.flavour.name" required>
             </div>
         </div>
         <div class="row control-wrapper">
@@ -52,7 +52,7 @@
                 <h2>Strength</h2>
             </div>
             <div class="small-12 large-6 columns">
-                <input ng-model="selectedValues.strength" simple-slider drag-type="strength" required>
+                <input ng-model="item.strength" simple-slider drag-type="strengths" required>
             </div>
             <div class="small-12 large-3 columns hide-for-small">
                 <div class="control-description">The nicotine level depends on the strength you're used to. <span class="typcn typcn-plus"></span></div>
@@ -64,7 +64,7 @@
                 <h2>Base Mix</h2>
             </div>
             <div class="small-12 large-6 columns">
-                <input ng-model="selectedValues.base" simple-slider drag-type="base" required>
+                <input ng-model="item.base" simple-slider drag-type="bases" required>
             </div>
             <div class="small-12 large-3 columns hide-for-small">
                 <div class="control-description">PG gives more flavour and throat hit, VG more vapour production. <span class="typcn typcn-plus"></span></div>
@@ -76,7 +76,7 @@
                 <h2>Size</h2>
             </div>
             <div class="small-12 large-6 columns">
-                <input ng-model="selectedValues.size" simple-slider drag-type="size" required>
+                <input ng-model="item.size" simple-slider drag-type="sizes" required>
             </div>
             <div class="small-12 large-3 columns hide-for-small">
                 <div class="control-description">In average, most people consume 1ml of liquid per day of vaping. <span class="typcn typcn-plus"></span></div>
@@ -84,7 +84,7 @@
         </div>
         <div class="row">
             <div class="large-4 small-8 small-centered columns">
-                <button type='button' class="button" ng-click="addToCart()" ng-disabled="picker.$invalid">Add to Basket</button>
+                <button type='button' class="button" ng-click="shoppingCart.incrementItem(item)" ng-disabled="picker.$invalid">Add to Basket</button>
             </div>
         </div>
     </form>
@@ -103,30 +103,30 @@
             <h2 class="center">Your Basket</h2>
         </div>
         <div class="large-10 small-12 small-centered columns">
-            <table class="basket-table small-12" ng-hide="shoppingCart.empty()">
+            <table class="basket-table small-12" ng-hide="shoppingCart.isEmpty()">
                 <tbody>
-                    <tr ng-repeat="cartItem in shoppingCart.get().items">
+                    <tr ng-repeat="cartItem in shoppingCart.items">
                         <td class="flavour-column">
-                            <img ng-src="{{cartItem.item.flavour.image}}" />
+                            <img ng-src="{{cartItem.flavour.image}}" />
                         </td>
-                        <td>{{cartItem.item.flavour.name}}</td>
-                        <td>{{cartItem.item.strength.name}}</td>
-                        <td>{{cartItem.item.base.name}}</td>
-                        <td>{{cartItem.item.size.name}}</td>
-                        <td>{{cartItem.count}} x</td>
+                        <td>{{cartItem.flavour.name}}</td>
+                        <td>{{cartItem.strength.name}}</td>
+                        <td>{{cartItem.base.name}}</td>
+                        <td>{{cartItem.size.name}}</td>
+                        <td>{{cartItem.qty}} x</td>
                         <td>42 EUR</td>
                         <td class="remove">
-                            <a href="" ng-click="removeFromCart(cartItem)"><span class="typcn typcn-delete"></span></a>
+                            <a href="" ng-click="shoppingCart.removeItem(cartItem)"><span class="typcn typcn-delete"></span></a>
                         </td>
                     </tr>
                 </tbody>
             </table>
-            <p class="small-12 columns center" ng-show="shoppingCart.empty()">
+            <p class="small-12 columns center" ng-show="shoppingCart.isEmpty()">
                 Your basket is currently empty. Fill something in it above!
             </p>
         </div>
         <div class="large-4 small-8 small-centered columns">
-            <button class="checkout-button button large" ng-disabled="shoppingCart.empty()" ng-click="checkout()">Let's buy it!</button>
+            <button class="checkout-button button large" ng-disabled="shoppingCart.isEmpty()" ng-click="checkout()">Let's buy it!</button>
         </div>
         <div class="large-4 small-8 small-centered columns">
             <ul class="small-block-grid-3 large-block-grid-6 columns center">
