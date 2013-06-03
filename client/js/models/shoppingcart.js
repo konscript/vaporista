@@ -10,6 +10,16 @@ var ShoppingCart = function(localStorageService) {
       });
     }
   }
+
+  this.checkoutParams = {
+    cardAmountInt: this.total(),
+    currency: "EUR",
+    cardNumber: null,
+    cardCvc: null,
+    cardHoldername: null,
+    cardExpiryMonth: null,
+    cardExpiryYear: null
+  };
 };
 
 ShoppingCart.prototype.sync = function() {
@@ -130,7 +140,18 @@ ShoppingCart.prototype.checkout = function(serviceName, clearCart) {
 
 // check out using PayPal; for details see:
 // http://www.paypal.com/cgi-bin/webscr?cmd=p/pdn/howto_checkout-outside
-ShoppingCart.prototype.checkoutPaymill = function(parms, clearCart) {
+ShoppingCart.prototype.checkoutPaymill = function(params, clearCart) {
+  paymill.createToken({
+    number:         params['card-number'],       // required
+    exp_month:      params['card-expiry-month'], // required
+    exp_year:       params['card-expiry-year'],  // required
+    cvc:            params['card-cvc'],          // required
+    amount_int:     params['card-amount-int'],   // required, z.B. "4900" for 49.00 EUR
+    currency:       params['currency'],          // required
+    cardholder:     params['card-holdername']   // optional
+  },
+  paymillResponseHandler);
+
 
   // global data
   // var data = {

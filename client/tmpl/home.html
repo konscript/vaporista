@@ -166,5 +166,31 @@
                 <li><img src="/client/img/paycards/maestro.png" alt="Visa" /></li>
             </ul>
         </div>
+
+        <div class="large-12 small-12 columns">
+            <form id="payment-form" action="#" method="POST">
+
+                <input ng-model="shoppingCart.checkoutParams.amount" class="card-amount-int" type="hidden" value="15" />
+                <input ng-model="shoppingCart.checkoutParams.currency" class="card-currency" type="hidden" value="EUR" />
+
+                <div class="form-row"><label>Card number</label>
+                <input ng-model="shoppingCart.checkoutParams.cardNr" class="card-number" type="text" size="20" /></div>
+
+                <div class="form-row"><label>CVC</label>
+                <input ng-model="shoppingCart.checkoutParams.CVC" class="card-cvc" type="text" size="4" /></div>
+
+                <div class="form-row"><label>Name</label>
+                <input ng-model="shoppingCart.checkoutParams.name" class="card-holdername" type="text" size="4" /></div>
+
+                <div class="form-row"><label>Expiry date (MM/YYYY)</label>
+                <input ng-model="shoppingCart.checkoutParams.exp_m" class="card-expiry-month" type="text" size="2" />
+                <span></span>
+                <input ng-model="shoppingCart.checkoutParams.exp_y" class="card-expiry-year" type="text" size="4" /></div>
+
+
+                <button class="submit-button" type="submit" ng-click="shoppingCart.checkout('paymill', true)">Pay</button>
+
+            </form>
+        </div>
     </div>
 </div>
