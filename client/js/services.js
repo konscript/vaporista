@@ -22,21 +22,21 @@ angular.module('vaporista.services', ['LocalStorageModule']).
     ]);
 
     store.addStrengths([
-      new Strength({name:"8 mg", price: 10}),
-      new Strength({name:"12 mg", price: 20}),
-      new Strength({name:"18 mg", price: 30})
+      new Strength({name:"0 mg"}),
+      new Strength({name:"6 mg"}),
+      new Strength({name:"12 mg"}),
+      new Strength({name:"18 mg"})
     ]);
 
     store.addBases([
-      new Base({name:"80/20 PG/VG", price: 10}),
-      new Base({name:"50/50 PG/VG", price: 10}),
-      new Base({name:"20/80 PG/VG", price: 10})
+      new Base({name:"80/20 PG/VG"}),
+      new Base({name:"50/50 PG/VG"}),
+      new Base({name:"20/80 PG/VG"})
     ]);
 
     store.addSizes([
-      new Size({name:"10 ml", price: 10}),
-      new Size({name:"20 ml", price: 20}),
-      new Size({name:"30 ml", price: 30})
+      new Size({name:"10 ml"}),
+      new Size({name:"50 ml"}),
     ]);
 
     return store;
