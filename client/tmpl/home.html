@@ -148,47 +148,62 @@
     </div>
     <hr /><br />
     <div class="row">
-        <div class="large-4 small-12 columns">
-            Orders will be shipped from Denmark within 2-3 business days. Expect delivery within maximum a week.
-        </div>
-        <div class="large-4 small-12 columns">
-            <button class="checkout-button button large" ng-disabled="shoppingCart.isEmpty()" ng-click="checkout()"><span class="typcn typcn-credit-card"></span> Let's buy it!</button>
-        </div>
-        <div class="large-4 small-12 columns">
-            All payments are <span class="typcn typcn-lock-closed-outline"></span>SSL encrypted and PCI-compliant. We care for your rights, read our <a href="/#/terms">Terms & Conditions</a>.
-        </div>
-    </div>
-    <div class="row">
-        <div class="large-4 small-8 small-centered columns text-center">
-            <small>We accept</small><br />
-            <img src="/client/img/paycards/visa.png" class="paycard" alt="We accept Visa" />
-            <img src="/client/img/paycards/mastercard.png" class="paycard" alt="We accept Mastercard" />
-        </div>
+        <div class="small-12 small-centered large-6 columns">
+            <div class="payment-form-wrapper">
+            <form class="payment-form" id="payment-form" action="#" method="POST">
 
-        <div class="large-12 small-12 columns">
-            <form id="payment-form" action="#" method="POST">
+                <div class="secure-icon"><span class="typcn typcn-lock-closed"></span></div>
 
                 <input ng-model="shoppingCart.checkoutParams.amount" class="card-amount-int" type="hidden" value="15" />
                 <input ng-model="shoppingCart.checkoutParams.currency" class="card-currency" type="hidden" value="EUR" />
 
-                <div class="form-row"><label>Card number</label>
-                <input ng-model="shoppingCart.checkoutParams.cardNr" class="card-number" type="text" size="20" /></div>
+                <div id="card-indication" class="form-row small-12 columns card-{{currentCard}}">
+                    <label>Card number</label>
+                    <input id="cardnumber" ng-model="shoppingCart.checkoutParams.cardNr" class="card-number" type="text" size="20" />
+                    <div class="current-card-indicator" ng-switch on="currentCard">
+                        <img src="/client/img/paycards/visa.png" ng-switch-when="visa" class="paycard" alt="We accept Visa" />
+                        <img src="/client/img/paycards/mastercard.png" ng-switch-when="mastercard" class="paycard" alt="We accept Mastercard" />
+                    </div>
+                </div>
 
-                <div class="form-row"><label>CVC</label>
-                <input ng-model="shoppingCart.checkoutParams.CVC" class="card-cvc" type="text" size="4" /></div>
+                <div class="form-row small-12 columns">
+                    <div class="form-expiry-row">
+                        <label>Expiry date</label>
+                        <input ng-model="shoppingCart.checkoutParams.exp_m" class="card-expiry-month" placeholder="MM" type="text" size="2" />
+                        <input ng-model="shoppingCart.checkoutParams.exp_y" class="card-expiry-year" placeholder="YYYY" type="text" size="4" />
+                    </div>
 
-                <div class="form-row"><label>Name</label>
-                <input ng-model="shoppingCart.checkoutParams.name" class="card-holdername" type="text" size="4" /></div>
+                    <div class="form-cvc-row">
+                        <label>CVC</label>
+                        <input ng-model="shoppingCart.checkoutParams.CVC" class="card-cvc" placeholder="XXX" type="text" size="3" />
+                    </div>
+                </div>
 
-                <div class="form-row"><label>Expiry date (MM/YYYY)</label>
-                <input ng-model="shoppingCart.checkoutParams.exp_m" class="card-expiry-month" type="text" size="2" />
-                <span></span>
-                <input ng-model="shoppingCart.checkoutParams.exp_y" class="card-expiry-year" type="text" size="4" /></div>
+                <div class="form-row small-12 columns">
+                    <label>Cardholders name</label>
+                    <input ng-model="shoppingCart.checkoutParams.name" class="card-holdername" type="text" size="4" />
+                </div>
 
-
-                <button class="submit-button" type="submit" ng-click="shoppingCart.checkout('paymill', true)">Pay</button>
+                <div class="small-12 columns">
+                    <button type="submit" class="checkout-button button large" ng-disabled="shoppingCart.isEmpty()" ng-click="shoppingCart.checkout('paymill', true)"><span class="typcn typcn-credit-card"></span> Let's buy it!</button>
+                </div>
 
             </form>
+            </div>
+        </div>
+    </div>
+    <hr /><br />
+    <div class="row">
+        <div class="large-4 small-12 columns">
+            Orders will be shipped from Denmark within 2-3 business days. Expect delivery within maximum a week.
+        </div>
+        <div class="large-4 small-12 columns text-center">
+            <small>We accept</small><br />
+            <img src="/client/img/paycards/visa.png" class="weaccept-paycard" alt="We accept Visa" />
+            <img src="/client/img/paycards/mastercard.png" class="weaccept-paycard" alt="We accept Mastercard" />
+        </div>
+        <div class="large-4 small-12 columns">
+            All payments are <span class="typcn typcn-lock-closed-outline"></span>SSL encrypted and PCI-compliant. We care for your rights, read our <a href="/#/terms">Terms & Conditions</a>.
         </div>
     </div>
 </div>

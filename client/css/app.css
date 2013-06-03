@@ -2556,8 +2556,8 @@ textarea {
   background-color: white;
   font-family: inherit;
   border: 1px solid #cccccc;
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: inset 0 1px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 0px rgba(0, 0, 0, 0.1);
   color: rgba(0, 0, 0, 0.75);
   display: block;
   font-size: 0.875em;
@@ -6464,11 +6464,105 @@ h1:hover {
 }
 
 /* line 186, ../sass/_home.scss */
+.payment-form-wrapper {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  padding: 1em;
+  background-size: 30px 30px;
+  background-image: linear-gradient(45deg, #70ccae 25%, #a8e0ce 25%, #a8e0ce 50%, #70ccae 50%, #70ccae 75%, #a8e0ce 75%, #a8e0ce);
+}
+/* line 201, ../sass/_home.scss */
+.payment-form-wrapper .payment-form {
+  position: relative;
+  padding: 3em 1.5em;
+  background-color: white;
+  background-image: none;
+  margin-bottom: 0;
+  overflow: hidden;
+}
+/* line 209, ../sass/_home.scss */
+.payment-form-wrapper .payment-form .secure-icon {
+  position: absolute;
+  right: 3px;
+  top: -5px;
+  font-size: 2em;
+  color: #70ccae;
+}
+/* line 217, ../sass/_home.scss */
+.payment-form-wrapper .payment-form input {
+  width: auto;
+}
+/* line 221, ../sass/_home.scss */
+.payment-form-wrapper .payment-form .card-number {
+  -webkit-transition: width 0.3s;
+  -moz-transition: width 0.3s;
+  -o-transition: width 0.3s;
+  transition: width 0.3s;
+  float: left;
+  width: 18.5em;
+}
+/* line 227, ../sass/_home.scss */
+.payment-form-wrapper .payment-form .current-card-indicator {
+  -webkit-transition: width 0.3s;
+  -moz-transition: width 0.3s;
+  -o-transition: width 0.3s;
+  transition: width 0.3s;
+  float: right;
+  overflow: hidden;
+  width: 3.7em;
+}
+/* line 234, ../sass/_home.scss */
+.payment-form-wrapper .payment-form .paycard {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  width: 3.7em;
+  border: 1px solid #d6d6d6;
+  display: block;
+}
+/* line 242, ../sass/_home.scss */
+.payment-form-wrapper .payment-form .card-unknown .card-number {
+  width: 100%;
+}
+/* line 246, ../sass/_home.scss */
+.payment-form-wrapper .payment-form .card-unknown .current-card-indicator {
+  width: 0;
+}
+/* line 252, ../sass/_home.scss */
+.payment-form-wrapper .payment-form .card-expiry-month,
+.payment-form-wrapper .payment-form .card-expiry-year {
+  float: left;
+  margin-right: 0.5em;
+}
+/* line 256, ../sass/_home.scss */
+.payment-form-wrapper .payment-form .form-expiry-row {
+  float: left;
+}
+/* line 259, ../sass/_home.scss */
+.payment-form-wrapper .payment-form .form-cvc-row {
+  float: right;
+}
+/* line 263, ../sass/_home.scss */
+.payment-form-wrapper .payment-form .card-cvc {
+  width: 4.2em;
+}
+/* line 267, ../sass/_home.scss */
+.payment-form-wrapper .payment-form .card-holdername {
+  width: 100%;
+}
+
+/* line 273, ../sass/_home.scss */
 .checkout-button {
   background-color: #34495e;
   border-color: #222f3d;
   color: white;
   width: 100%;
+  margin: 0.5em 0 0 0;
 }
 /* line 121, ../../../../../../var/lib/gems/1.9.1/gems/zurb-foundation-4.1.6/scss/foundation/components/_buttons.scss */
 .checkout-button:hover, .checkout-button:focus {
@@ -6479,8 +6573,8 @@ h1:hover {
   color: white;
 }
 
-/* line 191, ../sass/_home.scss */
-.paycard {
+/* line 279, ../sass/_home.scss */
+.weaccept-paycard {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;

@@ -8,6 +8,17 @@ angular.module('vaporista.controllers', []).
     $scope.store = storeService;
     $scope.shoppingCart = shoppingCart;
     $scope.item = new Item();
+    $scope.currentCard = "unknown";
+
+    var acceptedCards = ["visa","mastercard"];
+    $('#cardnumber').validateCreditCard(function(result){
+      if (result.card_type != null && $.inArray(result.card_type.name, acceptedCards) != -1){
+        $scope.currentCard = result.card_type.name;
+      } else {
+        $scope.currentCard = "unknown";
+      }
+    });
+
   }).
   controller("CheckoutCtrl", function($scope, shoppingCart){
     $scope.shoppingCart = shoppingCart;

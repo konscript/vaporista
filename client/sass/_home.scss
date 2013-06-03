@@ -183,13 +183,101 @@
     }
 }
 
+.payment-form-wrapper {
+    @include border-radius($global-radius);
+    padding: 1em;
+    background-size: 30px 30px;
+    background-image: linear-gradient(
+        45deg,
+        $primary-color 25%,
+        lighten($primary-color, 15%) 25%,
+        lighten($primary-color, 15%) 50%,
+        $primary-color 50%,
+        $primary-color 75%,
+        lighten($primary-color, 15%) 75%,
+        lighten($primary-color, 15%)
+    );
+
+    .payment-form {
+        position: relative;
+        padding: 3em 1.5em;
+        background-color: white;
+        background-image: none;
+        margin-bottom: 0;
+        overflow: hidden;
+
+        .secure-icon {
+            position: absolute;
+            right: 3px;
+            top: -5px;
+            font-size: 2em;
+            color: $primary-color;
+        }
+
+        input {
+            width: auto;
+        }
+
+        .card-number {
+            @include transition(width 0.3s);
+            float: left;
+            width: 18.5em;
+        }
+
+        .current-card-indicator {
+            @include transition(width 0.3s);
+            float: right;
+            overflow: hidden;
+            width: 3.7em;
+        }
+
+           .paycard {
+                @include border-radius(0);
+                width: 3.7em;
+                border: 1px solid $secondary-alt-color;
+                display: block;
+            }
+
+        .card-unknown {
+            .card-number {
+                width: 100%;
+            }
+
+            .current-card-indicator {
+                width: 0;
+            }
+        }
+
+        .card-expiry-month,
+        .card-expiry-year {
+            float: left;
+            margin-right: 0.5em;
+        }
+        .form-expiry-row {
+            float: left;
+        }
+        .form-cvc-row {
+            float: right;
+        }
+
+        .card-cvc {
+            width: 4.2em;
+        }
+
+        .card-holdername {
+            width: 100%;
+        }
+    }
+}
+
     .checkout-button {
         @include button-style($complementary-color);
         width: 100%;
+        margin: 0.5em 0 0 0;
     }
 
-    .paycard {
-        @include border-radius(3px);
+    .weaccept-paycard {
+        @include border-radius($global-radius);
         width: 3em;
         border: 1px solid $secondary-alt-color;
     }
