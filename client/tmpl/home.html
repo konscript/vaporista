@@ -1,22 +1,22 @@
 <div class="about-wrapper wrapper">
     <div class="row hide-for-medium-up">
         <section class="large-4 columns">
-            <h2 class="center">Organic Tasty E-juice</h2>
+            <h2 class="text-center">Organic Tasty E-juice</h2>
             <div>Arnold ipsum. C-coo-ool. Knock knock. Hasta la vista baby. I'm the party pooper. You're not going to have your mommies right behind you to wipe your little tushies. Now listen to me very carefully. I'm going to ask you a bunch of questions I want to have them answered immediately.</div>
         </section>
     </div>
     <div class="row hide-for-small">
         <section class="large-4 columns">
-            <h2 class="center">Organic E-juice</h2>
-            <div>Arnold ipsum. C-coo-ool. Knock knock. Hasta la vista baby. I'm the party pooper. You're not going to have your mommies right behind you to wipe your little tushies. Now listen to me very carefully. I'm going to ask you a bunch of questions I want to have them answered immediately.</div>
+            <h2 class="text-center">Organic & Tasty</h2>
+            <div>As vapor enthusiasts, we know how good quality e-juice should taste like. Rich in depth and without articifical coloring or flavours, all our juices stems from natural sources without harmful additives. Every drop of juice is carefully produced and tested to assure a pleasent vaping experience - just like it should be.</div>
         </section>
         <section class="large-4 columns">
-            <h2 class="center">For Connoisseurs</h2>
-            <div>Shutup. I'll be back. I'll be back. Back to the carpet. Scumbag. My nipples are very sensitive. Who the hell are you. I'll be back. Fugettit, I'm not going to sit on your lap. Look who's talking. No more complaining. No more 'Mr Kimble, I have to go to the bathroom. Nothing!</div>
+            <h2 class="text-center">Premium e-liquid for connoisseurs</h2>
+            <div>E-cigarettes and vaporing is replacing analogue smoking around the world and for good reasons - it's less harmful, more pleasent and increasingly affordable. We believe in quality and convenience throughout the whole experience, from browsing and buying to everyday use.</div>
         </section>
         <section class="large-4 columns">
-            <h2 class="center">Affordable & Easy</h2>
-            <div>The first time in my life I am... Pissed off! But I'm all woman. You're a funny guy Sully. I like you. That's why i'm going to kill you last. Traffic. Get down. Back to the carpet. Back to the carpet. Freeze in hell batman! Because I'm going to say please. Because I'm going to say please.</div>
+            <h2 class="text-center">Quality & Safety</h2>
+            <div>Your health is precious and is our highest concern. Our suppliers are strictly certified and inspected regularly to ensure only the highest quality products. It's produced in EU and all raw materials are as natural as they get. No chinese factories here, just high-grade e-juice for the quality-minded vaporista.</div>
         </section>
     </div>
 </div>
@@ -29,7 +29,7 @@
                 <h2>Flavour</h2>
             </div>
             <div class="small-12 large-6 columns">
-                <div class="streamer"><h3>We've just launched! <em><span class="typcn typcn-tags"></span> 20% off</em> the whole next week</h3></div>
+                <div class="streamer"><h3>Hooray, we just launched! <em><span class="typcn typcn-tags"></span> 20% off</em> for early bird buyers</h3></div>
             </div>
             <div class="small-12 large-3 columns hide-for-small">
                 <div class="control-description">All our flavours stems from natural sources (and are damn tasty!) <span class="typcn typcn-plus"></span></div>
@@ -73,7 +73,7 @@
         <div class="row control-wrapper">
             <div class="small-12 large-3 columns">
                 <span class="choose">choose</span>
-                <h2>Size</h2>
+                <h2>Bottle Size</h2>
             </div>
             <div class="small-12 large-6 columns">
                 <input ng-model="item.size" simple-slider drag-type="sizes" required>
@@ -84,14 +84,17 @@
         </div>
         <div class="row">
             <div class="large-4 small-8 small-centered columns">
-                <button type='button' class="button" ng-click="shoppingCart.incrementItem(item)" ng-disabled="picker.$invalid">Add to Basket</button>
+                <button type='button' class="addtobasket-button button" ng-click="shoppingCart.incrementItem(item, qty, $event)" ng-disabled="picker.$invalid">
+                    <span class="ready">Add to Basket</span>
+                    <span class="complete"><span class="typcn typcn-tick"></span> Added!</span>
+                </button>
             </div>
         </div>
     </form>
     <div class="row">
         <div class="large-4 small-8 small-centered columns">
-            <div class="center" ng-show="picker.$invalid"><i>Please select a flavour above.</i></div>
-            <div class="center" ng-hide="picker.$invalid"><i>Customize your own juices - you can add as many combinations as you want!</i></div>
+            <div class="text-center" ng-show="picker.$invalid"><i>Please select a flavour above.</i></div>
+            <div class="text-center" ng-hide="picker.$invalid"><i>Customize your own juices - you can add as many combinations as you want!</i></div>
         </div>
     </div>
 
@@ -100,8 +103,10 @@
 <div id="checkout-anchor" class="checkout-wrapper wrapper">
     <div class="row">
         <div class="large-12 small-12 small-centered columns">
-            <h2 class="center">Your Basket</h2>
+            <h2 class="text-center">Your Basket</h2>
         </div>
+    </div>
+    <div class="row">
         <div class="large-10 small-12 small-centered columns">
             <table class="basket-table small-12" ng-hide="shoppingCart.isEmpty()">
                 <tbody>
@@ -114,28 +119,51 @@
                         <td>{{cartItem.base.name}}</td>
                         <td>{{cartItem.size.name}}</td>
                         <td>{{cartItem.qty}} x</td>
-                        <td>42 EUR</td>
+                        <td>€7 EUR</td>
                         <td class="remove">
                             <a href="" ng-click="shoppingCart.removeItem(cartItem)"><span class="typcn typcn-delete"></span></a>
                         </td>
                     </tr>
+                    <tr>
+                        <td colspan="8"><hr /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="text-right">Shipping & handling:</td>
+                        <td colspan="2">€5 EUR</td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="text-right">20% Early Bird Discount:</td>
+                        <td colspan="2">-€10 EUR</td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="text-right">Total price:</td>
+                        <td colspan="2">€{{ shoppingCart.total() }} EUR</td>
+                    </tr>
                 </tbody>
             </table>
-            <p class="small-12 columns center" ng-show="shoppingCart.isEmpty()">
+            <p class="small-12 columns text-center" ng-show="shoppingCart.isEmpty()">
                 Your basket is currently empty. Fill something in it above!
             </p>
         </div>
-        <div class="large-4 small-8 small-centered columns">
+    </div>
+    <hr /><br />
+    <div class="row">
+        <div class="large-4 small-8 columns">
+            Orders will be shipped from Denmark within 2-3 business days. Expect delivery within maximum a week.
+        </div>
+        <div class="large-4 small-8 columns">
             <button class="checkout-button button large" ng-disabled="shoppingCart.isEmpty()" ng-click="checkout()">Let's buy it!</button>
         </div>
+        <div class="large-4 small-8 columns">
+            All payments are <span class="typcn typcn-lock-closed-outline"></span>SSL encrypted and PCI-compliant. We care for your rights, read our <a href="">Terms & Conditions</a>.
+        </div>
+    </div>
+    <div class="row">
         <div class="large-4 small-8 small-centered columns">
-            <ul class="small-block-grid-3 large-block-grid-6 columns center">
+            <ul class="small-block-grid-3 large-block-grid-3 columns text-center">
                 <li><img src="/client/img/paycards/visa.png" alt="Visa" /></li>
-                <li><img src="/client/img/paycards/americanexpress.png" alt="Visa" /></li>
                 <li><img src="/client/img/paycards/mastercard.png" alt="Visa" /></li>
                 <li><img src="/client/img/paycards/maestro.png" alt="Visa" /></li>
-                <li><img src="/client/img/paycards/paypal.png" alt="Visa" /></li>
-                <li><img src="/client/img/paycards/amazon.png" alt="Visa" /></li>
             </ul>
         </div>
     </div>

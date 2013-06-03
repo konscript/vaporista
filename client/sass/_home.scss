@@ -131,9 +131,22 @@
         }
     }
 
-    .button {
+    .addtobasket-button {
         margin-top: 1em;
         width: 100%;
+
+        .complete {
+            display: none;
+        }
+
+        &.item-added-state {
+            .complete {
+                display: inline;
+            }
+            .ready {
+                display: none;
+            }
+        }
     }
 }
 
