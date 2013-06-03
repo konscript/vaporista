@@ -34,6 +34,24 @@
         text-align: right;
     }
 
+    .streamer {
+        background-color: $complementary-color;
+        padding: 0.5em;
+        @include border-radius($global-radius);
+        text-align: center;
+
+        h3 {
+            color: lighten($complementary-color, 40%);
+            margin: 0;
+            font-size: 1em;
+
+            em {
+                color: white;
+                font-style: normal;
+            }
+        }
+    }
+
     .flavour-list {
         margin-bottom: 2em;
 
