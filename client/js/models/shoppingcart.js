@@ -18,8 +18,13 @@ ShoppingCart.prototype.sync = function() {
   }
 };
 
-ShoppingCart.prototype.incrementItem = function(item, qty) {
+ShoppingCart.prototype.incrementItem = function(item, qty, event) {
   var itemInCart;
+
+  $(event.target).closest('.addtobasket-button').addClass("item-added-state");
+  setTimeout(function(){
+    $(event.target).closest('.addtobasket-button').removeClass("item-added-state");
+  },1000);
 
   qty = qty || 1;
   $.each(this.items, function(index, cartItem) {
@@ -82,7 +87,7 @@ ShoppingCart.prototype.total = function() {
   var total = 0;
 
   $.each(this.items, function(index, cartItem) {
-    total += cartItem.item.qty * 60;
+    //total += cartItem.item.qty * 60;
     //TODO: how should pricing work ?
   });
 
