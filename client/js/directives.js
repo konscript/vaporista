@@ -56,6 +56,7 @@ angular.module('vaporista.directives', []).
               } else {
                 scope.currentCard = "unknown";
               }
+              scope.$apply();
             });
         }
     };
@@ -71,6 +72,7 @@ angular.module('vaporista.directives', []).
                 // clear out when previous validators fail.
                 ctrl.$setValidity('emailValidation', true);
                 ctrl.$setValidity('checkingEmail', true);
+                scope.userFound = undefined;
 
                 if(ctrl.$valid) {
                     // set it to false here, because if we need to check
@@ -100,14 +102,14 @@ angular.module('vaporista.directives', []).
                             .error(function(data, status, headers, config) {
                                 ctrl.$setValidity('emailValidation', false);
                                 ctrl.$setValidity('checkingEmail', true);
-                                scope.userFound = null;
+                                scope.userFound = undefined;
                             });
                         },250);
 
                     } else {
                         ctrl.$setValidity('emailValidation', false);
                         ctrl.$setValidity('checkingEmail', true);
-                        scope.userFound = null;
+                        scope.userFound = undefined;
                     }
                 }
                 return viewValue;
