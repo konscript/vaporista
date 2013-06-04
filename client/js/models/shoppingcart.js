@@ -11,14 +11,25 @@ var ShoppingCart = function(localStorageService) {
     }
   }
 
+  this.custommerInfo = {
+    fullName: "",
+    streetName: "",
+    zipCode: "",
+    city: "",
+    country: "",
+    phone: "",
+    email: "",
+    comment: ""
+  };
+
   this.checkoutParams = {
-    cardAmountInt: this.total(),
-    currency: "EUR",
-    cardNumber: null,
-    cardCvc: null,
-    cardHoldername: null,
-    cardExpiryMonth: null,
-    cardExpiryYear: null
+    number:         null,       // required
+    exp_month:      null, // required
+    exp_year:       null,  // required
+    cvc:            null,          // required
+    amount_int:     this.total(),   // required, z.B. "4900" for 49.00 EUR
+    currency:       "EUR",          // required
+    cardholder:     null   // optional
   };
 };
 
@@ -129,83 +140,88 @@ ShoppingCart.prototype.isEmpty = function() {
   return this.items.length == 0 ? true : false;
 };
 
-ShoppingCart.prototype.checkout = function(serviceName, clearCart) {
-  console.log('Checking out baby!');
-  mixpanel.track('Checkout started');
+// ShoppingCart.prototype.checkout = function(serviceName, clearCart) {
+//   console.log('Checking out baby!');
+//   mixpanel.track('Checkout started');
 
-  // select service
-  if (serviceName == null) {
-    var p = this.checkoutParameters[Object.keys(this.checkoutParameters)[0]];
-    serviceName = p.serviceName;
-  }
-  if (serviceName == null) {
-    throw 'Define at least one checkout service.';
-  }
-  var parms = this.checkoutParameters[serviceName];
-  if (parms == null) {
-    throw "Cannot get checkout parameters for '" + serviceName + "'.";
-  }
+//   // select service
+//   if (serviceName == null) {
+//     var p = this.checkoutParameters[Object.keys(this.checkoutParameters)[0]];
+//     serviceName = p.serviceName;
+//   }
+//   if (serviceName == null) {
+//     throw 'Define at least one checkout service.';
+//   }
+//   var parms = this.checkoutParameters[serviceName];
+//   if (parms == null) {
+//     throw "Cannot get checkout parameters for '" + serviceName + "'.";
+//   }
 
-  // invoke service
-  switch (parms.serviceName) {
-    case 'Paymill':
-      this.checkoutPaymill(parms, clearCart);
-      break;
-    case 'Braintree':
-      this.checkoutBraintree(parms, clearCart);
-      break;
-    default:
-      throw 'Unknown checkout service: ' + parms.serviceName;
-  }
-};
+//   // invoke service
+//   switch (parms.serviceName) {
+//     case 'Paymill':
+//       this.checkoutPaymill(parms, clearCart);
+//       break;
+//     case 'Braintree':
+//       this.checkoutBraintree(parms, clearCart);
+//       break;
+//     default:
+//       throw 'Unknown checkout service: ' + parms.serviceName;
+//   }
+// };
 
 // check out using PayPal; for details see:
 // http://www.paypal.com/cgi-bin/webscr?cmd=p/pdn/howto_checkout-outside
-ShoppingCart.prototype.checkoutPaymill = function(params, clearCart) {
+ShoppingCart.prototype.checkout = function() {
+  var _this = this;
+
+  $('.checkout-button').attr("disabled", "disabled");
+
+  if (false == paymill.validateCardNumber(this.checkoutParams.number)) {
+      $(".payment-errors").text("Ungueltige Kartennummer");
+      $(".checkout-button").removeAttr("disabled");
+      return false;
+  }
+
+  if (false == paymill.validateExpiry(this.checkoutParams.exp_month, this.checkoutParams.exp_year)) {
+      $(".payment-errors").text("Ungueltiges Gueltigkeitsdatum");
+      $(".checkout-button").removeAttr("disabled");
+      return false;
+  }
+
   paymill.createToken({
-    number:         params['card-number'],       // required
-    exp_month:      params['card-expiry-month'], // required
-    exp_year:       params['card-expiry-year'],  // required
-    cvc:            params['card-cvc'],          // required
-    amount_int:     params['card-amount-int'],   // required, z.B. "4900" for 49.00 EUR
-    currency:       params['currency'],          // required
-    cardholder:     params['card-holdername']   // optional
+    number:         this.checkoutParams.number,       // required
+    exp_month:      this.checkoutParams.exp_month, // required
+    exp_year:       this.checkoutParams.exp_year,  // required
+    cvc:            this.checkoutParams.cvc,          // required
+    amount_int:     this.checkoutParams.amount_int * 100,   // required, z.B. "4900" for 49.00 EUR
+    currency:       this.checkoutParams.currency,          // required
+    cardholder:     this.checkoutParams.cardholder   // optional
   },
-  paymillResponseHandler);
+  function paymillResponseHandler(error, result) {
+    console.log(result);
+    console.log(error);
+   if (error) {
+     // Displays the error above the form
+     $(".payment-errors").text(error.apierror);
+   } else {
+     // Output token
+     var token = result.token;
+     // Insert token into form in order to submit to server
 
+     var data = $.extend(_this.custommerInfo, _this.checkoutParams, {paymillToken: token});
 
-  // global data
-  // var data = {
-  //   cmd: "_cart",
-  //   business: parms.merchantID,
-  //   upload: "1",
-  //   rm: "2",
-  //   charset: "utf-8"
-  // };
+     console.log(data);
 
-  // // item data
-  // for (var i = 0; i < this.items.length; i++) {
-  //   var item = this.items[i];
-  //   var ctr = i + 1;
-  //   data["item_number_" + ctr] = item.sku;
-  //   data["item_name_" + ctr] = item.name;
-  //   data["quantity_" + ctr] = item.quantity;
-  //   data["amount_" + ctr] = item.price.toFixed(2);
-  // }
+     $.post("/checkout", data)
+      .done(function(data){
+        console.log(data);
+      });
+   }
+  });
 
-  // // build form
-  // var form = $('<form></form>');
-  // form.attr("action", "https://www.paypal.com/cgi-bin/webscr");
-  // form.attr("method", "POST");
-  // form.attr("style", "display:none;");
-  // this.addFormFields(form, data);
-  // this.addFormFields(form, parms.options);
-  // $("body").append(form);
-
-  // // submit form
-  // this.clearCart = clearCart == null || clearCart;
-  // form.submit();
-  // form.remove();
+  $(".checkout-button").removeAttr("disabled");
+  return false;
 };
 
 ShoppingCart.prototype.checkoutBraintree = function(parms, clearCart) {
