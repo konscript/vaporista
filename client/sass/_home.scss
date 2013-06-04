@@ -167,15 +167,18 @@
 .checkout-wrapper {
 
     .basket-table {
+        width: 100%;
 
         td {
-            padding: 0 0.5em;
+            padding: 0;
+            height: 2.5em;
         }
 
         .flavour-column {
+
             img {
                 width:100%;
-                max-width:3em;
+                max-width:2.5em;
                 //float: left;
                 //width: 6em;
             }
@@ -184,26 +187,39 @@
             }
         }
 
-        .remove a {
-            font-size: 1.5em;
-            color: $complementary-color;
+        .remove-column {
+            text-align: right;
+
+            a {
+                font-size: 1.2em;
+                color: $complementary-color;
+            }
         }
     }
 
-    .discount-color {
-        color: orange;
+    .prices-list .columns {
+        //height: 1.5em;
+        //padding: 0.4em 0;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+
+        &.total {
+            //margin-top: 2.5em;
+        }
+
+        &.discount-color {
+            color: orange;
+        }
     }
 }
 
 .customer-form-wrapper {
 
-    input {
-        width: auto;
-        margin-right: 0.6em;
+    .inline-right {
+        padding-left: 0.2em;
     }
-
-    .inline {
-        float: left;
+    .inline-left {
+        padding-right: 0.2em;
     }
 }
 
