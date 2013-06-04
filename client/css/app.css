@@ -6295,20 +6295,25 @@ h1:hover {
   margin: 0 0 0.2em 0;
 }
 
-/* line 2, ../sass/_home.scss */
+/* line 1, ../sass/_home.scss */
+.error {
+  color: #e23b30;
+}
+
+/* line 6, ../sass/_home.scss */
 .about-wrapper h2 {
   color: #34495e;
 }
 
-/* line 9, ../sass/_home.scss */
+/* line 13, ../sass/_home.scss */
 .controls-wrapper form {
   margin-bottom: 0;
 }
-/* line 13, ../sass/_home.scss */
+/* line 17, ../sass/_home.scss */
 .controls-wrapper .control-wrapper {
   margin-bottom: 1em;
 }
-/* line 17, ../sass/_home.scss */
+/* line 21, ../sass/_home.scss */
 .controls-wrapper .choose {
   text-transform: uppercase;
   display: block;
@@ -6317,18 +6322,18 @@ h1:hover {
   line-height: 1.5em;
   color: #3fb18c;
 }
-/* line 26, ../sass/_home.scss */
+/* line 30, ../sass/_home.scss */
 .controls-wrapper h2 {
   margin-bottom: 0.5em;
   color: #3fb18c;
   line-height: 1em;
 }
-/* line 32, ../sass/_home.scss */
+/* line 36, ../sass/_home.scss */
 .controls-wrapper .control-description {
   font-size: 0.8em;
   text-align: right;
 }
-/* line 37, ../sass/_home.scss */
+/* line 41, ../sass/_home.scss */
 .controls-wrapper .streamer {
   background-color: #34495e;
   padding: 0.5em;
@@ -6339,42 +6344,42 @@ h1:hover {
   border-radius: 3px;
   text-align: center;
 }
-/* line 43, ../sass/_home.scss */
+/* line 47, ../sass/_home.scss */
 .controls-wrapper .streamer h3 {
   color: #98afc6;
   margin: 0;
   font-size: 1em;
 }
-/* line 48, ../sass/_home.scss */
+/* line 52, ../sass/_home.scss */
 .controls-wrapper .streamer h3 em {
   color: white;
   font-style: normal;
 }
-/* line 55, ../sass/_home.scss */
+/* line 59, ../sass/_home.scss */
 .controls-wrapper .flavour-list {
   margin-bottom: 0.5em;
 }
-/* line 58, ../sass/_home.scss */
+/* line 62, ../sass/_home.scss */
 .controls-wrapper .flavour-list li {
   cursor: pointer;
 }
-/* line 62, ../sass/_home.scss */
+/* line 66, ../sass/_home.scss */
 .controls-wrapper .flavour-list span {
   display: block;
   text-align: center;
 }
-/* line 68, ../sass/_home.scss */
+/* line 72, ../sass/_home.scss */
 .controls-wrapper .flavour-list.child-selected li {
   -webkit-transition: opacity 300ms;
   -moz-transition: opacity 300ms;
   -o-transition: opacity 300ms;
   transition: opacity 300ms;
 }
-/* line 71, ../sass/_home.scss */
+/* line 75, ../sass/_home.scss */
 .controls-wrapper .flavour-list.child-selected li span {
   color: #3fb18c;
 }
-/* line 75, ../sass/_home.scss */
+/* line 79, ../sass/_home.scss */
 .controls-wrapper .flavour-list.child-selected li:not(.selected) {
   opacity: 0.5;
   filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
@@ -6384,35 +6389,35 @@ h1:hover {
   -webkit-filter: grayscale(100%);
   /* Chrome 19+, Safari 6+, Safari 6+ iOS */
 }
-/* line 81, ../sass/_home.scss */
+/* line 85, ../sass/_home.scss */
 .controls-wrapper .flavour-list.child-selected li.selected {
   opacity: 1;
 }
-/* line 87, ../sass/_home.scss */
+/* line 91, ../sass/_home.scss */
 .controls-wrapper .slider {
   margin-left: 0px !important;
 }
-/* line 92, ../sass/_home.scss */
+/* line 96, ../sass/_home.scss */
 .controls-wrapper .slider-labels li {
   text-align: center;
 }
-/* line 95, ../sass/_home.scss */
+/* line 99, ../sass/_home.scss */
 .controls-wrapper .slider-labels li a {
   color: #bdbdbd;
 }
-/* line 99, ../sass/_home.scss */
+/* line 103, ../sass/_home.scss */
 .controls-wrapper .slider-labels li.selected a {
   color: #3fb18c;
 }
-/* line 103, ../sass/_home.scss */
+/* line 107, ../sass/_home.scss */
 .controls-wrapper .slider-labels li:first-child {
   text-align: left;
 }
-/* line 106, ../sass/_home.scss */
+/* line 110, ../sass/_home.scss */
 .controls-wrapper .slider-labels li:last-child {
   text-align: right;
 }
-/* line 112, ../sass/_home.scss */
+/* line 116, ../sass/_home.scss */
 .controls-wrapper .slider .track {
   position: relative;
   height: 10px;
@@ -6421,7 +6426,7 @@ h1:hover {
   margin-top: 10px;
   border-bottom: 1px solid #d6d6d6;
 }
-/* line 120, ../sass/_home.scss */
+/* line 124, ../sass/_home.scss */
 .controls-wrapper .slider .dragger {
   position: absolute;
   cursor: pointer;
@@ -6442,83 +6447,83 @@ h1:hover {
   -o-transition: left 0.3s;
   transition: left 0.3s;
 }
-/* line 133, ../sass/_home.scss */
+/* line 137, ../sass/_home.scss */
 .controls-wrapper .slider .dragger:hover {
   background: #3fb18c;
 }
-/* line 138, ../sass/_home.scss */
+/* line 142, ../sass/_home.scss */
 .controls-wrapper .addtobasket-button {
   margin-top: 0;
   width: 100%;
 }
-/* line 142, ../sass/_home.scss */
+/* line 146, ../sass/_home.scss */
 .controls-wrapper .addtobasket-button .complete {
   display: none;
 }
-/* line 147, ../sass/_home.scss */
+/* line 151, ../sass/_home.scss */
 .controls-wrapper .addtobasket-button.item-added-state .complete {
   display: inline;
 }
-/* line 150, ../sass/_home.scss */
+/* line 154, ../sass/_home.scss */
 .controls-wrapper .addtobasket-button.item-added-state .ready {
   display: none;
 }
 
 @media only screen and (max-width: 48em) {
-  /* line 159, ../sass/_home.scss */
+  /* line 163, ../sass/_home.scss */
   .controls-wrapper .choose,
   .controls-wrapper h2 {
     text-align: center;
   }
 
-  /* line 162, ../sass/_home.scss */
+  /* line 166, ../sass/_home.scss */
   .controls-wrapper .control-description {
     text-align: center;
   }
 }
-/* line 169, ../sass/_home.scss */
+/* line 173, ../sass/_home.scss */
 .checkout-wrapper .basket-table {
   width: 100%;
 }
-/* line 172, ../sass/_home.scss */
+/* line 176, ../sass/_home.scss */
 .checkout-wrapper .basket-table td {
   padding: 0;
   height: 2.5em;
 }
-/* line 179, ../sass/_home.scss */
+/* line 183, ../sass/_home.scss */
 .checkout-wrapper .basket-table .flavour-column img {
   width: 100%;
   max-width: 2.5em;
 }
-/* line 190, ../sass/_home.scss */
+/* line 194, ../sass/_home.scss */
 .checkout-wrapper .basket-table .remove-column {
   text-align: right;
 }
-/* line 193, ../sass/_home.scss */
+/* line 197, ../sass/_home.scss */
 .checkout-wrapper .basket-table .remove-column a {
   font-size: 1.2em;
   color: #34495e;
 }
-/* line 200, ../sass/_home.scss */
+/* line 204, ../sass/_home.scss */
 .checkout-wrapper .prices-list .columns {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
 }
-/* line 210, ../sass/_home.scss */
+/* line 214, ../sass/_home.scss */
 .checkout-wrapper .prices-list .columns.discount-color {
   color: orange;
 }
 
-/* line 218, ../sass/_home.scss */
+/* line 222, ../sass/_home.scss */
 .customer-form-wrapper .inline-right {
   padding-left: 0.2em;
 }
-/* line 221, ../sass/_home.scss */
+/* line 225, ../sass/_home.scss */
 .customer-form-wrapper .inline-left {
   padding-right: 0.2em;
 }
 
-/* line 226, ../sass/_home.scss */
+/* line 230, ../sass/_home.scss */
 .payment-form-wrapper {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -6530,7 +6535,7 @@ h1:hover {
   background-image: linear-gradient(45deg, #70ccae 25%, #96d9c3 25%, #96d9c3 50%, #70ccae 50%, #70ccae 75%, #96d9c3 75%, #96d9c3);
   background-attachment: fixed;
 }
-/* line 242, ../sass/_home.scss */
+/* line 246, ../sass/_home.scss */
 .payment-form-wrapper .payment-form {
   position: relative;
   padding: 3em 1.5em;
@@ -6539,22 +6544,22 @@ h1:hover {
   margin-bottom: 0;
   overflow: hidden;
 }
-/* line 250, ../sass/_home.scss */
+/* line 254, ../sass/_home.scss */
 .payment-form-wrapper .payment-form .secure-icon {
   position: absolute;
   right: 3px;
   top: 0px;
   color: #70ccae;
 }
-/* line 256, ../sass/_home.scss */
+/* line 260, ../sass/_home.scss */
 .payment-form-wrapper .payment-form .secure-icon .typcn {
   font-size: 2em;
 }
-/* line 261, ../sass/_home.scss */
+/* line 265, ../sass/_home.scss */
 .payment-form-wrapper .payment-form input {
   width: auto;
 }
-/* line 265, ../sass/_home.scss */
+/* line 269, ../sass/_home.scss */
 .payment-form-wrapper .payment-form .card-number {
   -webkit-transition: width 0.3s;
   -moz-transition: width 0.3s;
@@ -6563,7 +6568,7 @@ h1:hover {
   float: left;
   width: 18.5em;
 }
-/* line 271, ../sass/_home.scss */
+/* line 275, ../sass/_home.scss */
 .payment-form-wrapper .payment-form .current-card-indicator {
   -webkit-transition: width 0.3s;
   -moz-transition: width 0.3s;
@@ -6573,7 +6578,7 @@ h1:hover {
   overflow: hidden;
   width: 3.7em;
 }
-/* line 278, ../sass/_home.scss */
+/* line 282, ../sass/_home.scss */
 .payment-form-wrapper .payment-form .paycard {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -6584,38 +6589,38 @@ h1:hover {
   border: 1px solid #d6d6d6;
   display: block;
 }
-/* line 286, ../sass/_home.scss */
+/* line 290, ../sass/_home.scss */
 .payment-form-wrapper .payment-form .card-unknown .card-number {
   width: 100%;
 }
-/* line 290, ../sass/_home.scss */
+/* line 294, ../sass/_home.scss */
 .payment-form-wrapper .payment-form .card-unknown .current-card-indicator {
   width: 0;
 }
-/* line 296, ../sass/_home.scss */
+/* line 300, ../sass/_home.scss */
 .payment-form-wrapper .payment-form .card-expiry-month,
 .payment-form-wrapper .payment-form .card-expiry-year {
   float: left;
   margin-right: 0.5em;
 }
-/* line 300, ../sass/_home.scss */
+/* line 304, ../sass/_home.scss */
 .payment-form-wrapper .payment-form .form-expiry-row {
   float: left;
 }
-/* line 303, ../sass/_home.scss */
+/* line 307, ../sass/_home.scss */
 .payment-form-wrapper .payment-form .form-cvc-row {
   float: right;
 }
-/* line 307, ../sass/_home.scss */
+/* line 311, ../sass/_home.scss */
 .payment-form-wrapper .payment-form .card-cvc {
   width: 4.2em;
 }
-/* line 311, ../sass/_home.scss */
+/* line 315, ../sass/_home.scss */
 .payment-form-wrapper .payment-form .card-holdername {
   width: 100%;
 }
 
-/* line 317, ../sass/_home.scss */
+/* line 321, ../sass/_home.scss */
 .checkout-button {
   background-color: #34495e;
   border-color: #222f3d;
@@ -6632,7 +6637,7 @@ h1:hover {
   color: white;
 }
 
-/* line 323, ../sass/_home.scss */
+/* line 327, ../sass/_home.scss */
 .weaccept-paycard {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;

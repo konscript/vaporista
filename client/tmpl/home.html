@@ -158,24 +158,33 @@
                     <h2 class="text-center">Shipping information</h2>
                 </div>
 
-                <div class="form-row small-12 columns">
-                    <label>E-mail</label>
-                    <input class="customer-email inline" name="email" type="email" ng-model="shoppingCart.custommerInfo.email" type="text" placeholder="E-mail" size="50" required email-validation/>
+                <div class="form-row row">
+                    <label class="small-12 columns">E-mail</label>
+                    <div class="small-12 columns">
+                        <input class="customer-email inline" name="email" type="email" ng-model="shoppingCart.custommerInfo.email" type="text" placeholder="E-mail" size="50" required email-validation/>
+                    </div>
                 </div>
 
-                <div class="form-row small-12 columns" ng-show="info.email.$dirty && info.email.$invalid">Invalid:
-                    <span ng-show="info.email.$error.required">Please enter your email.</span>
-                    <span ng-show="info.email.$error.email">This is not a valid email.</span>
-                    <span ng-show="info.email.$error.checkingEmail">Checking email...</span>
-                    <span ng-show="info.email.$error.emailAvailable">Email not available</span>
-                </div>
-                <div class="form-row small-12 columns" ng-show="userFound">
-                    <span ng-show="userFound">You already have a user, <button ng-click="loginUser(info.email)">Login</button> to use the same address as last time you ordered</span>
+                <div class="form-row row" ng-show="info.email.$dirty && info.email.$invalid">
+                    <div class="small-12 columns error">
+                        <span ng-show="info.email.$error.required">Please enter your email.</span>
+                        <span ng-show="info.email.$error.email">This is not a valid email.</span>
+                        <span ng-show="info.email.$error.checkingEmail">Checking email...</span>
+                        <span ng-show="info.email.$error.emailAvailable">Email not available</span>
+                    </div>
                 </div>
 
-                <div class="form-row small-12 columns">
-                    <label>Full name</label>
-                    <input class="customer-fullname" ng-model="shoppingCart.custommerInfo.fullName" type="text" size="50" required />
+                <div class="form-row row" ng-show="userFound">
+                    <div class="small-12 columns">
+                        <span ng-show="userFound">You already have a user, <button ng-click="loginUser(info.email)">Login</button> to use the same address as last time you ordered</span>
+                    </div>
+                </div>
+
+                <div class="form-row row">
+                    <label class="small-12 columns">Full name</label>
+                    <div class="small-12 columns">
+                        <input class="customer-fullname" ng-model="shoppingCart.custommerInfo.fullName" type="text" size="50" required />
+                    </div>
                 </div>
 
                 <div class="form-row row">
@@ -194,9 +203,11 @@
                     </div>
                 </div>
 
-                <div class="form-row small-12 columns">
-                    <label>Phone (optional)</label>
-                    <input class="customer-phone inline" ng-model="shoppingCart.custommerInfo.phone" type="text" placeholder="Phone" size="22" />
+                <div class="form-row row">
+                    <label class="small-12 columns">Phone (optional)</label>
+                    <div class="small-12 columns">
+                        <input class="customer-phone inline" ng-model="shoppingCart.custommerInfo.phone" type="text" placeholder="Phone" size="22" />
+                    </div>
                 </div>
 
                 <div class="form-row row">
