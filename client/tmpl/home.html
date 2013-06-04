@@ -92,7 +92,7 @@
         </div>
         <div class="row">
             <div class="large-4 small-8 small-centered columns">
-                <button type='button' class="addtobasket-button button" ng-click="shoppingCart.incrementItem(item, qty, $event)" ng-disabled="picker.$invalid">
+                <button type='button' class="addtobasket-button button" ng-click="shoppingCart.clickAddToBasket(item,$event)" ng-disabled="picker.$invalid">
                     <span class="ready">Add to Basket</span>
                     <span class="complete"><span class="typcn typcn-tick"></span> Added!</span>
                 </button>
@@ -110,54 +110,52 @@
 
 <div id="checkout-anchor" class="checkout-wrapper wrapper">
     <div class="row">
-        <div class="large-12 small-12 small-centered columns">
+        <div class="large-6 small-12 columns" ng-hide="shoppingCart.isEmpty()">
             <h2 class="text-center">Your Basket</h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="large-8 small-12 small-centered columns" ng-hide="shoppingCart.isEmpty()">
-            <table class="basket-table small-12">
+            <table class="basket-table">
                 <tbody>
                     <tr ng-repeat="cartItem in shoppingCart.items">
                         <td class="flavour-column">
                             <img ng-src="{{cartItem.flavour.image}}" />
                         </td>
                         <td>{{cartItem.flavour.name}}</td>
-                        <td>{{cartItem.strength.name}}</td>
-                        <td><span class="typcn typcn-{{cartItem.size.icon}} typcn-rotate"></span> {{cartItem.size.name}}</td>
-                        <td>{{cartItem.base.name}}</td>
-                        <td>{{cartItem.qty}} x</td>
+                        <td>{{cartItem.strength.name}} - {{cartItem.size.name}}</td>
+                        <td class="qty-column">{{cartItem.qty}} <small>x</small></td>
                         <td>7 EUR</td>
-                        <td class="remove">
+                        <td class="remove-column">
+                            <a href="" ng-click="shoppingCart.incrementItem(cartItem)" class="typcn typcn-arrow-up"></a>
                             <a href="" ng-click="shoppingCart.removeItem(cartItem)"><span class="typcn typcn-delete"></span></a>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <p class="small-12 columns text-center" ng-show="shoppingCart.isEmpty()">
-            Your basket is currently empty. Fill something in it above!
-        </p>
-    </div>
-    <hr />
-    <div class="row">
-        <div class="small-6 columns text-right"><strong>Sub total:</strong></div>
-        <div class="small-6 columns text-left">{{ shoppingCart.subTotal() }} EUR</div>
-        <div class="small-6 columns text-right discount-color"><strong>20% Early Bird Discount:</strong></div>
-        <div class="small-6 columns text-left discount-color">-{{ shoppingCart.discount() }} EUR</div>
-        <div class="small-6 columns text-right"><strong>Shipping & handling:</strong></div>
-        <div class="small-6 columns text-left">+{{ shoppingCart.shipping() }} EUR</div>
-        <div class="small-6 columns text-right"><strong>Total price:</strong></div>
-        <div class="small-6 columns text-left">{{ shoppingCart.total() }} EUR</div>
+        <div class="prices-list large-6 columns" ng-hide="shoppingCart.isEmpty()">
+            <div class="row">
+                <h2 class="text-center">The Numbers</h2>
+                <div class="small-8 columns">Sub total:</div>
+                <div class="small-4 columns text-right">{{ shoppingCart.subTotal() }} EUR</div>
+                <div class="small-8 columns discount-color">20% Early Bird Discount:</div>
+                <div class="small-4 columns text-right discount-color">-{{ shoppingCart.discount() }} EUR</div>
+                <div class="small-8 columns">Shipping & handling:</div>
+                <div class="small-4 columns text-right">+{{ shoppingCart.shipping() }} EUR</div>
+                <div class="small-8 columns total"><strong>Total price:</strong></div>
+                <div class="small-4  columns text-right total"><strong>{{ shoppingCart.total() }} EUR</strong></div>
+            </div>
+        </div>
+        <div class="small-12 columns" ng-show="shoppingCart.isEmpty()">
+            <h2 class="text-center">Your Basket</h2>
+            <p class="text-center">Your basket is currently empty. Fill something in it above!</p>
+        </div>
     </div>
     <hr /><br />
     <div class="row">
         <div class="small-12 large-6 columns">
             <div class="customer-form-wrapper">
-            <form class="customer-form row" id="info-form" action="#" method="POST" name="info">
+            <form class="customer-form" id="info-form" action="#" method="POST" name="info">
 
                 <div class="form-row small-12 columns">
-                    <h2 class="">Tell us about yourself</h2>
+                    <h2 class="text-center">Shipping information</h2>
                 </div>
 
                 <div class="form-row small-12 columns">
@@ -180,12 +178,20 @@
                     <input class="customer-fullname" ng-model="shoppingCart.custommerInfo.fullName" type="text" size="50" required />
                 </div>
 
-                <div class="form-row small-12 columns">
-                    <label>Address</label>
-                    <input class="customer-address" ng-model="shoppingCart.custommerInfo.streetName" type="text" placeholder="Street name and number" size="50" required />
-                    <input class="customer-address inline" ng-model="shoppingCart.custommerInfo.zipCode" type="text" placeholder="Zip code" size="10" required />
-                    <input class="customer-address inline" ng-model="shoppingCart.custommerInfo.city" type="text" placeholder="City" size="35" required />
-                    <input class="customer-address" ng-model="shoppingCart.custommerInfo.country" type="text" placeholder="Country" size="50" />
+                <div class="form-row row">
+                    <label class="small-12 columns">Address</label>
+                    <div class="small-12 columns">
+                        <input class="customer-address" ng-model="shoppingCart.custommerInfo.streetName" type="text" placeholder="Street name and number" size="50" required />
+                    </div>
+                    <div class="small-6 columns inline-left">
+                        <input class="customer-address" ng-model="shoppingCart.custommerInfo.zipCode" type="text" placeholder="Zip code" size="10" required />
+                    </div>
+                    <div class="small-6 columns inline-right">
+                        <input class="customer-address" ng-model="shoppingCart.custommerInfo.city" type="text" placeholder="City" size="35" required />
+                    </div>
+                    <div class="small-12 columns">
+                        <input class="customer-address" ng-model="shoppingCart.custommerInfo.country" type="text" placeholder="Country" size="50" />
+                    </div>
                 </div>
 
                 <div class="form-row small-12 columns">
@@ -193,9 +199,11 @@
                     <input class="customer-phone inline" ng-model="shoppingCart.custommerInfo.phone" type="text" placeholder="Phone" size="22" />
                 </div>
 
-                <div class="form-row small-12 columns">
-                    <label>Leave us a comment</label>
-                    <input class="comment" ng-model="shoppingCart.custommerInfo.comment" type="text" placeholder="" size="50" />
+                <div class="form-row row">
+                    <label class="small-12 columns">Leave us a comment</label>
+                    <div class="small-12 columns">
+                        <input class="comment" ng-model="shoppingCart.custommerInfo.comment" type="text" placeholder="" size="50" />
+                    </div>
                 </div>
 
             </form>
@@ -253,7 +261,7 @@
             </div>
         </div>
     </div>
-    <hr /><br />
+    <br /><hr /><br />
     <div class="row">
         <div class="large-4 small-12 columns">
             Orders will be shipped from Denmark within 2-3 business days. Expect delivery within maximum a week.
