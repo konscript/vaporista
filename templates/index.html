@@ -46,7 +46,7 @@
                     </a>
                     <a href="" class="cart-link small-3 columns" ng-controller="CartCtrl" ng-click="clickCart()">
                         <div class="typcn typcn-shopping-cart"></div>
-                        <div class="cart-count count-number-{{shoppingCart.count()}}">{{shoppingCart.count()}}</div>
+                        <div ng-cloak class="cart-count count-number-{{shoppingCart.count()}}">{{shoppingCart.count()}}</div>
                     </a>
                 </header>
             </div>

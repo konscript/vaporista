@@ -100,12 +100,14 @@ angular.module('vaporista.directives', []).
                             .error(function(data, status, headers, config) {
                                 ctrl.$setValidity('emailValidation', false);
                                 ctrl.$setValidity('checkingEmail', true);
+                                scope.userFound = null;
                             });
                         },250);
 
                     } else {
                         ctrl.$setValidity('emailValidation', false);
                         ctrl.$setValidity('checkingEmail', true);
+                        scope.userFound = null;
                     }
                 }
                 return viewValue;
