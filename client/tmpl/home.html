@@ -158,7 +158,7 @@
     <div class="row">
         <div class="small-12 large-6 columns">
             <div class="customer-form-wrapper">
-            <form class="customer-form row" id="customer-form" action="#" method="POST">
+            <form class="customer-form row" id="info-form" action="#" method="POST" name="info">
 
                 <div class="form-row small-12 columns">
                     <h2 class="">Tell us about yourself</h2>
@@ -166,26 +166,26 @@
 
                 <div class="form-row small-12 columns">
                     <label>Full name</label>
-                    <input class="customer-fullname" type="text" size="50" />
+                    <input class="customer-fullname" ng-model="shoppingCart.custommerInfo.fullName" type="text" size="50" required />
                 </div>
 
                 <div class="form-row small-12 columns">
                     <label>Address</label>
-                    <input class="customer-address" type="text" placeholder="Street name and number" size="50" />
-                    <input class="customer-address inline" type="text" placeholder="Zip code" size="10" />
-                    <input class="customer-address inline" type="text" placeholder="City" size="35" />
-                    <input class="customer-address" type="text" placeholder="Country" size="50" />
+                    <input class="customer-address" ng-model="shoppingCart.custommerInfo.streetName" type="text" placeholder="Street name and number" size="50" required />
+                    <input class="customer-address inline" ng-model="shoppingCart.custommerInfo.zipCode" type="text" placeholder="Zip code" size="10" required />
+                    <input class="customer-address inline" ng-model="shoppingCart.custommerInfo.city" type="text" placeholder="City" size="35" required />
+                    <input class="customer-address" ng-model="shoppingCart.custommerInfo.country" type="text" placeholder="Country" size="50" />
                 </div>
 
                 <div class="form-row small-12 columns">
                     <label>Contact</label>
-                    <input class="customer-phone inline" type="text" placeholder="Phone" size="22" />
-                    <input class="customer-email inline" type="text" placeholder="E-mail" size="23" />
+                    <input class="customer-phone inline" ng-model="shoppingCart.custommerInfo.phone" type="text" placeholder="Phone" size="22" />
+                    <input class="customer-email inline" ng-model="shoppingCart.custommerInfo.email" type="text" placeholder="E-mail" size="23" required />
                 </div>
 
                 <div class="form-row small-12 columns">
                     <label>Leave us a comment</label>
-                    <input class="customer-phone" type="text" placeholder="" size="50" />
+                    <input class="comment" ng-model="shoppingCart.custommerInfo.comment" type="text" placeholder="" size="50" />
                 </div>
 
             </form>
@@ -193,19 +193,19 @@
         </div>
         <div class="small-12 large-6 columns">
             <div class="payment-form-wrapper">
-            <form class="payment-form" id="payment-form" action="#" method="POST">
+            <form class="payment-form" id="payment-form" ng-submit="shoppingCart.checkout()">
 
                 <div class="secure-icon">
                     <small>SECURE PAYMENT</small>
                     <span class="typcn typcn-lock-closed"></span>
                 </div>
 
-                <input ng-model="shoppingCart.checkoutParams.amount" class="card-amount-int" type="hidden" value="15" />
+                <input ng-model="shoppingCart.checkoutParams.amount_int" class="card-amount-int" type="hidden" value="15" />
                 <input ng-model="shoppingCart.checkoutParams.currency" class="card-currency" type="hidden" value="EUR" />
 
                 <div id="card-indication" class="form-row small-12 columns card-{{currentCard}}">
                     <label>Card number</label>
-                    <input id="cardnumber" ng-model="shoppingCart.checkoutParams.cardNr" class="card-number" type="text" size="20" />
+                    <input id="cardnumber" ng-model="shoppingCart.checkoutParams.number" class="card-number" type="text" size="20" />
                     <div class="current-card-indicator" ng-switch on="currentCard">
                         <img src="/client/img/paycards/visa.png" ng-switch-when="visa" class="paycard" alt="We accept Visa" />
                         <img src="/client/img/paycards/mastercard.png" ng-switch-when="mastercard" class="paycard" alt="We accept Mastercard" />
@@ -215,24 +215,28 @@
                 <div class="form-row small-12 columns">
                     <div class="form-expiry-row">
                         <label>Expiry date</label>
-                        <input ng-model="shoppingCart.checkoutParams.exp_m" class="card-expiry-month" placeholder="MM" type="text" size="2" />
-                        <input ng-model="shoppingCart.checkoutParams.exp_y" class="card-expiry-year" placeholder="YYYY" type="text" size="4" />
+                        <input ng-model="shoppingCart.checkoutParams.exp_month" class="card-expiry-month" placeholder="MM" type="text" size="2" />
+                        <input ng-model="shoppingCart.checkoutParams.exp_year" class="card-expiry-year" placeholder="YYYY" type="text" size="4" />
                     </div>
 
                     <div class="form-cvc-row">
                         <label>CVC</label>
-                        <input ng-model="shoppingCart.checkoutParams.CVC" class="card-cvc" placeholder="XXX" type="text" size="3" />
+                        <input ng-model="shoppingCart.checkoutParams.cvc" class="card-cvc" placeholder="XXX" type="text" size="3" />
                     </div>
                 </div>
 
                 <div class="form-row small-12 columns">
                     <label>Cardholders name</label>
-                    <input ng-model="shoppingCart.checkoutParams.name" class="card-holdername" type="text" size="4" />
+                    <input ng-model="shoppingCart.checkoutParams.cardholder" class="card-holdername" type="text" size="4" />
+                </div>
+
+                <div class="form-row small-12 columns">
+                    <div class="payment-errors"></div>
                 </div>
 
                 <div class="small-12 columns text-center">
                     <label><input type="checkbox" class="terms-checkbox custom checkbox" /> Yes, I agree to the <a href="/#/terms" target="_blank">Terms & Conditions</a></label>
-                    <button type="submit" class="checkout-button button large" ng-disabled="shoppingCart.isEmpty()" ng-click="shoppingCart.checkout('paymill', true)">Pay €{{shoppingCart.total()}} EUR!</button>
+                    <button type="submit" class="checkout-button button large" ng-disabled="shoppingCart.isEmpty()||info.$invalid">Pay €{{shoppingCart.total()}} EUR!</button>
                 </div>
 
             </form>

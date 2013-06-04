@@ -1,19 +1,27 @@
 # -*- coding: utf-8 -*-
 
 """
-	A real simple app for using webapp2 with auth and session.
+    A real simple app for using webapp2 with auth and session.
 
-	It just covers the basics. Creating a user, login, logout and a decorator for protecting certain handlers.
+    It just covers the basics. Creating a user, login, logout and a decorator for protecting certain handlers.
 
     Routes are setup in routes.py and added in main.py
 
 """
 
 import webapp2
+import datetime
+import urlparse
 from webapp2_extras import auth
 from webapp2_extras import sessions
 from webapp2_extras.auth import InvalidAuthIdError
 from webapp2_extras.auth import InvalidPasswordError
+from webapp2_extras import json
+from google.appengine.ext import ndb
+from google.appengine.api import urlfetch
+from babel.dates import format_datetime
+from pytz import timezone
+
 
 def user_required(handler):
     """
@@ -35,12 +43,67 @@ def user_required(handler):
     return check_login
 
 
+def json_format(obj):
+    '''
+        Format datastore values to use in JSON structure
+    '''
+
+    # format timestamp
+    if isinstance(obj, datetime.datetime) or isinstance(obj, datetime.date):
+        #obj.astimezone(pytz.utc)
+        return format_datetime(obj, "dd/MM-yyyy HH:mm", tzinfo=timezone('Europe/Copenhagen'))
+
+    # format blobkey to None
+    elif isinstance(obj, ndb.BlobKey):
+        return None
+
+    # get key of parent
+    elif isinstance(obj, ndb.Key) and obj.parent():
+        return obj.urlsafe()
+
+    # get id of key
+    elif isinstance(obj, ndb.Key):
+        return obj.id()
+
+    elif isinstance(obj, ndb.Model):
+        return obj.to_dict()
+
+    elif isinstance(obj, urlfetch._URLFetchResult):
+        return {
+            "content": urlparse.parse_qs(obj.content),
+            "status_code": obj.status_code
+        }
+
+    # return plain object
+    else:
+        return obj
+
+
 class BaseHandler(webapp2.RequestHandler):
     """
          BaseHandler for all requests
 
          Holds the auth and session properties so they are reachable for all requests
      """
+
+    def json_response(self, data_dict, encode=True, image_size=600, cache_id=None, cache_timeout=3600):
+        self.response.content_type = 'application/json'
+        self.response.content_type_params = {'charset': 'utf-8'}
+        if not encode:
+            self.response.headers.add("Content-Length", len(data_dict))
+            self.response.write(data_dict)
+            return
+
+        data = {}
+        data["data"] = data_dict
+        if self.request.GET.get("get_categories", "false").__eq__("true") and encode:
+            data["categories"] = []
+
+        if encode:
+            response = json.encode(data, default=json_format)
+            if cache_id:
+                memcache.set(cache_id, response, cache_timeout)
+            self.response.write(response)
 
     def dispatch(self):
         """
@@ -83,23 +146,23 @@ class LoginHandler(BaseHandler):
               Returns a simple HTML form for login
           """
         return """
-			<!DOCTYPE hml>
-			<html>
-				<head>
-					<title>webapp2 auth example</title>
-				</head>
-				<body>
-				<form action="%s" method="post">
-					<fieldset>
-						<legend>Login form</legend>
-						<label>Username <input type="text" name="username" placeholder="Your username" /></label>
-						<label>Password <input type="password" name="password" placeholder="Your password" /></label>
-						<label>Remember me? <input type="checkbox" name="remember_me" placeholder="Remember me?" /></label>
-					</fieldset>
-					<button>Login</button>
-				</form>
-			</html>
-		""" % self.request.url
+            <!DOCTYPE hml>
+            <html>
+                <head>
+                    <title>webapp2 auth example</title>
+                </head>
+                <body>
+                <form action="%s" method="post">
+                    <fieldset>
+                        <legend>Login form</legend>
+                        <label>Username <input type="text" name="username" placeholder="Your username" /></label>
+                        <label>Password <input type="password" name="password" placeholder="Your password" /></label>
+                        <label>Remember me? <input type="checkbox" name="remember_me" placeholder="Remember me?" /></label>
+                    </fieldset>
+                    <button>Login</button>
+                </form>
+            </html>
+        """ % self.request.url
 
     def post(self):
         """
@@ -128,22 +191,22 @@ class CreateUserHandler(BaseHandler):
               Returns a simple HTML form for create a new user
           """
         return """
-			<!DOCTYPE hml>
-			<html>
-				<head>
-					<title>webapp2 auth example</title>
-				</head>
-				<body>
-				<form action="%s" method="post">
-					<fieldset>
-						<legend>Create user form</legend>
-						<label>Username <input type="text" name="username" placeholder="Your username" /></label>
-						<label>Password <input type="password" name="password" placeholder="Your password" /></label>
-					</fieldset>
-					<button>Create user</button>
-				</form>
-			</html>
-		""" % self.request.url
+            <!DOCTYPE hml>
+            <html>
+                <head>
+                    <title>webapp2 auth example</title>
+                </head>
+                <body>
+                <form action="%s" method="post">
+                    <fieldset>
+                        <legend>Create user form</legend>
+                        <label>Username <input type="text" name="username" placeholder="Your username" /></label>
+                        <label>Password <input type="password" name="password" placeholder="Your password" /></label>
+                    </fieldset>
+                    <button>Create user</button>
+                </form>
+            </html>
+        """ % self.request.url
 
     def post(self):
         """

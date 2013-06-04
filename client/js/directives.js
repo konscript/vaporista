@@ -36,8 +36,6 @@ angular.module('vaporista.directives', []).
                 labelContainer.children().removeClass("selected");
                 $(labelContainer.children()[selected]).addClass("selected");
                 scope.item.setSelected(type.substring(0,type.length - 1), scope.store[type][selected]);
-
-                console.log(scope.item);
             }).simpleSlider({
                 snap: true,
                 allowedValues: values
