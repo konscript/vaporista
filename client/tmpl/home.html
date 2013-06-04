@@ -161,7 +161,7 @@
                 <div class="form-row row">
                     <label class="small-12 columns">E-mail</label>
                     <div class="small-12 columns">
-                        <input class="customer-email inline" name="email" type="email" ng-model="shoppingCart.custommerInfo.email" type="text" placeholder="E-mail" size="50" required email-validation/>
+                        <input class="customer-email inline" name="email" type="email" ng-model="shoppingCart.custommerInfo.email" type="text" size="50" required email-validation/>
                     </div>
                 </div>
 
@@ -176,7 +176,7 @@
 
                 <div class="form-row row" ng-show="userFound">
                     <div class="small-12 columns">
-                        <span ng-show="userFound">You already have a user, <button ng-click="loginUser(info.email)">Login</button> to use the same address as last time you ordered</span>
+                        <span ng-show="userFound"><button class="button small" ng-click="loginUser(info.email)">Login</button> to use the same address as last time you ordered</span>
                     </div>
                 </div>
 
@@ -192,13 +192,13 @@
                     <div class="small-12 columns">
                         <input class="customer-address" ng-model="shoppingCart.custommerInfo.streetName" type="text" placeholder="Street name and number" size="50" required />
                     </div>
-                    <div class="small-6 columns inline-left">
+                    <div class="small-3 columns inline-left">
                         <input class="customer-address" ng-model="shoppingCart.custommerInfo.zipCode" type="text" placeholder="Zip code" size="10" required />
                     </div>
-                    <div class="small-6 columns inline-right">
+                    <div class="small-5 columns inline-center">
                         <input class="customer-address" ng-model="shoppingCart.custommerInfo.city" type="text" placeholder="City" size="35" required />
                     </div>
-                    <div class="small-12 columns">
+                    <div class="small-4 columns inline-right">
                         <input class="customer-address" ng-model="shoppingCart.custommerInfo.country" type="text" placeholder="Country" size="50" />
                     </div>
                 </div>
@@ -206,7 +206,7 @@
                 <div class="form-row row">
                     <label class="small-12 columns">Phone (optional)</label>
                     <div class="small-12 columns">
-                        <input class="customer-phone inline" ng-model="shoppingCart.custommerInfo.phone" type="text" placeholder="Phone" size="22" />
+                        <input class="customer-phone" ng-model="shoppingCart.custommerInfo.phone" type="text" size="22" />
                     </div>
                 </div>
 
