@@ -4,6 +4,7 @@ from handlers import LogoutHandler
 from handlers import SecureRequestHandler
 from handlers import CreateUserHandler
 from handlers import IndexHandler
+from handlers import CheckEmailHandler
 
 from checkout_handlers import CheckoutHandler
 
@@ -17,6 +18,7 @@ _routes = [
     RedirectRoute('/secure', SecureRequestHandler, name='secure', strict_slash=False),
     RedirectRoute('/create_user', CreateUserHandler, name='create-user', strict_slash=False),
     RedirectRoute('/checkout', CheckoutHandler, name='checkout', strict_slash=False),
+    RedirectRoute('/check_email', CheckEmailHandler, name='checkout', strict_slash=False),
     RedirectRoute('/', IndexHandler, name='index', strict_slash=True)
 ]
 

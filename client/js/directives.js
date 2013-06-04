@@ -43,5 +43,75 @@ angular.module('vaporista.directives', []).
             .after(labelContainer);
         }
     };
-  });
+  })
+  .directive('creditCardValidation', function() {
+    return {
+        require: 'ngModel',
+        restrict: 'A',
+        link: function postLink(scope, elm, attrs) {
+            var acceptedCards = ["visa","mastercard"];
+            $(elm[0]).validateCreditCard(function(result){
+              if (result.card_type != null && $.inArray(result.card_type.name, acceptedCards) != -1){
+                scope.currentCard = result.card_type.name;
+              } else {
+                scope.currentCard = "unknown";
+              }
+            });
+        }
+    };
+  })
+  .directive('emailValidation', function($http, $timeout) { // available
+    return {
+        require: 'ngModel',
+        link: function(scope, elem, attr, ctrl) {
+
+            // push the validator on so it runs last.
+            ctrl.$parsers.push(function(viewValue) {
+                // set it to true here, otherwise it will not
+                // clear out when previous validators fail.
+                ctrl.$setValidity('emailValidation', true);
+                ctrl.$setValidity('checkingEmail', true);
+
+                if(ctrl.$valid) {
+                    // set it to false here, because if we need to check
+                    // the validity of the email, it's invalid until the
+                    // AJAX responds.
+                    ctrl.$setValidity('checkingEmail', false);
+
+                    //var emailRegex = /[a-z0-9\-_]+@[a-z0-9\-_]+\.[a-z0-9\-_]{2,}/;
+                    // && emailRegex.test(viewValue)
+
+                    // now do your thing, chicken wing.
+                    if(viewValue !== "" && typeof viewValue !== "undefined") {
+
+                        //Cancel current timeout
+                        if(scope.filterTextTimeout){
+                            $timeout.cancel(scope.filterTextTimeout);
+                        }
+
+                        //Create a timeout so that we only send 1 request to the server
+                        scope.filterTextTimeout = $timeout(function(){
+                            $http.get('/check_email?email=' + encodeURIComponent(viewValue))
+                            .success(function(data, status, headers, config) {
+                                ctrl.$setValidity('emailValidation', true);
+                                ctrl.$setValidity('checkingEmail', true);
+                                scope.userFound = data.user_id;
+                            })
+                            .error(function(data, status, headers, config) {
+                                ctrl.$setValidity('emailValidation', false);
+                                ctrl.$setValidity('checkingEmail', true);
+                            });
+                        },250);
+
+                    } else {
+                        ctrl.$setValidity('emailValidation', false);
+                        ctrl.$setValidity('checkingEmail', true);
+                    }
+                }
+                return viewValue;
+            });
+
+        }
+    };
+});
 

@@ -12,6 +12,8 @@
 import webapp2
 import datetime
 import urlparse
+import logging
+
 from webapp2_extras import auth
 from webapp2_extras import sessions
 from webapp2_extras.auth import InvalidAuthIdError
@@ -86,33 +88,20 @@ class BaseHandler(webapp2.RequestHandler):
          Holds the auth and session properties so they are reachable for all requests
      """
 
-    def json_response(self, data_dict, encode=True, image_size=600, cache_id=None, cache_timeout=3600):
+    def json_response(self, data_dict):
         self.response.content_type = 'application/json'
         self.response.content_type_params = {'charset': 'utf-8'}
-        if not encode:
-            self.response.headers.add("Content-Length", len(data_dict))
-            self.response.write(data_dict)
-            return
-
-        data = {}
-        data["data"] = data_dict
-        if self.request.GET.get("get_categories", "false").__eq__("true") and encode:
-            data["categories"] = []
-
-        if encode:
-            response = json.encode(data, default=json_format)
-            if cache_id:
-                memcache.set(cache_id, response, cache_timeout)
-            self.response.write(response)
+        response = json.encode(data_dict, default=json_format)
+        self.response.write(response)
 
     def dispatch(self):
-        """
-              Save the sessions for preservation across requests
-          """
+        # Get a session store for this request.
+        self.session_store = sessions.get_store(request=self.request)
         try:
-            response = super(BaseHandler, self).dispatch()
-            self.response.write(response)
+            # Dispatch the request.
+            webapp2.RequestHandler.dispatch(self)
         finally:
+            # Save all sessions.
             self.session_store.save_sessions(self.response)
 
     @webapp2.cached_property
@@ -123,21 +112,11 @@ class BaseHandler(webapp2.RequestHandler):
     def session_store(self):
         return sessions.get_store(request=self.request)
 
-    @webapp2.cached_property
-    def auth_config(self):
-        """
-              Dict to hold urls for login/logout
-          """
-        return {
-            'login_url': self.uri_for('login'),
-            'logout_url': self.uri_for('logout')
-        }
-
 
 class IndexHandler(BaseHandler):
   def get(self):
     f = open('templates/index.html', 'r')
-    return f.read()
+    self.response.write(f.read())
 
 
 class LoginHandler(BaseHandler):
@@ -258,3 +237,9 @@ class SecureRequestHandler(BaseHandler):
             return "Secure zone %s <a href='%s'>Logout</a>" % (user, self.auth_config['logout_url'])
         except (AttributeError, KeyError), e:
             return "Secure zone"
+
+
+class CheckEmailHandler(BaseHandler):
+  def get(self):
+    email = self.request.GET.get("email")
+    self.json_response({"user_found": True, "user_id": 11111});

@@ -1,5 +1,6 @@
 from google.appengine.ext import ndb
-import pymill
+from pymill import pymill_gae
+import logging
 
 
 PAYMILL_PRIVATE_KEY = "e395a0ef57ee844e99c3c57665b80e6b"
@@ -14,20 +15,20 @@ class Order(ndb.Model):
     first_name = ndb.StringProperty()
     last_name = ndb.StringProperty()
     client_id = ndb.StringProperty()
+    user_id = ndb.KeyProperty()
 
-    data = ndb.JsonProperty()
-
-    payment = ndb.JsonProperty()
+    data = ndb.JsonProperty(indexed=False)
+    payment = ndb.JsonProperty(indexed=False)
 
     def preauth(self):
-        p = pymill.Pymill(PAYMILL_PRIVATE_KEY)
+        p = pymill_gae.Pymill(PAYMILL_PRIVATE_KEY)
         p.preauth(amount=self.data.get("amount_int"), currency=self.data.get("currency"), description=None, token=self.token, client=self.client_id, payment=self.payment)
 
     def transaction(self):
-        p = pymill.Pymill(PAYMILL_PRIVATE_KEY)
+        p = pymill_gae.Pymill(PAYMILL_PRIVATE_KEY)
 
     def refund(self):
-        p = pymill.Pymill(PAYMILL_PRIVATE_KEY)
+        p = pymill_gae.Pymill(PAYMILL_PRIVATE_KEY)
 
     @classmethod
     def create_order(cls, order_multi_dict):
@@ -37,7 +38,7 @@ class Order(ndb.Model):
             last_name = name_array[-1]
             return first_names, last_name
 
-        p = pymill.Pymill(PAYMILL_PRIVATE_KEY)
+        p = pymill_gae.Pymill(PAYMILL_PRIVATE_KEY)
 
         token = order_multi_dict.get("paymillToken")
 
@@ -48,10 +49,12 @@ class Order(ndb.Model):
         new_order.token = token
         new_order.data = order_multi_dict.mixed()
 
-        new_order.payment = p.newcard(token).get("data", {})
+        new_order.payment = p.newcard(token).get("data")
+
+        logging.info(new_order.payment)
 
         if new_order.payment:
             new_order.put()
-            return True
+            return new_order.key.id()
 
-        return False
+        return new_order.payment

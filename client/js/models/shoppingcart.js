@@ -31,6 +31,8 @@ var ShoppingCart = function(localStorageService) {
     currency:       "EUR",          // required
     cardholder:     null   // optional
   };
+
+  this.userFound = null;
 };
 
 ShoppingCart.prototype.sync = function() {
@@ -140,38 +142,6 @@ ShoppingCart.prototype.isEmpty = function() {
   return this.items.length == 0 ? true : false;
 };
 
-// ShoppingCart.prototype.checkout = function(serviceName, clearCart) {
-//   console.log('Checking out baby!');
-//   mixpanel.track('Checkout started');
-
-//   // select service
-//   if (serviceName == null) {
-//     var p = this.checkoutParameters[Object.keys(this.checkoutParameters)[0]];
-//     serviceName = p.serviceName;
-//   }
-//   if (serviceName == null) {
-//     throw 'Define at least one checkout service.';
-//   }
-//   var parms = this.checkoutParameters[serviceName];
-//   if (parms == null) {
-//     throw "Cannot get checkout parameters for '" + serviceName + "'.";
-//   }
-
-//   // invoke service
-//   switch (parms.serviceName) {
-//     case 'Paymill':
-//       this.checkoutPaymill(parms, clearCart);
-//       break;
-//     case 'Braintree':
-//       this.checkoutBraintree(parms, clearCart);
-//       break;
-//     default:
-//       throw 'Unknown checkout service: ' + parms.serviceName;
-//   }
-// };
-
-// check out using PayPal; for details see:
-// http://www.paypal.com/cgi-bin/webscr?cmd=p/pdn/howto_checkout-outside
 ShoppingCart.prototype.checkout = function() {
   var _this = this;
 
@@ -211,10 +181,16 @@ ShoppingCart.prototype.checkout = function() {
 
      var data = $.extend(_this.custommerInfo, _this.checkoutParams, {paymillToken: token});
 
-     console.log(data);
-
      $.post("/checkout", data)
       .done(function(data){
+        console.log("wtf");
+        if(data.success){
+          window.location.hash = "/checkout_finished?order_id=" + data.success;
+        }else{
+          $(".payment-errors").text("Something went wrong");
+        }
+      })
+      .error(function(data){
         console.log(data);
       });
    }
@@ -222,40 +198,4 @@ ShoppingCart.prototype.checkout = function() {
 
   $(".checkout-button").removeAttr("disabled");
   return false;
-};
-
-ShoppingCart.prototype.checkoutBraintree = function(parms, clearCart) {
-
-  // global data
-  // var data = {
-  //   cmd: "_cart",
-  //   business: parms.merchantID,
-  //   upload: "1",
-  //   rm: "2",
-  //   charset: "utf-8"
-  // };
-
-  // // item data
-  // for (var i = 0; i < this.items.length; i++) {
-  //   var item = this.items[i];
-  //   var ctr = i + 1;
-  //   data["item_number_" + ctr] = item.sku;
-  //   data["item_name_" + ctr] = item.name;
-  //   data["quantity_" + ctr] = item.quantity;
-  //   data["amount_" + ctr] = item.price.toFixed(2);
-  // }
-
-  // // build form
-  // var form = $('<form></form>');
-  // form.attr("action", "https://www.paypal.com/cgi-bin/webscr");
-  // form.attr("method", "POST");
-  // form.attr("style", "display:none;");
-  // this.addFormFields(form, data);
-  // this.addFormFields(form, parms.options);
-  // $("body").append(form);
-
-  // // submit form
-  // this.clearCart = clearCart == null || clearCart;
-  // form.submit();
-  // form.remove();
 };
