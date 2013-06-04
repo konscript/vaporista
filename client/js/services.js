@@ -44,4 +44,10 @@ angular.module('vaporista.services', ['LocalStorageModule']).
   factory('shoppingCart', ['localStorageService', '$rootScope', function(localStorageService, $rootScope){
     var shoppingCart = new ShoppingCart(localStorageService);
     return shoppingCart;
-  }]);
+  }]).
+  factory('orderService', function($http){
+    return {
+      getOrders: $http({method: "GET", url: "/admin/orders"}),
+    }
+
+  });

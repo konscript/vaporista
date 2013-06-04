@@ -20,6 +20,8 @@ class Order(ndb.Model):
     data = ndb.JsonProperty(indexed=False)
     payment = ndb.JsonProperty(indexed=False)
 
+    status = ndb.StringProperty(choices=["preauthed", "captured"])
+
     def preauth(self):
         p = pymill_gae.Pymill(PAYMILL_PRIVATE_KEY)
         p.preauth(amount=self.data.get("amount_int"), currency=self.data.get("currency"), description=None, token=self.token, client=self.client_id, payment=self.payment)

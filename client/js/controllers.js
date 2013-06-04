@@ -23,4 +23,7 @@ angular.module('vaporista.controllers', []).
       }, 500);
     }
 
+  }).
+  controller("OrdersCtrl", function($scope, orderService){
+
   });

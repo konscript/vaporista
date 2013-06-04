@@ -189,9 +189,9 @@ class CreateUserHandler(BaseHandler):
 
     def post(self):
         """
-              username: Get the username from POST dict
-              password: Get the password from POST dict
-          """
+            username: Get the username from POST dict
+            password: Get the password from POST dict
+        """
         username = self.request.POST.get('username')
         password = self.request.POST.get('password')
         # Passing password_raw=password so password will be hashed
