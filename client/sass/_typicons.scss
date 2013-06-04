@@ -14,7 +14,11 @@
   width: 1em;
   height: 1em;
 }
-
+.typcn-rotate {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+}
 .typcn:before {
   font-family: 'typicons';
   font-style: normal;

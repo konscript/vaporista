@@ -35,8 +35,8 @@ angular.module('vaporista.services', ['LocalStorageModule']).
     ]);
 
     store.addSizes([
-      new Size({name:"10 ml"}),
-      new Size({name:"50 ml"}),
+      new Size({name:"10 ml",icon:"battery-mid"}),
+      new Size({name:"50 ml",icon:"battery-full"}),
     ]);
 
     return store;

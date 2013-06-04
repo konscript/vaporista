@@ -40,11 +40,17 @@ Item.prototype.valid = function(qty){
     return false;
 };
 
+Item.prototype.clickFlavour = function(type, value){
+    this.setSelected(type, value);
+    $('html, body').animate({
+        scrollTop: $(".flavour-list").offset().top - 120
+    }, 500);
+};
+
 Item.prototype.setSelected = function(type, value){
     if(this[type] === value){
       this[type] = null;
     }else{
       this[type] = value;
-      mixpanel.track("Selected " + type + " value");
     }
 };

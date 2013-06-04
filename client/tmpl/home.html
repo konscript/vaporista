@@ -46,7 +46,7 @@
         <div class="row control-wrapper">
             <div class="large-12 small-12 columns">
                 <ul class="flavour-list small-block-grid-3 large-block-grid-6 {{ item.flavour&&'child-selected' }}">
-                    <li ng-repeat="flavour in store.flavours" ng-click="item.setSelected('flavour', flavour)" class="{{flavour==item.flavour&&'selected'||''}}">
+                    <li ng-repeat="flavour in store.flavours" ng-click="item.clickFlavour('flavour', flavour)" class="{{flavour==item.flavour&&'selected'||''}}">
                         <img ng-src="{{ flavour.image }}">
                         <span>{{ flavour.name }}</span>
                     </li>
@@ -66,7 +66,7 @@
                 <div class="control-description">The nicotine level depends on the strength you're used to. <span class="typcn typcn-plus"></span></div>
             </div>
         </div>
-        <div class="row control-wrapper">
+        <div class="row control-wrapper hide">
             <div class="small-12 large-3 columns">
                 <span class="choose">choose</span>
                 <h2>Base Mix</h2>
@@ -115,8 +115,8 @@
         </div>
     </div>
     <div class="row">
-        <div class="large-10 small-12 small-centered columns">
-            <table class="basket-table small-12" ng-hide="shoppingCart.isEmpty()">
+        <div class="large-8 small-12 small-centered columns" ng-hide="shoppingCart.isEmpty()">
+            <table class="basket-table small-12">
                 <tbody>
                     <tr ng-repeat="cartItem in shoppingCart.items">
                         <td class="flavour-column">
@@ -124,35 +124,31 @@
                         </td>
                         <td>{{cartItem.flavour.name}}</td>
                         <td>{{cartItem.strength.name}}</td>
+                        <td><span class="typcn typcn-{{cartItem.size.icon}} typcn-rotate"></span> {{cartItem.size.name}}</td>
                         <td>{{cartItem.base.name}}</td>
-                        <td>{{cartItem.size.name}}</td>
                         <td>{{cartItem.qty}} x</td>
-                        <td>€7 EUR</td>
+                        <td>7 EUR</td>
                         <td class="remove">
                             <a href="" ng-click="shoppingCart.removeItem(cartItem)"><span class="typcn typcn-delete"></span></a>
                         </td>
                     </tr>
-                    <tr>
-                        <td colspan="8"><hr /></td>
-                    </tr>
-                    <tr>
-                        <td colspan="6" class="text-right">Shipping & handling:</td>
-                        <td colspan="2">€5 EUR</td>
-                    </tr>
-                    <tr>
-                        <td colspan="6" class="text-right">20% Early Bird Discount:</td>
-                        <td colspan="2">-€10 EUR</td>
-                    </tr>
-                    <tr>
-                        <td colspan="6" class="text-right">Total price:</td>
-                        <td colspan="2">€{{ shoppingCart.total() }} EUR</td>
-                    </tr>
                 </tbody>
             </table>
-            <p class="small-12 columns text-center" ng-show="shoppingCart.isEmpty()">
-                Your basket is currently empty. Fill something in it above!
-            </p>
         </div>
+        <p class="small-12 columns text-center" ng-show="shoppingCart.isEmpty()">
+            Your basket is currently empty. Fill something in it above!
+        </p>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="small-6 columns text-right"><strong>Sub total:</strong></div>
+        <div class="small-6 columns text-left">{{ shoppingCart.subTotal() }} EUR</div>
+        <div class="small-6 columns text-right discount-color"><strong>20% Early Bird Discount:</strong></div>
+        <div class="small-6 columns text-left discount-color">-{{ shoppingCart.discount() }} EUR</div>
+        <div class="small-6 columns text-right"><strong>Shipping & handling:</strong></div>
+        <div class="small-6 columns text-left">+{{ shoppingCart.shipping() }} EUR</div>
+        <div class="small-6 columns text-right"><strong>Total price:</strong></div>
+        <div class="small-6 columns text-left">{{ shoppingCart.total() }} EUR</div>
     </div>
     <hr /><br />
     <div class="row">
@@ -231,7 +227,7 @@
                 </div>
 
                 <div class="small-12 columns text-center">
-                    <label><input type="checkbox" class="terms-checkbox custom checkbox" /> Yes, I agree to the <a href="/#/terms" target="_blank">Terms & Conditions</a></label>
+                    <label><input type="checkbox" checked="checked" class="terms-checkbox custom checkbox" /> Yes, I agree to the <a href="/#/terms" target="_blank">Terms & Conditions</a></label>
                     <button type="submit" class="checkout-button button large" ng-disabled="shoppingCart.isEmpty()" ng-click="shoppingCart.checkout('paymill', true)">Pay €{{shoppingCart.total()}} EUR!</button>
                 </div>
 

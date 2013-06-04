@@ -30,6 +30,16 @@ h2 {
     text-transform: uppercase;
 }
 
+    h2.numbered {
+        &.start-numbering {
+            counter-reset: h2counter;
+        }
+        &:before {
+            content: counter(h2counter) ".\0000a0\0000a0";
+            counter-increment: h2counter;
+        }
+    }
+
 .button {
     @include border-radius(3px);
     box-shadow: none;

@@ -28,8 +28,8 @@ angular.module('vaporista.controllers', []).
 
     $scope.clickCart = function(){
       $('html, body').animate({
-         scrollTop: $("#checkout-anchor").offset().top
-      }, 1000);
+         scrollTop: $("#checkout-anchor").offset().top - 100
+      }, 500);
     }
 
   });

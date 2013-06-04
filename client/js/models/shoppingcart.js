@@ -93,13 +93,34 @@ ShoppingCart.prototype.count = function() {
   return count;
 };
 
-ShoppingCart.prototype.total = function() {
+ShoppingCart.prototype.subTotal = function() {
   var total = 0;
 
   $.each(this.items, function(index, cartItem) {
-    //total += cartItem.item.qty * 60;
-    //TODO: how should pricing work ?
+    total += cartItem.qty * 7; // TODO fixed hardcoded number
   });
+
+  return total;
+};
+
+ShoppingCart.prototype.discount = function() {
+  return Math.round(this.subTotal() * 0.2);
+};
+
+ShoppingCart.prototype.shipping = function() {
+  if (this.subTotal() > 0) {
+    return 6;
+  } else {
+    return 0;
+  }
+};
+
+ShoppingCart.prototype.total = function() {
+  var self = this;
+
+  var total = self.subTotal();
+  total += self.shipping();
+  total = total - self.discount();
 
   return total;
 };
