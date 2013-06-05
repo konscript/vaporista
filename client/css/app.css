@@ -6121,43 +6121,49 @@ html, body, * {
 }
 
 /* line 9, ../sass/_global.scss */
-.container {
-  padding-top: 6.7em;
+body {
+  background-color: #34495e;
 }
 
 /* line 13, ../sass/_global.scss */
+.container {
+  padding-top: 6.7em;
+  background-color: white;
+}
+
+/* line 18, ../sass/_global.scss */
 .wrapper {
   padding: 3em 0;
 }
 
-/* line 18, ../sass/_global.scss */
+/* line 23, ../sass/_global.scss */
 .striped {
   background-color: #f0f0f0;
 }
 
-/* line 22, ../sass/_global.scss */
+/* line 27, ../sass/_global.scss */
 .striped-dark {
   background-color: #34495e;
 }
 
-/* line 27, ../sass/_global.scss */
+/* line 32, ../sass/_global.scss */
 h2 {
   margin-top: 0;
   margin-bottom: 1.3em;
   text-transform: uppercase;
 }
 
-/* line 34, ../sass/_global.scss */
+/* line 39, ../sass/_global.scss */
 h2.numbered.start-numbering {
   counter-reset: h2counter;
 }
-/* line 37, ../sass/_global.scss */
+/* line 42, ../sass/_global.scss */
 h2.numbered:before {
   content: counter(h2counter) ".\0000a0\0000a0";
   counter-increment: h2counter;
 }
 
-/* line 43, ../sass/_global.scss */
+/* line 48, ../sass/_global.scss */
 .button {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -6166,18 +6172,18 @@ h2.numbered:before {
   border-radius: 3px;
   box-shadow: none;
 }
-/* line 50, ../sass/_global.scss */
+/* line 55, ../sass/_global.scss */
 .button.disabled, .button[disabled], .button.disabled:hover, .button[disabled]:hover {
   background-color: #d6d6d6;
 }
 
-/* line 56, ../sass/_global.scss */
+/* line 61, ../sass/_global.scss */
 .header-wrapper {
   background-color: #70ccae;
   padding: 2em 0;
 }
 
-/* line 61, ../sass/_global.scss */
+/* line 66, ../sass/_global.scss */
 h1 {
   -webkit-transition: opacity 0.3s;
   -moz-transition: opacity 0.3s;
@@ -6189,12 +6195,12 @@ h1 {
   line-height: 1;
   white-space: nowrap;
 }
-/* line 69, ../sass/_global.scss */
+/* line 74, ../sass/_global.scss */
 h1:hover {
   opacity: 0.7;
 }
 
-/* line 75, ../sass/_global.scss */
+/* line 80, ../sass/_global.scss */
 .about-link .typcn,
 .cart-link .typcn {
   -webkit-transition: opacity 0.3s;
@@ -6205,18 +6211,18 @@ h1:hover {
   font-size: 2.1em;
   margin-top: -0.05em;
 }
-/* line 81, ../sass/_global.scss */
+/* line 86, ../sass/_global.scss */
 .about-link .typcn:hover,
 .cart-link .typcn:hover {
   opacity: 0.7;
 }
 
-/* line 85, ../sass/_global.scss */
+/* line 90, ../sass/_global.scss */
 .cart-link div {
   float: right;
 }
 
-/* line 88, ../sass/_global.scss */
+/* line 93, ../sass/_global.scss */
 .cart-count {
   position: absolute;
   right: 2.4em;
@@ -6230,17 +6236,17 @@ h1:hover {
   line-height: 0.7em;
   padding: 5px;
 }
-/* line 101, ../sass/_global.scss */
+/* line 106, ../sass/_global.scss */
 .cart-count.count-number-0 {
   display: none;
 }
 
-/* line 106, ../sass/_global.scss */
+/* line 111, ../sass/_global.scss */
 .row h1.columns {
   padding: 0;
 }
 
-/* line 110, ../sass/_global.scss */
+/* line 115, ../sass/_global.scss */
 .header-wrapper .logo {
   -webkit-border-radius: 0.8em 0 0.8em 0.8em;
   -moz-border-radius: 0.8em 0 0.8em 0.8em;
@@ -6259,23 +6265,23 @@ h1:hover {
   margin: 0 0.05em -0.05em 0.05em;
 }
 
-/* line 123, ../sass/_global.scss */
+/* line 128, ../sass/_global.scss */
 .global-loading {
   text-align: center;
   margin: 3em auto;
 }
 
-/* line 129, ../sass/_global.scss */
+/* line 134, ../sass/_global.scss */
 .footer-wrapper {
   color: white;
 }
-/* line 132, ../sass/_global.scss */
+/* line 137, ../sass/_global.scss */
 .footer-wrapper a {
   color: white;
   text-decoration: underline;
 }
 
-/* line 138, ../sass/_global.scss */
+/* line 143, ../sass/_global.scss */
 .footer-wrapper .logo {
   font-size: 5em;
   -webkit-border-radius: 0.8em 0 0.8em 0.8em;

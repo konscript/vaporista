@@ -6,8 +6,13 @@ html, body, * {
     line-height: 1.5em;
 }
 
+body {
+    background-color: $complementary-color;
+}
+
 .container {
     padding-top: 6.7em;
+    background-color: white;
 }
 
 .wrapper {
